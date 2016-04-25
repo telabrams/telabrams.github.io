@@ -1,0 +1,144 @@
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+
+
+/*------------------------------------------------------*/
+
+.slider_list {
+    margin: 0 auto;
+    position:relative;
+    width: 100%;
+}
+.slider_list img {
+    min-height: 200px;
+    width: 100%;
+    left:0;
+    top:0;
+}
+
+.header {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.client_description {
+    display: block;
+    color: #868686;
+    position:relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+    background: rgba(42, 42, 42, 0.75);
+}
+
+/*------------------------------------------------------*/
+
+.arrow {
+    opacity: 0.7;
+    position: absolute;
+    top: 45%;
+    width: 54px;
+    height: 54px;
+    display: none;
+    z-index: 1;
+    -webkit-transition: opacity 0.2s ;
+    -moz-transition: opacity 0.2s ;
+    -o-transition: opacity 0.2s ;
+    transition: opacity 0.2s ;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    opacity: 1;
+}
+
+.prev {
+    left: 5px;
+    background: url(arrow_left.png);
+}
+
+.next {
+    background: url(arrow_right.png);
+    right: 5px;
+}
+
+span {
+    color: #fff;
+
+}
+
+.client_list li{
+    margin-right: 30px;
+    margin-top: 40px;
+    display: inline-block;
+}
+
+#clock:before {
+    content: "";
+    display: block;
+    background: url(clock.png) no-repeat;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 4px 0 0;
+}
+
+#client:before {
+    content: "";
+    display: block;
+    background: url(woman.png) no-repeat;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 4px 0 0;
+}
+
+#category:before {
+    content: "";
+    display: block;
+    background: url(paper-list.png) no-repeat;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 4px 0 0;
+}
+
+#clock:after {
+    content: "/";
+    display: block;
+    width: 15px;
+    height: 15px;
+    float: right;
+    margin: 0 0 0 5px;
+}
+
+#client:after {
+    content: "/";
+    display: block;
+    width: 15px;
+    height: 15px;
+    float: right;
+    margin: 0 0 0 5px;
+}
+
+#category:after {
+    content: "/";
+    display: block;
+    width: 15px;
+    height: 15px;
+    float: right;
+    margin: 0 0 0 5px;
+}
+
+
+
