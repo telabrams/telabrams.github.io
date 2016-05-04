@@ -91,6 +91,8 @@ jQuery(document).ready(function() {
         offset: 200
     });
 
+
+
 });
                                                                             /*carusel_slider*/
 
@@ -285,7 +287,7 @@ jQuery(document).ready(function() {
 
         /*НОВЫЙ ТАЙМЕР*/
 
-        /*setInterval(function(){ myTimer() }, 3000);
+        setInterval(function(){ myTimer() }, 3000);
 
         function myTimer() {
             slider.list.animate({
@@ -296,7 +298,7 @@ jQuery(document).ready(function() {
             });
         }
 
-    }*/
+    }
 
 
 
