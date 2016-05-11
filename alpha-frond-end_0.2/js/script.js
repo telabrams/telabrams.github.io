@@ -6,6 +6,8 @@ $(document).ready(function(){
 
                                                     /*������������ �������*/
 
+   
+
     var list = $('.slider_list').children('.slider_item');
     var description_list = $('.client_description').children('.client_description_wrapper');
     var flex_list = $('.content').children('.flex_container');
@@ -19,6 +21,16 @@ $(document).ready(function(){
     $(list[0]).fadeIn();
     $(description_list[0]).fadeIn();
     $(flex_list[0]).fadeIn();
+
+    /*Arrow flex_item----------------------------------------------------------------*/
+    var flex_container_number = 0;
+    var flex_container_arrow = [];
+    $('.flex_container').each(function() {
+        flex_container_arrow[flex_container_number] = $(this).attr('id', 'arrow_'+flex_container_number);
+        flex_container_number++;
+    });
+
+    /*------------------------------------------------------------------------------*/
 
     $(".next").click(function() {
 
@@ -86,10 +98,11 @@ $(document).ready(function(){
 
 jQuery(document).ready(function() {
 
-    jQuery('.logo, .header_text, .subheader_text, .footer_list, .client_header, .icon_list').addClass('hidden').viewportChecker({
+    jQuery('.logo, .header_text, .subheader_text, .footer_list, .client_header, .icon_list, .contacts_number').addClass('hidden').viewportChecker({
         classToAdd: 'visible animated fadeIn',
         offset: 200
     });
+                                                                                    /*scroll onclick*/
 
 
 
@@ -128,6 +141,16 @@ jQuery(document).ready(function() {
         /*------------------------------------------------------------------------------*/
         slider.images = slider.obj.find('.carusel_img');
         slider.arrows = slider.obj.find('.arrow');
+
+        /*Arrow carusel----------------------------------------------------------------*/
+        var carusel_number = 0;
+        var carusel_arrow = [];
+        slider.items.each(function() {
+            carusel_arrow[carusel_number] = $(this).attr('id', 'arrow_'+carusel_number);
+            carusel_number++;
+        });
+
+        /*------------------------------------------------------------------------------*/
 
 
         //открытие слайда
@@ -173,11 +196,16 @@ jQuery(document).ready(function() {
             });
         });
 
-        /*------------------------------------------------------------------------------*/
+        /*-------------------------------------Открытие lex_container по клику-----------------------------------------*/
 
         slider.items.click(function() {
-            slider.open($(this));
+            $('.active').fadeOut().removeClass('active');
+            $('.flex_container').hide().removeClass('visible animated fadeInLeftBig').css('position', 'absolute');
+            var blatest = $(this).attr("id");
+            $(".content").find('#'+blatest).css('position', 'relative').fadeIn().addClass('visible animated fadeInLeftBig');
         });
+
+        /*-------------------------------------------------------------------------------*/
 
     }
 
