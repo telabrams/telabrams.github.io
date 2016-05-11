@@ -6,7 +6,7 @@ $(document).ready(function(){
 
                                                     /*������������ �������*/
 
-   
+
 
     var list = $('.slider_list').children('.slider_item');
     var description_list = $('.client_description').children('.client_description_wrapper');
@@ -98,7 +98,7 @@ $(document).ready(function(){
 
 jQuery(document).ready(function() {
 
-    jQuery('.logo, .header_text, .subheader_text, .footer_list, .client_header, .icon_list, .contacts_number').addClass('hidden').viewportChecker({
+    jQuery('.logo, .header_text, .subheader_text, .footer_list, .client_header, .icon_list, #contacts_number').addClass('hidden').viewportChecker({
         classToAdd: 'visible animated fadeIn',
         offset: 200
     });
