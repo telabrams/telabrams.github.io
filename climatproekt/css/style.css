@@ -33,6 +33,7 @@ body {
 }
 
 .right_side {
+    vertical-align: top;
     position: relative;
     display: inline-block;
     height: 120px;
@@ -91,13 +92,16 @@ body {
 .menu {
     box-shadow: 2px 2px 4px 4px #b2b0b1;
     position: relative;
-    margin-top: 40px;
     display: block;
     background-color:  #4399ec;
     width: 100%;
 }
 
 .menu_adaptive {
+    display: none;
+}
+
+.hamburger {
     display: none;
 }
 
@@ -132,6 +136,7 @@ body {
                                                         /*navigation menu*/
 
 .menu_list {
+    margin-top: 0;
     font-family: OpenSans, sans-serif;
     font-size: 18px;
     letter-spacing: 2px;
@@ -270,7 +275,7 @@ body {
 .service {
     box-shadow: 4px 0 2px 4px #cac8c9;
     /*margin-top: 100px;*/
-    background: url(../images/back1.jpg) no-repeat center center;
+    background: url(../images/back1.jpg) no-repeat center left;
     background-size: cover;
     text-align: center;
 }
@@ -315,7 +320,6 @@ body {
 
 .service_img_sold {
     margin: 0 auto;
-    cursor: pointer;
     display: block;
     background: url(../images/servis1.png) no-repeat;
     background-size: cover;
@@ -330,7 +334,6 @@ body {
 
 .service_img_build {
     margin: 0 auto;
-    cursor: pointer;
     display: block;
     background: url(../images/servis2.2.png) no-repeat;
     background-size: cover;
@@ -345,7 +348,6 @@ body {
 
 .service_img_service {
     margin: 0 auto;
-    cursor: pointer;
     display: block;
     background: url(../images/servis3.png) no-repeat;
     background-size: cover;
@@ -562,16 +564,17 @@ body {
 
 .garden_img {
     margin: 0 auto;
-    cursor: pointer;
     display: block;
-    width: 175px;
-    height: 155px;
     transition: linear .1s;
+    width: 163px;
+    height: 134px;
 }
 
 .paper {
     background: url(../images/How_we_are_working_1.png) no-repeat;
     background-size: cover;
+    width: 163px;
+    height: 134px;
 }
 
 .headphone {
@@ -797,13 +800,13 @@ body {
 
 .sub_face {
     background: url(../images/back_footer.png) no-repeat center bottom;
-   background-size: cover;
+    background-size: cover;
     text-align: center;
+    box-shadow: 2px 2px 4px 4px #b2b0b1;
 }
 
 .sub_face_text {
     margin-top: 65px;
-    margin-bottom: 85px;
     color:  #4d4d4d;
     font-size: 24px;
     font-weight: 400;
@@ -836,6 +839,7 @@ body {
 .face_button {
     display: inline-block;
     padding: 0;
+    margin-bottom: 80px;
 }
 
                                                             /*footer*/
@@ -850,7 +854,8 @@ body {
 }
 
 .footer_menu {
-    text-align: left;
+    margin-top: 30px;
+    text-align: center;
 }
 
 .footer_menu li {
@@ -892,11 +897,15 @@ body {
 
 .about_int {
     line-height: 100px;
-    text-align: left;
+    text-align: center;
     color: #4a4a4a;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 1.35px;
+}
+
+.footer_list_wrapper {
+    margin: 0 auto;
 }
 
 .text_left {
@@ -1059,6 +1068,59 @@ body {
     background-color: #9f938a;
 }
 
+/*------------------------------------------------------COMMENTS-------------------------------------------------------------*/
+
+.comments {
+    text-align: center;
+}
+
+.comments_header {
+color:  #4399ec;
+font-size: 24px;
+font-weight: 400;
+text-align: left;
+}
+
+.right_comments {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.left_comments {
+    display: inline-block;
+}
+
+.comments_form {
+    border-radius: 10px;
+    background-color:  #c7c7c7;
+    width: 470px;
+    height: 460px;
+}
+
+.comments_text {
+    width: 600px;
+    height: 90px;
+}
+
+.comments_text_header {
+    color:  #4399ec;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.comments_text_word {
+    color:  #6a6969;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    text-align: left;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
                                                                     /*adaptive*/
 
 @media (max-width: 1178px) {
@@ -1145,6 +1207,8 @@ body {
 
     .logo {
         width: 150px;
+        margin-top: 40px;
+        margin-left: 25px;
     }
 
 }
@@ -1168,7 +1232,7 @@ body {
     }
 
     .menu_adaptive {
-        text-align: center;
+        text-align: right;
         margin-top: 30px;
         display: block;
 
@@ -1190,6 +1254,7 @@ body {
         height: 80px;
         outline: none;
         border-radius: 50%;
+        display: block;
     }
 
     .hamburger:hover {
@@ -1450,5 +1515,16 @@ body {
 
     .popup_phone::before {
         display: none;
+    }
+
+    .hamburger {
+        margin: 50px auto 50px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .logo {
+        margin-left: 0;
     }
 }
