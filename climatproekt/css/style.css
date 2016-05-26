@@ -29,7 +29,7 @@ body {
 }
 
 .logo {
-    margin-top: 25px;
+    margin-top: 35px;
 }
 
 .right_side {
@@ -69,8 +69,8 @@ body {
 
 .phone {
     display: inline-block;
-    margin-top: 20px;
-    height: 78px;
+    margin-top: 28px;
+    height: 65px;
    /*float: right;*/
     width: 150px;
     background-color:  #4399ec;
@@ -78,11 +78,10 @@ body {
 }
 
 .bucket {
-    margin-top: 20px;
-    top: -10px;
+    top: -15px;
     position: relative;
     display: inline-block;
-    height: 78px;
+    height: 65px;
     /*float: right;*/
     width: 150px;
     background-color:  #df3b3b;
@@ -119,7 +118,7 @@ body {
 .phone_text {
     letter-spacing: 1px;
     font-size: 14px;
-    margin-top: 15px;
+    margin-top: 10px;
     color: #fff;
 }
 
@@ -127,7 +126,7 @@ body {
     font-size: 16px;
     display: inline-block;
     color: #fff;
-    margin-top: 35px;
+    margin-top: 25px;
 }
 
 .bucket_img {
@@ -195,7 +194,7 @@ body {
 .left_part_header {
     margin-bottom: 60px;
     color:  #3a3a3a;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 600;
     text-align: left;
 }
@@ -203,7 +202,7 @@ body {
 .left_part_text {
     margin-bottom: 90px;
     color:  #242424;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     text-align: left;
 }
@@ -282,7 +281,7 @@ body {
 
 .service_item {
     margin-bottom: 100px;
-    padding: 0 100px;
+    padding: 0 20px;
     display: inline-block;
 }
 
@@ -292,14 +291,13 @@ body {
     font-size: 36px;
     font-weight: 400;
     letter-spacing: 1.8px;
-    color:  #3a3a3a;
+    color: #7f7f7f;
 }
 
 .service_header {
-    margin-top: 80px;
     margin-bottom: 50px;
     top: 50px;
-    color:  #3a3a3a;
+    color: #7f7f7f;
     font-size: 24px;
     font-weight: 400;
     letter-spacing: 1.8px;
@@ -323,13 +321,16 @@ body {
     display: block;
     background: url(../images/servis1.png) no-repeat;
     background-size: cover;
-    width: 167px;
-    height: 155px;
+    width: 100px;
+    height: 93px;
     transition: linear .1s;
 }
 
 .service_img_sold:hover {
     background: url(../images/servis1.1.png) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 93px
 }
 
 .service_img_build {
@@ -337,13 +338,16 @@ body {
     display: block;
     background: url(../images/servis2.2.png) no-repeat;
     background-size: cover;
-    width: 167px;
-    height: 155px;
+    width: 100px;
+    height: 93px;
     transition: linear .1s;
 }
 
 .service_img_build:hover {
     background: url(../images/servis2.png) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 93px
 }
 
 .service_img_service {
@@ -351,13 +355,16 @@ body {
     display: block;
     background: url(../images/servis3.png) no-repeat;
     background-size: cover;
-    width: 167px;
-    height: 155px;
+    width: 100px;
+    height: 93px;
     transition: linear .1s;
 }
 
 .service_img_service:hover {
     background: url(../images/servis3.3.png) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 93px
 }
 
                                                                 /*aboutus*/
@@ -532,7 +539,7 @@ body {
 .garden_service_item {
     padding: 0 20px;
     vertical-align: top;
-    min-width: 280px;
+    min-width: 190px;
     text-align: center;
 }
 
@@ -548,7 +555,7 @@ body {
 .service_number {
     /*width: 180px;*/
     color:  #383838;
-    font-size: 36px;
+    font-size: 25px;
     font-weight: 700;
     letter-spacing: 2.7px;
 }
@@ -573,23 +580,33 @@ body {
 .paper {
     background: url(../images/How_we_are_working_1.png) no-repeat;
     background-size: cover;
-    width: 163px;
-    height: 134px;
+    width: 100px;
+    height: 92px;
 }
 
 .headphone {
     background: url(../images/How_we_are_working_2.png) no-repeat;
     background-size: cover;
+    width: 100px;
+    height: 92px;
 }
 
 .truck {
     background: url(../images/How_we_are_working_3.png) no-repeat;
     background-size: cover;
+    width: 100px;
+    height: 92px;
 }
 
 .tools {
     background: url(../images/How_we_are_working_4.png) no-repeat;
     background-size: cover;
+    width: 100px;
+    height: 90px;
+}
+
+.header_black {
+    color:  #3a3a3a;
 }
 
                                                                 /*delivery*/
