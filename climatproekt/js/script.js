@@ -42,12 +42,14 @@ jQuery(document).ready(function(){
 
 
     jQuery(".phone").on("click", function(){
+        jQuery(".bucket_olya").removeClass("dispBlock");
             jQuery(".popup_phone").toggleClass('display animated fadeInRight');
 
     });
 
     jQuery(".show").click(function(){
-        jQuery(".popup_phone").toggleClass('display animated fadeInRight');
+        jQuery(".popup_phone").removeClass('display animated fadeInRight');
+        jQuery(".bucket_olya").removeClass('dispBlock');
     });
 
                                                         /*открытие доп адаптивного меню*/
@@ -124,5 +126,20 @@ jQuery(document).ready(function(){
             face_currentLeftValue -= 520;
             jQuery('.face_slider').animate({ left : face_currentLeftValue + "px"}, 300);
         }
+    });
+});
+
+                                                                        /*Корзина попап*/
+
+jQuery(document).ready(function() {
+    jQuery(".bucket", this).click(function() {
+        jQuery(".popup_phone").removeClass('display animated fadeInRight');
+        jQuery(".bucket_olya").toggleClass("dispBlock");
+    });
+});
+
+jQuery(document).ready(function() {
+    jQuery('.bucket_close'). click(function() {
+        jQuery(this).parent('.bucket_item').css('display', 'none');
     });
 });
