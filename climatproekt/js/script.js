@@ -2,6 +2,54 @@
  * Created by SEO on 20.05.2016.
  */
 
+                                                                    /*popup*/
+
+jQuery(document).ready(function(){
+    jQuery(".item_button").click(function(){
+        jQuery(".popup_wrapper").fadeIn(500);
+        jQuery(".popup").fadeIn(500);
+    });
+
+    jQuery(".popup_wrapper,.exit").click(function(){
+        jQuery(".popup_wrapper").fadeOut(200);
+        jQuery(".popup").fadeOut(200);
+    });
+
+    jQuery(function(){
+
+        var field = new Array("name", "mail", "number");//поля обязательные
+
+        jQuery(".popup_form").submit(function() {// обрабатываем отправку формы
+            var error=0; // индекс ошибки
+            jQuery("form").find(":input").each(function() {// проверяем каждое поле в форме
+                for(var i=0;i<field.length;i++){ // если поле присутствует в списке обязательных
+                    if(jQuery(this).attr("name")==field[i]){ //проверяем поле формы на пустоту
+
+                        if(!jQuery(this).val()){// если в поле пустое
+                            jQuery(this).css('border', 'red 1px solid');// устанавливаем рамку красного цвета
+                            error=1;// определяем индекс ошибки
+
+                        }
+                        else{
+                            jQuery(this).css('border', '#999999 1px solid');// устанавливаем рамку обычного цвета
+                        }
+
+                    }
+                }
+            });
+
+            if(error==0){ // если ошибок нет то отправляем данные
+                return true;
+            }
+            else{
+                if(error==1) var err_text = "Не все обязательные поля заполнены!";
+                return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
+            }
+        });
+    });
+});
+
+
 jQuery(document).ready(function(){
 
                                                 /*catalog_slider*/
@@ -129,6 +177,13 @@ jQuery(document).ready(function(){
     });
 });
 
+jQuery(document).ready(function() {
+    jQuery(".nav_list_item").click(function () {
+        jQuery(".nav_list_item").removeClass('active_nav');
+        jQuery(this).toggleClass('active_nav');
+    });
+});
+
                                                                         /*Корзина попап*/
 
 jQuery(document).ready(function() {
@@ -142,4 +197,51 @@ jQuery(document).ready(function() {
     jQuery('.bucket_close'). click(function() {
         jQuery(this).parent('.bucket_item').css('display', 'none');
     });
+
+
+                                                                        /*Открытие read-more*/
+
+
+    /*var div_arrow = jQuery('.object_block').children('.object_text');
+    var div_number = jQuery(div_arrow).length;
+    var i = 0;
+    var divheight = [];
+    jQuery('.object_text').each(function(){
+        divheight[i] = jQuery(this).height();
+        i++;
+    });*/
+    var lineheight = jQuery(".object_text").css('line-height').replace("px","");
+    var five_lines = lineheight * 5;
+
+    jQuery(".object_text").css('height', five_lines);
+
+
+        jQuery(".object_read_more").click(function () {
+            jQuery(this).prev(".object_text").css('height', 'auto');
+            jQuery(this).css('display', 'none');
+            jQuery(this).next(".object_read_less").css('display', 'block');
+        });
+
+        jQuery(".object_read_less").click(function () {
+            jQuery(this).prev(".object_read_more").prev(".object_text").css('height', five_lines);
+            jQuery(this).prev(".object_read_more").css('display', 'block');
+            jQuery(this).css('display', 'none');
+
+        });
+
 });
+
+                                                                                /*Map*/
+
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 50.4112958, lng: 30.6157115},
+        zoom: 16
+    });
+}
+
+                                                                /*Переключение фильтра*/
+
+
+

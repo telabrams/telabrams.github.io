@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>Contacts</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/animate.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx7txGq3MQ1bkKwGeKk7TW7bl_7B1-cPk&callback=initMap"
+    async defer></script>
+</head>
+<body>
+<div class="header">
+    <div class="header_container clearfix">
+        <div class="left_side">
+            <img class="logo" src="images/logo.png" alt="" width="170"/>
+        </div>
+        <div class="numbers">
+            <div class="numbers_first">+38 (066) 043 09 05</div>
+            <div class="numbers_second">+38 (066) 043 09 05</div>
+        </div>
+        <div class="right_side clearfix">
+            <a href="#"><div class="phone">
+                <div class="phone_text">Заказать</div>
+                <div class="phone_text">звонок</div>
+                <!--<div class="phone_img"><img src="images/telephone.png" alt="" /></div>-->
+            </div></a>
+            <div class="popup_phone">
+                <form>
+                    <input class="popup_phone_input" name="name" type="text" placeholder="Введите Ваше имя" />
+                    <input class="popup_phone_input" name="number" type="text" placeholder="Введите Ваш номер телефона" />
+                    <textarea  class="popup_phone_textarea" rows="3" name="comment" placeholder="Введите Ваше сообщение"></textarea>
+                    <div class="popup_phone_button">
+                        <input class="popup_phone_button_inp" name="order" type="submit" value="Заказать">
+                        <div class="show">Скрыть</div>
+                    </div>
+                </form>
+            </div>
+            <a href="#"><div class="bucket">
+                <img src="images/shopping237.png " alt="" />
+                <div class="bucket_text">9999 Грн</div>
+            </div></a>
+            <div class="backet-popup">
+                <div class="bucket_olya animated slideInDown clearfix">
+                    <div class="bucket_item clearfix">
+                        <div class="product_img"><img src="images/condition.png" alt="" width="50" /></div>
+                        <div class="product_description">
+                            <p class="product_description_type">Кондиционер</p>
+                            <p class="product_description_subtype">GU10 5W 6000 К</p>
+                        </div>
+                        <div class="bucket_close"><a href="#"><img src="images/close.svg" alt="" /></a></div>
+                    </div>
+                    <div class="bucket_item clearfix">
+                        <div class="product_img"><img src="images/condition.png" alt="" width="50" /></div>
+                        <div class="product_description">
+                            <p class="product_description_type">Кондиционер</p>
+                            <p class="product_description_subtype">GU10 5W 6000 К</p>
+                        </div>
+                        <div class="bucket_close"><a href="#"><img src="images/close.svg" alt="" /></a></div>
+                    </div>
+
+                    <div class="total clearfix">
+                        <div class="total_item">
+                            <p class="total_text">Итого:</p>
+                            <p class="total_price_bucket">3 026 <span>Грн</span></p>
+                        </div>
+                    </div>
+                    <div class="bucket_button_order">
+                        <div class="bucket_button_container">
+                            <a href="#"><div class="inBucket_button">В корзину</div></a>
+                            <a href="#"><div class="bucket_order">Заказать</div></a>
+                            <div class="show">Скрыть</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="io"><button class="hamburger">&#9776;</button></div>
+        </div>
+
+    </div>
+    <div class="menu">
+        <div class="menu_wrapper">
+            <ul class="menu_list">
+                <li><a class="nav" href="#">Каталог товаров</a></li>
+                <li><a class="nav" href="#">Монтаж</a></li>
+                <li><a class="nav" href="#">Сервис</a></li>
+                <li><a class="nav" href="#">Наши объекты</a></li>
+                <li><a class="nav" href="#">Отзывы</a></li>
+                <li><a class="nav" href="#">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu_adaptive">
+        <ul class="menu_list menu_list_adaptive">
+            <li><a class="nav" href="#">Каталог товаров</a></li>
+            <li><a class="nav" href="#">Монтаж</a></li>
+            <li><a class="nav" href="#">Сервис</a></li>
+            <li><a class="nav" href="#">Наши объекты</a></li>
+            <li><a class="nav" href="#">Отзывы</a></li>
+            <li><a class="nav" href="#">Контакты</a></li>
+        </ul>
+    </div>
+</div>
+<div class="map_container">
+    <div id="map">
+    </div>
+    <div class="map_legend">
+        <div class="legend_content">
+            <div class="legend_img"><img src="images/marker.png" alt="" /></div>
+            <div class="legend_text legend_text_first">Украина, Киев,
+                ул. КЕПРООЛ 23, оф. 345</div>
+        </div>
+        <div class="legend_content">
+            <div class="legend_img"><img src="images/phone_wighte.png" alt="" /></div>
+            <div class="legend_text">044 678-67-67</div>
+        </div>
+        <div class="legend_content">
+            <div class="legend_img"><img src="images/post.png" alt="" /></div>
+            <div class="legend_text">vitalko.25051973@gmail.com</div>
+        </div>
+    </div>
+</div>
+<div class="map_form">
+    <div class="map_form_wrapper">
+        <div class="map_form_left">
+            <input class="map_input" name="name" type="text" placeholder="Ваше имя" />
+            <input class="map_input" name="email" type="text" placeholder="Ваш e-mail" />
+            <input class="map_input" name="massage" type="text" placeholder="Тип сообщения" />
+        </div>
+        <div class="map_form_right">
+            <textarea  class="map_textarea" rows="3" name="comment" placeholder="Ваше сообщение"></textarea>
+            <div class="map_button_wrapper">
+                <a href="#"><div class="map_form_button_red">Сбросить</div></a>
+                <a href="#"><div class="map_form_button_blue">Отправить</div></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="footer_wrapper">
+        <div class="left_side_footer">
+            <div class="footer_logo"><img class="logo" src="images/logo.png" alt="" width="170"/></div>
+            <div class="footer_text text_left">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation
+            </div>
+
+        </div>
+        <div class="right_side_footer">
+            <div class="footer_text text_right">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation
+            </div>
+        </div>
+        <div class="footer_list_wrapper">
+            <ul class="menu_list footer_menu">
+                <li><a class="nav" href="#">Товары</a></li>
+                <li><a class="nav" href="#">Монтаж</a></li>
+                <li><a class="nav" href="#">Сервис</a></li>
+                <li><a class="nav" href="#">Наши объекты</a></li>
+                <li><a class="nav" href="#">Отзывы</a></li>
+                <li><a class="nav" href="#">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="about_int">
+            © Intellectus Studio. All right reserved 2016.
+        </div>
+    </div>
+</div>
+</body>
+</html>
