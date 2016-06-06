@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
         jQuery(".popup").fadeOut(200);
     });
 
-    jQuery(function(){
+   /*jQuery(function(){
 
         var field = new Array("name", "mail", "number");//поля обязательные
 
@@ -46,7 +46,7 @@ jQuery(document).ready(function(){
                 return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
             }
         });
-    });
+    });*/
 });
 
 
@@ -93,7 +93,25 @@ jQuery(document).ready(function(){
         jQuery(".bucket_olya").removeClass("dispBlock");
             jQuery(".popup_phone").toggleClass('display animated fadeInRight');
 
+        jQuery(document).mouseup(function (e) {
+            var popup = jQuery(".popup_phone");
+            if (!jQuery('.phone').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
+                jQuery(".popup_phone").removeClass('display animated fadeInRight');
+                jQuery(".bucket_olya").removeClass('dispBlock');
+            }
+        });
+
+        jQuery(document).mouseup(function (e) {
+            var popup = jQuery(".bucket_olya");
+            if (!jQuery('.bucket').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
+                jQuery(".bucket_olya").removeClass('dispBlock');
+                jQuery(".popup_phone").removeClass('display animated fadeInRight');
+            }
+        });
+
     });
+
+                                                            /*закрытие по дополнительной кнопке при адаптиве*/
 
     jQuery(".show").click(function(){
         jQuery(".popup_phone").removeClass('display animated fadeInRight');
@@ -109,11 +127,24 @@ jQuery(document).ready(function(){
 
                                                                 /*переключение меню*/
 
-    jQuery(".nav").on("click", function(){
+    jQuery(".nav").mouseenter(function(){
         jQuery(".nav").removeClass('active');
-        jQuery(".menu_list li").css('padding-bottom', '0');
+        /*jQuery(".menu_list li").css('padding-bottom', '0');*/
         jQuery(this).toggleClass('active');
+
+        jQuery(".nav").mouseleave(function(){
+            jQuery(".nav").removeClass('active');
+            /*jQuery(".menu_list li").css('padding-bottom', '20px');*/
+        });
+
     });
+
+
+    /*jQuery(".nav").on("click", function(){
+        jQuery(".nav").removeClass('active_a');
+        /*jQuery(".menu_list li").css('padding-bottom', '0');*/
+        /*jQuery(this).toggleClass('active_a');
+    });*/
 
                                                                 /*выборка массива*/
 
@@ -177,12 +208,24 @@ jQuery(document).ready(function(){
     });
 });
 
+                                                                        /*Хлебные крошки*/
+
 jQuery(document).ready(function() {
     jQuery(".nav_list_item").click(function () {
         jQuery(".nav_list_item").removeClass('active_nav');
         jQuery(this).toggleClass('active_nav');
     });
 });
+
+                                                                    /*Переключение страниц*/
+
+jQuery(document).ready(function() {
+    jQuery(".item_page").click(function () {
+        jQuery(".item_page ").removeClass('active_page');
+        jQuery(this).toggleClass('active_page');
+    });
+});
+
 
                                                                         /*Корзина попап*/
 
@@ -229,6 +272,12 @@ jQuery(document).ready(function() {
 
         });
 
+                                                        /*Добавление серого цвета в комментариях*/
+
+    jQuery('.comments_text').each(function(){
+
+
+    });
 });
 
                                                                                 /*Map*/
@@ -241,7 +290,11 @@ function initMap() {
     });
 }
 
-                                                                /*Переключение фильтра*/
+
+
+
+
+
 
 
 

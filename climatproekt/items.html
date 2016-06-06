@@ -16,7 +16,7 @@
 <div class="header">
     <div class="header_container clearfix">
         <div class="left_side">
-            <img class="logo" src="images/logo.png" alt="" width="170"/>
+            <img class="logo" src="images/logo.png" alt="" width="230"/>
         </div>
         <div class="numbers">
             <div class="numbers_first">+38 (066) 043 09 05</div>
@@ -24,9 +24,8 @@
         </div>
         <div class="right_side clearfix">
             <a href="#"><div class="phone">
-                <div class="phone_text">Заказать</div>
-                <div class="phone_text">звонок</div>
-                <!--<div class="phone_img"><img src="images/telephone.png" alt="" /></div>-->
+                <div class="phone_img"><img src="images/telephone.png" alt="" /></div>
+                <div class="phone_text">Заказать звонок</div>
             </div></a>
             <div class="popup_phone">
                 <form>
@@ -84,27 +83,28 @@
     <div class="menu">
         <div class="menu_wrapper">
             <ul class="menu_list">
-                <li><a class="nav" href="#">Каталог товаров</a></li>
-                <li><a class="nav" href="#">Монтаж</a></li>
-                <li><a class="nav" href="#">Сервис</a></li>
-                <li><a class="nav" href="#">Наши объекты</a></li>
-                <li><a class="nav" href="#">Отзывы</a></li>
-                <li><a class="nav" href="#">Контакты</a></li>
+                <li class="nav"><a class="nav_a active_a" href="items.html">Каталог товаров</a></li>
+                <li class="nav"><a class="nav_a" href="install.html">Монтаж</a></li>
+                <li class="nav"><a class="nav_a" href="service.html">Сервис</a></li>
+                <li class="nav"><a class="nav_a" href="object.html">Наши объекты</a></li>
+                <li class="nav"><a class="nav_a" href="comments.html">Отзывы</a></li>
+                <li class="nav"><a class="nav_a" href="contacts.html">Контакты</a></li>
             </ul>
         </div>
     </div>
     <div class="menu_adaptive">
         <ul class="menu_list menu_list_adaptive">
-            <li><a class="nav" href="#">Каталог товаров</a></li>
-            <li><a class="nav" href="#">Монтаж</a></li>
-            <li><a class="nav" href="#">Сервис</a></li>
-            <li><a class="nav" href="#">Наши объекты</a></li>
-            <li><a class="nav" href="#">Отзывы</a></li>
-            <li><a class="nav" href="#">Контакты</a></li>
+            <li class="nav"><a class="nav_a active_a" href="items.html">Каталог товаров</a></li>
+            <li class="nav"><a class="nav_a" href="install.html">Монтаж</a></li>
+            <li class="nav"><a class="nav_a" href="service.html">Сервис</a></li>
+            <li class="nav"><a class="nav_a" href="object.html">Наши объекты</a></li>
+            <li class="nav"><a class="nav_a" href="comments.html">Отзывы</a></li>
+            <li class="nav"><a class="nav_a" href="contacts.html">Контакты</a></li>
         </ul>
     </div>
 </div>
 <div class="item_container">
+    <div class="item_wrappper">
     <div class="item_nav">
         <ul class="nav_list">
             <li class="nav_list_item active_nav">Все</li>
@@ -119,7 +119,7 @@
 
         </div>
     </div>
-    <div class="item_card_wrapper">
+        <div class="item_card_wrapper clearfix">
             <div class="item_block">
                 <div class="item_img"><img src="images/item_condition.png" alt="" /></div>
                 <div class="item_header">Название товара</div>
@@ -217,9 +217,17 @@
                 </div>
             </div>
         </div>
+        </div>
     <div class="item_sub_footer">
         <div class="page_number">
-
+            <ul class="item_pages">
+                <li class="item_page active_page">1</li>
+                <li class="item_page">2</li>
+                <li class="item_page">3</li>
+                <li class="item_page">4</li>
+                <li class="item_page">...</li>
+                <li class="item_page">13</li>
+            </ul>
         </div>
         <div class="item_sub_footer_text">
             <div class="item_sub_footer_line"></div>
@@ -271,9 +279,9 @@
                 <li><a class="nav" href="#">Контакты</a></li>
             </ul>
         </div>
-        <div class="about_int">
+        <a href="#" class="about_int_link"><div class="about_int">
             © Intellectus Studio. All right reserved 2016.
-        </div>
+        </div></a>
     </div>
         <div class="popup_wrapper">
         </div>
@@ -315,7 +323,6 @@
                 </div>
             </div>
         </div>
-
 </div>
 </div>
 
