@@ -17,7 +17,7 @@ function initMap() {
                                                                     /*popup*/
 
 jQuery(document).ready(function(){
-    jQuery(".item_button").click(function(){
+    jQuery(".item_button_s").click(function(){
         jQuery(".popup_wrapper").fadeIn(500);
         jQuery(".popup").fadeIn(500);
     });
@@ -50,32 +50,47 @@ jQuery(document).ready(function(){
     var height = jQuery('.comments').height();
     var form_height = jQuery('.right_comments').height();
 
-    jQuery(window).scroll(function(){
-        if (jQuery(document).scrollTop() > 450) {
-            jQuery('.comment_input').css('position', 'relative').css('top', height - form_height);
-            jQuery('.comment_textarea ').css('position', 'relative').css('top', height - form_height);
-        }
-        else {
-            jQuery('.comment_input').css('position', 'fixed').css('top', '215px');
-            jQuery('.comment_textarea').css('position', 'fixed').css('top', '300px');
-        }
 
-        $(window).on('load resize',windowSize);
+
+    jQuery(window).on('load resize',windowSize);
         function windowSize() {
-            if ($(window).width() <= '1071') {
+            if (jQuery(window).width() <= '1071') {
 
-                if (jQuery(document).scrollTop() > 450) {
-                    jQuery('.comment_input').css('position', 'relative').css('top', '510px');
-                    jQuery('.comment_textarea ').css('position', 'relative').css('top', '510px');
-                }
-                else {
-                    jQuery('.comment_input').css('position', 'fixed').css('top', '315px');
-                    jQuery('.comment_textarea').css('position', 'fixed').css('top', '400px');
-                }
+                jQuery(window).scroll(function () {
+
+                    if (jQuery(document).scrollTop() > 650) {
+                        jQuery('.comment_input').css('position', 'relative').css('top', '610px');
+                        jQuery('.comment_textarea ').css('position', 'relative').css('top', '610px');
+                    }
+                    else {
+                        jQuery('.comment_input').css('position', 'fixed').css('top', '215px');
+                        jQuery('.comment_textarea').css('position', 'fixed').css('top', '300px');
+                    }
+
+                });
+            }
+
+            if (jQuery(window).width() <= '971') {
+                        jQuery('.comment_input').css('position', 'relative').css('top', '610px');
+                        jQuery('.comment_textarea ').css('position', 'relative').css('top', '610px');
+            }
+
+            else {
+
+                jQuery(window).scroll(function () {
+
+                    if (jQuery(document).scrollTop() > 450) {
+                        jQuery('.comment_input').css('position', 'relative').css('top', height - form_height);
+                        jQuery('.comment_textarea ').css('position', 'relative').css('top', height - form_height);
+                    }
+                    else {
+                        jQuery('.comment_input').css('position', 'fixed').css('top', '215px');
+                        jQuery('.comment_textarea').css('position', 'fixed').css('top', '300px');
+                    }
+
+                });
             }
         }
-
-    });
 
 
     /*jQuery(function(){
