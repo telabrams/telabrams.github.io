@@ -56,10 +56,13 @@ jQuery(document).ready(function(){
         function windowSize() {
             if (jQuery(window).width() <= '1060') {
 
+                if (jQuery(document).scrollTop() > 550) {
+                    jQuery('.scroller').css('position', 'relative').css('top', '570px');
+                }
                 jQuery(window).scroll(function () {
 
-                    if (jQuery(document).scrollTop() > 0) {
-                        jQuery('.scroller').css('position', 'relative').css('top', '620px');
+                    if (jQuery(document).scrollTop() > 550) {
+                        jQuery('.scroller').css('position', 'relative').css('top', '570px');
                         /*jQuery('.comment_textarea ').css('position', 'relative').css('top', '610px');
                         jQuery('.new_blue ').css('position', 'relative').css('top', '610px');*/
                     }
@@ -72,32 +75,40 @@ jQuery(document).ready(function(){
                 });
             }
 
-            jQuery(window).scroll(function () {
 
-                if (jQuery(window).width() <= '971') {
-                    /*jQuery('.scroller').css('position', 'relative').css('top', '610px');*/
+                /*if (jQuery(window).width() <= '971') {
+
+                    jQuery(window).scroll(function () {
+
+                        jQuery('.scroller').css('position', 'relative').css('top', '610px');
                     /*jQuery('.comment_textarea ').css('position', 'relative').css('top', '610px');
                      jQuery('.new_blue ').css('position', 'relative').css('top', '610px');*/
-                }
 
-            });
+                    /*});
+                }*/
 
             else {
 
-                jQuery(window).scroll(function () {
+                if (jQuery(window).width() > '1060') {
 
                     if (jQuery(document).scrollTop() > 450) {
                         jQuery('.scroller').css('position', 'relative').css('top', height - form_height);
-                        /*jQuery('.comment_textarea ').css('position', 'relative').css('top', height - form_height);
-                        jQuery('.new_blue ').css('position', 'relative').css('top', height - form_height);*/
-                    }
-                    else {
-                        jQuery('.scroller').css('position', 'fixed').css('top', '215px');
-                        /*jQuery('.comment_textarea').css('position', 'fixed').css('top', '300px');
-                        jQuery('.new_blue').css('position', 'fixed').css('top', '640px;');*/
                     }
 
-                });
+                    jQuery(window).scroll(function () {
+
+                        if (jQuery(document).scrollTop() > 450) {
+                            jQuery('.scroller').css('position', 'relative').css('top', height - form_height);
+                            /*jQuery('.comment_textarea ').css('position', 'relative').css('top', height - form_height);
+                             jQuery('.new_blue ').css('position', 'relative').css('top', height - form_height);*/
+                        }
+                        else {
+                            jQuery('.scroller').css('position', 'fixed').css('top', '215px');
+                            /*jQuery('.comment_textarea').css('position', 'fixed').css('top', '300px');
+                             jQuery('.new_blue').css('position', 'fixed').css('top', '640px;');*/
+                        }
+                    });
+                }
             }
         }
 
