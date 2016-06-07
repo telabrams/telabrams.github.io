@@ -16,7 +16,7 @@
 <div class="header">
     <div class="header_container clearfix">
         <div class="left_side">
-            <img class="logo" src="images/logo.png" alt="" width="230"/>
+            <a href="index.html"><img class="logo" src="images/logo.png" alt="" width="230"/></a>
         </div>
         <div class="numbers">
             <div class="numbers_first">+38 (066) 043 09 05</div>
@@ -69,8 +69,8 @@
                     </div>
                     <div class="bucket_button_order">
                         <div class="bucket_button_container">
-                            <a href="#"><div class="inBucket_button">В корзину</div></a>
-                            <a href="#"><div class="bucket_order">Заказать</div></a>
+                            <a href="bucket.html"><div class="inBucket_button">В корзину</div></a>
+                            <a href="improve.html"><div class="bucket_order">Заказать</div></a>
                             <div class="show">Скрыть</div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
     <div class="menu">
         <div class="menu_wrapper">
             <ul class="menu_list">
-                <li class="nav"><a class="nav_a active_a" href="items.html">Каталог товаров</a></li>
+                <li class="nav"><a class="nav_a" href="items.html">Каталог товаров</a></li>
                 <li class="nav"><a class="nav_a" href="install.html">Монтаж</a></li>
                 <li class="nav"><a class="nav_a" href="service.html">Сервис</a></li>
                 <li class="nav"><a class="nav_a" href="object.html">Наши объекты</a></li>
@@ -94,7 +94,7 @@
     </div>
     <div class="menu_adaptive">
         <ul class="menu_list menu_list_adaptive">
-            <li class="nav"><a class="nav_a active_a" href="items.html">Каталог товаров</a></li>
+            <li class="nav"><a class="nav_a" href="items.html">Каталог товаров</a></li>
             <li class="nav"><a class="nav_a" href="install.html">Монтаж</a></li>
             <li class="nav"><a class="nav_a" href="service.html">Сервис</a></li>
             <li class="nav"><a class="nav_a" href="object.html">Наши объекты</a></li>
@@ -133,7 +133,7 @@
                 </div>
                 <div class="item_bottom">
                     <div class="item_price">9999 грн.</div>
-                    <div class="item_button">Посмотреть</div>
+                    <a href="#"><div class="item_button">Посмотреть</div></a>
                 </div>
             </div>
             <div class="item_block">
@@ -253,6 +253,9 @@
 </div>
 <div class="footer">
     <div class="footer_wrapper">
+        <div class="scrollup_container">
+            <img id="scrollup" src="images/arrow_scroll.png" height="25" style="display: inline;">
+        </div>
         <div class="left_side_footer">
             <div class="footer_logo"><img class="logo" src="images/logo.png" alt="" width="170"/></div>
             <div class="footer_text text_left">
@@ -271,58 +274,58 @@
         </div>
         <div class="footer_list_wrapper">
             <ul class="menu_list footer_menu">
-                <li><a class="nav" href="#">Товары</a></li>
-                <li><a class="nav" href="#">Монтаж</a></li>
-                <li><a class="nav" href="#">Сервис</a></li>
-                <li><a class="nav" href="#">Наши объекты</a></li>
-                <li><a class="nav" href="#">Отзывы</a></li>
-                <li><a class="nav" href="#">Контакты</a></li>
+                <li><a class="nav" href="items.html">Товары</a></li>
+                <li><a class="nav" href="install.html">Монтаж</a></li>
+                <li><a class="nav" href="service.html">Сервис</a></li>
+                <li><a class="nav" href="object.html">Наши объекты</a></li>
+                <li><a class="nav" href="comments.html">Отзывы</a></li>
+                <li><a class="nav" href="contacts.html">Контакты</a></li>
             </ul>
         </div>
-        <a href="#" class="about_int_link"><div class="about_int">
+        <a href="http://web-intellectus.com/" class="about_int_link"><div class="about_int">
             © Intellectus Studio. All right reserved 2016.
         </div></a>
     </div>
-        <div class="popup_wrapper">
-        </div>
-        <div class="popup">
-            <div class="exit"></div>
-            <div class="popup_content">
-                <div class="popup_img">
-                    <img src="images/first-img.png" alt="" />
-                </div>
-                <div class="right_side_popup">
-                    <form class="popup_form">
-                        <div class="right_side_popup_header">Название товара</div>
-                        <div class="right_side_popup_article">Артикул: 000000-00</div>
-                        <div class="right_side_popup_price">Цена:<span class="red"> 9999 грн.</span></div>
-                        <div class="right_side_popup_build">
-                            <div class="build_left">
-                                Монтаж:
-                            </div>
-                            <div class="build_right">
-                                <select class="select_build">
-                                    <option class="select_option">Да</option>
-                                    <option class="select_option">Нет</option>
-                                </select>
-                            </div>
+    <div class="popup_wrapper">
+    </div>
+    <div class="popup">
+        <div class="exit"></div>
+        <div class="popup_content">
+            <div class="popup_img">
+                <img src="images/first-img.png" alt="" />
+            </div>
+            <div class="right_side_popup">
+                <form class="popup_form">
+                    <div class="right_side_popup_header">Название товара</div>
+                    <div class="right_side_popup_article">Артикул: 000000-00</div>
+                    <div class="right_side_popup_price">Цена:<span class="red"> 9999 грн.</span></div>
+                    <div class="right_side_popup_build">
+                        <div class="build_left">
+                            Монтаж:
                         </div>
-                        <div class="build_price">
-                            Цену на монтаж уточняйте отдельно
+                        <div class="build_right">
+                            <select class="select_build">
+                                <option class="select_option">Да</option>
+                                <option class="select_option">Нет</option>
+                            </select>
                         </div>
-                        <div class="build_bottom">
-                            <div class="build_number">
-                                Количество:
-                            </div>
-                            <div class="build_input_number">
-                                <input class="build_input_number_field" type="text" value="1">
-                            </div>
-                                <input class="item_button popup_button" type="submit" value="Добавить в корзину">
+                    </div>
+                    <div class="build_price">
+                        Цену на монтаж уточняйте отдельно
+                    </div>
+                    <div class="build_bottom">
+                        <div class="build_number">
+                            Количество:
                         </div>
-                    </form>
-                </div>
+                        <div class="build_input_number">
+                            <input class="build_input_number_field" type="text" value="1">
+                        </div>
+                        <input class="item_button popup_button" type="submit" value="Добавить в корзину">
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 </div>
 </div>
 

@@ -2,6 +2,18 @@
  * Created by SEO on 20.05.2016.
  */
 
+                                                                    /*Map*/
+
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 50.4112958, lng: 30.6157115},
+        zoom: 16
+    });
+}
+
+
+
                                                                     /*popup*/
 
 jQuery(document).ready(function(){
@@ -15,42 +27,99 @@ jQuery(document).ready(function(){
         jQuery(".popup").fadeOut(200);
     });
 
-   /*jQuery(function(){
+                                                                        /*лифт*/
 
-        var field = new Array("name", "mail", "number");//поля обязательные
 
-        jQuery(".popup_form").submit(function() {// обрабатываем отправку формы
-            var error=0; // индекс ошибки
-            jQuery("form").find(":input").each(function() {// проверяем каждое поле в форме
-                for(var i=0;i<field.length;i++){ // если поле присутствует в списке обязательных
-                    if(jQuery(this).attr("name")==field[i]){ //проверяем поле формы на пустоту
+    jQuery('#scrollup').click(function(){
+        jQuery('body,html').animate({
+                scrollTop: 0
+            }, 400);
+        });
 
-                        if(!jQuery(this).val()){// если в поле пустое
-                            jQuery(this).css('border', 'red 1px solid');// устанавливаем рамку красного цвета
-                            error=1;// определяем индекс ошибки
-
-                        }
-                        else{
-                            jQuery(this).css('border', '#999999 1px solid');// устанавливаем рамку обычного цвета
-                        }
-
-                    }
-                }
-            });
-
-            if(error==0){ // если ошибок нет то отправляем данные
-                return true;
-            }
-            else{
-                if(error==1) var err_text = "Не все обязательные поля заполнены!";
-                return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
+    jQuery(window).scroll(function(){
+            if (jQuery(document).scrollTop()>0) {
+                jQuery('#scrollup').fadeIn('slow');
+            }else{
+                jQuery('#scrollup').fadeOut('slow');
             }
         });
-    });*/
+
+
+    /*форма липучка*/
+
+    var height = jQuery('.comments').height();
+    var form_height = jQuery('.right_comments').height();
+
+    jQuery(window).scroll(function(){
+        if (jQuery(document).scrollTop() > 450) {
+            jQuery('.comment_input').css('position', 'relative').css('top', height - form_height);
+            jQuery('.comment_textarea ').css('position', 'relative').css('top', height - form_height);
+        }
+        else {
+            jQuery('.comment_input').css('position', 'fixed').css('top', '215px');
+            jQuery('.comment_textarea').css('position', 'fixed').css('top', '300px');
+        }
+
+        $(window).on('load resize',windowSize);
+        function windowSize() {
+            if ($(window).width() <= '1071') {
+
+                if (jQuery(document).scrollTop() > 450) {
+                    jQuery('.comment_input').css('position', 'relative').css('top', '510px');
+                    jQuery('.comment_textarea ').css('position', 'relative').css('top', '510px');
+                }
+                else {
+                    jQuery('.comment_input').css('position', 'fixed').css('top', '315px');
+                    jQuery('.comment_textarea').css('position', 'fixed').css('top', '400px');
+                }
+            }
+        }
+
+    });
+
+
+    /*jQuery(function(){
+
+         var field = new Array("name", "mail", "number");//поля обязательные
+
+         jQuery(".popup_form").submit(function() {// обрабатываем отправку формы
+             var error=0; // индекс ошибки
+             jQuery("form").find(":input").each(function() {// проверяем каждое поле в форме
+                 for(var i=0;i<field.length;i++){ // если поле присутствует в списке обязательных
+                     if(jQuery(this).attr("name")==field[i]){ //проверяем поле формы на пустоту
+
+                         if(!jQuery(this).val()){// если в поле пустое
+                             jQuery(this).css('border', 'red 1px solid');// устанавливаем рамку красного цвета
+                             error=1;// определяем индекс ошибки
+
+                         }
+                         else{
+                             jQuery(this).css('border', '#999999 1px solid');// устанавливаем рамку обычного цвета
+                         }
+
+                     }
+                 }
+             });
+
+             if(error==0){ // если ошибок нет то отправляем данные
+                 return true;
+             }
+             else{
+                 if(error==1) var err_text = "Не все обязательные поля заполнены!";
+                 return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
+             }
+         });
+     });*/
 });
 
 
 jQuery(document).ready(function(){
+
+                                        /*Закрытие товаров в корзине*/
+
+    jQuery(".bucket_page_close").click(function () {
+        jQuery(this).parent().css('display', 'none');
+    });
 
                                                 /*catalog_slider*/
 
@@ -97,17 +166,21 @@ jQuery(document).ready(function(){
             var popup = jQuery(".popup_phone");
             if (!jQuery('.phone').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
                 jQuery(".popup_phone").removeClass('display animated fadeInRight');
-                jQuery(".bucket_olya").removeClass('dispBlock');
             }
         });
 
-        jQuery(document).mouseup(function (e) {
-            var popup = jQuery(".bucket_olya");
-            if (!jQuery('.bucket').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
-                jQuery(".bucket_olya").removeClass('dispBlock');
-                jQuery(".popup_phone").removeClass('display animated fadeInRight');
-            }
-        });
+    });
+
+        jQuery(".bucket").on("click", function(){
+            jQuery(".popup_phone").removeClass("display animated fadeInRight");
+            jQuery(".bucket_olya").toggleClass('dispBlock');
+
+            jQuery(document).mouseup(function (e) {
+                var popup_bucket = jQuery(".bucket_olya");
+                if (!jQuery('.bucket').is(e.target) && !popup_bucket.is(e.target) && popup_bucket.has(e.target).length == 0) {
+                    jQuery(".bucket_olya").removeClass('dispBlock');
+                }
+            });
 
     });
 
@@ -229,12 +302,12 @@ jQuery(document).ready(function() {
 
                                                                         /*Корзина попап*/
 
-jQuery(document).ready(function() {
+/*jQuery(document).ready(function() {
     jQuery(".bucket", this).click(function() {
         jQuery(".popup_phone").removeClass('display animated fadeInRight');
         jQuery(".bucket_olya").toggleClass("dispBlock");
     });
-});
+});*/
 
 jQuery(document).ready(function() {
     jQuery('.bucket_close'). click(function() {
@@ -272,23 +345,13 @@ jQuery(document).ready(function() {
 
         });
 
-                                                        /*Добавление серого цвета в комментариях*/
-
-    jQuery('.comments_text').each(function(){
 
 
-    });
 });
 
-                                                                                /*Map*/
 
-var map;
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 50.4112958, lng: 30.6157115},
-        zoom: 16
-    });
-}
+
+
 
 
 
