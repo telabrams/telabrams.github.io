@@ -2825,6 +2825,10 @@ body {
         width: 750px;
     }
 
+    .item_sub_footer_text {
+        font-size: 12px;
+    }
+
     .bucket_footer {
         width: 750px;
     }
