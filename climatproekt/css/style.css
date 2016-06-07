@@ -2809,7 +2809,7 @@ body {
 @media (max-width: 1059px) {
 
     .scroller {
-        top: 330px !important;
+        top: 330px;
     }
 
 }
