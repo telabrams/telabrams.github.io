@@ -29,9 +29,9 @@
             </div></a>
             <div class="popup_phone">
                 <form>
-                    <input class="popup_phone_input" name="name" type="text" placeholder="Введите Ваше имя" />
-                    <input class="popup_phone_input" name="number" type="text" placeholder="Введите Ваш номер телефона" />
-                    <textarea  class="popup_phone_textarea" rows="3" name="comment" placeholder="Введите Ваше сообщение"></textarea>
+                    <input class="popup_phone_input" name="name" type="text" placeholder="Введите Ваше имя" required />
+                    <input class="popup_phone_input" name="number" type="text" placeholder="Введите Ваш номер телефона" required />
+                    <textarea  class="popup_phone_textarea" rows="3" name="comment" placeholder="Введите Ваше сообщение" required ></textarea>
                     <div class="popup_phone_button">
                         <input class="popup_phone_button_inp" name="order" type="submit" value="Заказать">
                         <div class="show">Скрыть</div>
@@ -88,7 +88,7 @@
                 <li class="nav"><a class="nav_a" href="service.html">Сервис</a></li>
                 <li class="nav"><a class="nav_a" href="object.html">Наши объекты</a></li>
                 <li class="nav"><a class="nav_a" href="comments.html">Отзывы</a></li>
-                <li class="nav"><a class="nav_a" href="contacts.html">Контакты</a></li>
+                <li class="nav"><a class="nav_a active" href="contacts.html">Контакты</a></li>
             </ul>
         </div>
     </div>
@@ -99,7 +99,7 @@
             <li class="nav"><a class="nav_a" href="service.html">Сервис</a></li>
             <li class="nav"><a class="nav_a" href="object.html">Наши объекты</a></li>
             <li class="nav"><a class="nav_a" href="comments.html">Отзывы</a></li>
-            <li class="nav"><a class="nav_a" href="contacts.html">Контакты</a></li>
+            <li class="nav"><a class="nav_a active" href="contacts.html">Контакты</a></li>
         </ul>
     </div>
 </div>
@@ -124,18 +124,20 @@
 </div>
 <div class="map_form">
     <div class="map_form_wrapper">
-        <div class="map_form_left">
-            <input class="map_input" name="name" type="text" placeholder="Ваше имя" />
-            <input class="map_input" name="email" type="text" placeholder="Ваш e-mail" />
-            <input class="map_input" name="massage" type="text" placeholder="Тип сообщения" />
-        </div>
-        <div class="map_form_right">
-            <textarea  class="map_textarea" rows="3" name="comment" placeholder="Ваше сообщение"></textarea>
-            <div class="map_button_wrapper">
-                <a href="#"><div class="map_form_button_red">Сбросить</div></a>
-                <a href="#"><div class="map_form_button_blue">Отправить</div></a>
+        <form>
+            <div class="map_form_left">
+                <input class="map_input" name="name" type="text" placeholder="Ваше имя" required/>
+                <input class="map_input" name="email" type="text" placeholder="Ваш e-mail" required/>
+                <input class="map_input" name="massage" type="text" placeholder="Тип сообщения" required/>
             </div>
-        </div>
+            <div class="map_form_right">
+                <textarea  class="map_textarea" rows="3" name="comment" placeholder="Ваше сообщение" required></textarea>
+                <div class="map_button_wrapper">
+                    <input class="map_form_button_red" value="Сбросить" type="submit"/>
+                    <input class="map_form_button_blue" value="Отправить" type="submit"/>
+                </div>
+            </div>
+        </form>
     </div>
 
 </div>

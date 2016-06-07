@@ -1277,7 +1277,7 @@ body {
 }
 
 .right_comments {
-    height: 450px;
+    height: 550px;
     vertical-align: top;
     display: inline-block;
 }
@@ -1376,7 +1376,7 @@ body {
 }
 
 .comment_textarea {
-    position: fixed;
+    /*position: fixed;*/
     top: 300px;
     line-height: 50px;
     text-indent: 20px;
@@ -1386,9 +1386,20 @@ body {
 }
 
 .comment_input {
-    position: fixed;
+    /*position: fixed;*/
     box-shadow: 1px 1px 6px 1px rgba(19, 3, 255, 0.65);
     margin-top: 30px;
+}
+
+.new_blue {
+    margin-top: 20px !important;
+    right: 310px;
+    top: 640px;
+    /*position: fixed;*/
+}
+
+.scroller {
+    position: fixed;
 }
 
 /*----------------------------------------------------------Object---------------------------------------------------------*/
@@ -1847,6 +1858,8 @@ body {
 }
 
 .map_form_button_red {
+    border: none;
+    outline: none;
     text-align: center;
     line-height: 45px;
     color:  #ffffff;
@@ -1869,6 +1882,9 @@ body {
 }
 
 .map_form_button_blue {
+    cursor: pointer;
+    border: none;
+    outline: none;
     text-align: center;
     line-height: 45px;
     color:  #ffffff;
@@ -1883,6 +1899,10 @@ body {
     height: 45px;
     border-bottom: solid #11215a 4px;
     transition: background linear .1s, border linear .1s;
+}
+
+.new_blue {
+    border-radius: 8px;
 }
 
 .map_form_button_blue:hover {
@@ -2786,39 +2806,14 @@ body {
     }
 }
 
-@media (max-width: 1051px) {
-    .footer_text {
-        width: 750px;
+@media (max-width: 1059px) {
+
+    .scroller {
+        top: 330px !important;
     }
 
-    .footer_list_wrapper {
-        width: 750px;
-    }
-
-    .legend_img {
-        margin-left: 0;
-    }
-
-    .legend_text {
-        margin-left: 10px;
-    }
-
-    .footer_menu {
-        padding-left: 0;
-    }
-
-    .about_int {
-        width: 750px;
-    }
-
-    .legend_text_last {
-        line-height: 30px !important;
-    }
-
-    .legend_content_second {
-        text-align: center;
-    }
 }
+
 
 @media (max-width: 1059px) {
 
@@ -2871,6 +2866,37 @@ body {
 }
 
 @media (max-width: 1051px) {
+    .footer_text {
+        width: 750px;
+    }
+
+    .footer_list_wrapper {
+        width: 750px;
+    }
+
+    .legend_img {
+        margin-left: 0;
+    }
+
+    .legend_text {
+        margin-left: 10px;
+    }
+
+    .footer_menu {
+        padding-left: 0;
+    }
+
+    .about_int {
+        width: 750px;
+    }
+
+    .legend_text_last {
+        line-height: 30px !important;
+    }
+
+    .legend_content_second {
+        text-align: center;
+    }
 
     .map_legend {
         width: 730px;
@@ -2885,7 +2911,6 @@ body {
         font-size: 12px;
         width: auto;
     }
-
 }
 
 @media (max-width: 1015px) {
@@ -2969,6 +2994,11 @@ body {
     }
 
     .comment_textarea {
+        position: relative !important;
+        top: 0 !important;
+    }
+
+    .scroller {
         position: relative !important;
         top: 0 !important;
     }
