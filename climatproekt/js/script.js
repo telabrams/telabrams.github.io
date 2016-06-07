@@ -58,13 +58,13 @@ jQuery(document).ready(function(){
 
                 jQuery(window).scroll(function () {
 
-                    if (jQuery(document).scrollTop() > 650) {
+                    if (jQuery(document).scrollTop() > 0) {
                         jQuery('.scroller').css('position', 'relative').css('top', '620px');
                         /*jQuery('.comment_textarea ').css('position', 'relative').css('top', '610px');
                         jQuery('.new_blue ').css('position', 'relative').css('top', '610px');*/
                     }
                     else {
-                        jQuery('.scroller').css('position', 'fixed').css('top', '215px');
+                        jQuery('.scroller').css('position', 'fixed').css('top', '330px');
                         /*jQuery('.comment_textarea').css('position', 'fixed').css('top', '300px');
                         jQuery('.new_blue').css('position', 'fixed').css('top', '300px');*/
                     }
@@ -72,11 +72,15 @@ jQuery(document).ready(function(){
                 });
             }
 
-            if (jQuery(window).width() <= '971') {
-                        /*jQuery('.scroller').css('position', 'relative').css('top', '610px');*/
-                        /*jQuery('.comment_textarea ').css('position', 'relative').css('top', '610px');
-                        jQuery('.new_blue ').css('position', 'relative').css('top', '610px');*/
-            }
+            jQuery(window).scroll(function () {
+
+                if (jQuery(window).width() <= '971') {
+                    /*jQuery('.scroller').css('position', 'relative').css('top', '610px');*/
+                    /*jQuery('.comment_textarea ').css('position', 'relative').css('top', '610px');
+                     jQuery('.new_blue ').css('position', 'relative').css('top', '610px');*/
+                }
+
+            });
 
             else {
 
