@@ -45,7 +45,7 @@ jQuery(document).ready(function(){
         });
 
 
-    /*форма липучка*/
+                                                            /*форма липучка*/
 
     var height = jQuery('.comments').height();
     var form_height = jQuery('.right_comments').height();
@@ -361,6 +361,10 @@ jQuery(document).ready(function() {
         divheight[i] = jQuery(this).height();
         i++;
     });*/
+
+    var cheker = jQuery('div').is('.object_text');
+
+    if (cheker == true) {
     var lineheight = jQuery(".object_text").css('line-height').replace("px","");
     var five_lines = lineheight * 5;
 
@@ -380,7 +384,7 @@ jQuery(document).ready(function() {
 
         });
 
-
+    }
 
 });
 
