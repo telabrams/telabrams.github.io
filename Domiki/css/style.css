@@ -272,7 +272,7 @@ li.nav:active {
 }
 
 .main_header_service {
-    color:  #cfe19e;
+    color:  #89a739;
     font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
@@ -1047,8 +1047,16 @@ textarea:-moz-placeholder {
 
 @media (max-width: 1184px) {
     .service_text {
-        font-size: 16px;
+        font-size: 20px;
         width: 300px;
+    }
+
+    .big_icon {
+        display: block;
+    }
+
+    .main_header_service {
+        font-size: 25px;
     }
 
     .garden_img img {
