@@ -167,7 +167,7 @@ li.nav:active {
 }
 
 .slider_img {
-    border-radius: 80%/0 0 5em 5em;
+    border-radius: 200%/0 0 12em 12em;
     height: 400px;
     margin: 0 auto;
     width: 1050px;
@@ -318,7 +318,7 @@ li.nav:active {
 .carusel_hider {
     height: 530px;
     margin: 0 auto 50px;
-    width: 950px;
+    width: 960px;
     overflow: hidden;
 }
 
@@ -427,14 +427,14 @@ li.nav:active {
 }
 
 .item_slider_bottom_circle {
-    top: 240px;
+    top: 230px;
     left: 50%;
     margin-left: -500px;
     background: #cddf9d;
     position: absolute;
     width: 1000px;
     height: 500px;
-    border-radius: 80%/0 0 5em 5em;
+    border-radius: 200%/0 0 12em 12em;
 }
 
                                                                 /*garden*/
@@ -663,7 +663,7 @@ li.nav:active {
 }
 
 .video_circle {
-    top: 95px;
+    top: 85px;
 }
 
                                                                     /*house_color_block*/
@@ -818,14 +818,12 @@ form {
     margin-right: 10px;
 }
 form {
-    padding: 3px;
     box-shadow: 1px 2px 13px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 10px;
     position: relative;
-    bottom: 15px;
+    bottom: 17px;
     padding-top: 20px;
     width: 310px;
     border-bottom-right-radius: 6px;
@@ -941,7 +939,7 @@ textarea:-moz-placeholder {
     background-position: left 20px center;
 }
 .form_circle {
-     top: -33px;
+     top: -37px;
     right: 0;
     background: #cddf9d;
     position: absolute;
@@ -949,6 +947,17 @@ textarea:-moz-placeholder {
     height: 40px;
     border-radius: 0em 55em/0.5em 4em 3em;
     z-index: 99;
+}
+
+.form_circle:before {
+    top: 0;
+    left: -8px;
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid rgb(52, 87, 17);
+    border-left: 8px solid transparent;
 }
 
 .fixed {
@@ -1036,6 +1045,18 @@ textarea:-moz-placeholder {
     }
 }
 
+
+@media (max-width: 1157px) {
+    .arrow_left, .arrow_right {
+        top: 120px;
+    }
+
+    .arrow_left:hover, .arrow_right:hover {
+        top: 120px;
+    }
+
+}
+
 @media (max-width: 1117px) {
 
     .bottom_circle {
@@ -1103,6 +1124,13 @@ textarea:-moz-placeholder {
         .realised_object_image img{
             width: 220px;
         }
+}
+
+@media (max-width: 984px) {
+
+    .carusel_hider {
+        width: 650px;
+    }
 }
 
 

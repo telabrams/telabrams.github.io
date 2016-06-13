@@ -43,11 +43,31 @@ jQuery(document).ready(function(){
     jQuery(".dot").on("click", function(){
         jQuery(".dot").removeClass('active_dot');
         jQuery(this).toggleClass('active_dot');
-        $('.display').fadeOut().removeClass('display');
-        $('.top_slider_with_dot_list').hide().removeClass('display animated fadeInDown');
-        var blatest = $(this).attr("id");
-        $(".top_slider_with_dot").find('#'+blatest).fadeIn().addClass('display animated fadeInDown');
+        jQuery('.display').fadeOut().removeClass('display');
+        jQuery('.top_slider_with_dot_list').hide().removeClass('display animated fadeInDown');
+        var blatest = jQuery(this).attr("id");
+        jQuery(".top_slider_with_dot").find('#'+blatest).fadeIn().addClass('display animated fadeInDown');
     });
+
+    var g = 0;
+    setTimeout(function time() {
+        g++;
+        if (g == carusel_arrow.length){
+            g = 0;
+        }
+        jQuery(".dot").removeClass('active_dot');
+        jQuery(dot_arrow[g]).toggleClass('active_dot');
+        jQuery('.top_slider_with_dot_list').hide().removeClass('display animated fadeInDown');
+        var blatest = jQuery(carusel_arrow[g]).attr("id");
+        jQuery(".top_slider_with_dot").find('#'+blatest).fadeIn().addClass('display animated fadeInDown');
+
+
+
+        setTimeout(time, 7000);
+    }, 7000);
+
+
+
 
 
 
