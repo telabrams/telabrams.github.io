@@ -52,7 +52,7 @@ jQuery(document).ready(function(){
     var g = 0;
     setTimeout(function time() {
         g++;
-        if (g == carusel_arrow.length){
+        if (g == carusel_arrow.length ){
             g = 0;
         }
         jQuery(".dot").removeClass('active_dot');
@@ -60,8 +60,6 @@ jQuery(document).ready(function(){
         jQuery('.top_slider_with_dot_list').hide().removeClass('display animated fadeInDown');
         var blatest = jQuery(carusel_arrow[g]).attr("id");
         jQuery(".top_slider_with_dot").find('#'+blatest).fadeIn().addClass('display animated fadeInDown');
-
-
 
         setTimeout(time, 7000);
     }, 7000);
@@ -121,7 +119,7 @@ jQuery(document).ready(function(){
 
     if (cheker == true) {
         /*var lineheight = jQuery(".house_container").css('line-height').replace("px","");*/
-        var five_lines = jQuery('.realised_object_image').height() * 2;
+        var five_lines = jQuery('.realised_object_image img').height() * 2;
         jQuery(".house_container").css('height', five_lines);
 
 

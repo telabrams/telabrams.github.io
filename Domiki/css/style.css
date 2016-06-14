@@ -605,7 +605,7 @@ li.nav:active {
     font-size: 20px;
     font-weight: 400;
     bottom: -25px;
-    transition: color linear .2s;
+    transition: all ease .3s;
 }
 
 .object_read_less {
@@ -614,12 +614,21 @@ li.nav:active {
 }
 
 .object_read_more:hover {
-    color: #fe5f53;
+    background: -webkit-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: -moz-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: -o-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: -ms-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: linear-gradient(0deg, #8baa3c 0%, #d0e55e 60%);
+
 }
 
 
 .object_read_less:hover {
-    color: #fe5f53;
+    background: -webkit-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: -moz-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: -o-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: -ms-linear-gradient(90deg, #8baa3c 0%, #d0e55e 60%);
+    background: linear-gradient(0deg, #8baa3c 0%, #d0e55e 60%);
 }
 
 .object_arrow_more {
@@ -897,7 +906,7 @@ textarea:-moz-placeholder {
     background: transparent;
     width: 199px;
     height: 49px;
-    font-family: Arial;
+    cursor: pointer;
     color:  #ffffff;
     font-size: 19.98px;
     font-weight: 400;
@@ -966,6 +975,7 @@ textarea:-moz-placeholder {
     height: 80px;
 }
 .submit_container {
+    cursor: pointer;
     background: -webkit-linear-gradient(90deg, #8baa3c 0%, #d0e55e 100%);
     background: -moz-linear-gradient(90deg, #8baa3c 0%, #d0e55e 100%);
     background: -o-linear-gradient(90deg, #8baa3c 0%, #d0e55e 100%);
