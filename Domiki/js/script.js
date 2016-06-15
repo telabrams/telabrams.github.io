@@ -55,7 +55,8 @@ jQuery(document).ready(function(){
         if (g == carusel_arrow.length ){
             g = 0;
         }
-        jQuery(".dot").removeClass('active_dot');
+        jQuery(".dot").find('.active_dot');
+        jQuery('.active_dot').removeClass('active_dot');
         jQuery(dot_arrow[g]).toggleClass('active_dot');
         jQuery('.top_slider_with_dot_list').hide().removeClass('display animated fadeInDown');
         var blatest = jQuery(carusel_arrow[g]).attr("id");
@@ -63,6 +64,8 @@ jQuery(document).ready(function(){
 
         setTimeout(time, 7000);
     }, 7000);
+
+
 
 
 
