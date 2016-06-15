@@ -119,10 +119,11 @@ jQuery(document).ready(function(){
      });*/
 
     var cheker = jQuery('div').is('.house_container');
+    var five_lines = jQuery('.realised_object_image img').height() * 2;
 
     if (cheker == true) {
         /*var lineheight = jQuery(".house_container").css('line-height').replace("px","");*/
-        var five_lines = jQuery('.realised_object_image img').height() * 2;
+
         jQuery(".house_container").css('height', five_lines);
 
 
@@ -152,7 +153,6 @@ jQuery(document).ready(function(){
         $(".paint_house_wrapper").find('#'+blatest).fadeIn().addClass('display_house animated fadeIn');
     });
 
-                                                                /*переключение меню*/
 
    
 
@@ -188,7 +188,7 @@ jQuery(document).ready(function() {
         scrollTop: $("footer").offset().top
     }, 1000);
 });
-})
+});
 
 //fixed on scroll
 $(document).ready(function() {

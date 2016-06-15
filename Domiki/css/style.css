@@ -1,7 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-Light.ttf);
+}
+
 body {
     margin: 0 auto;
-    font-family: 'Open Sans', 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .clearfix:after {
@@ -475,8 +480,6 @@ li.nav:active {
 /*garden*/
 
 .garden {
-    background: url(../images/back2.jpg) no-repeat center center;
-    background-size: cover;
     text-align: center;
     /*box-shadow: 2px 2px 4px 4px #b2b0b1;*/
 }
@@ -1155,6 +1158,11 @@ textarea:-moz-placeholder {
 
     .slider_img {
         width: 800px;
+        height: 350px;
+    }
+
+    .content {
+        height: 305px;
     }
 
     .top_slider_with_dot {
