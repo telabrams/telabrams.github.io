@@ -4,6 +4,41 @@
 
 jQuery(document).ready(function(){
 
+                                                            /*Открытие read-more*/
+
+    /*var div_arrow = jQuery('.object_block').children('.object_text');
+     var div_number = jQuery(div_arrow).length;
+     var i = 0;
+     var divheight = [];
+     jQuery('.object_text').each(function(){
+     divheight[i] = jQuery(this).height();
+     i++;
+     });*/
+
+    var cheker = jQuery('div').is('.house_container');
+    var five_lines = jQuery('.realised_object_image img').height() * 2;
+
+    if (cheker == true) {
+        /*var lineheight = jQuery(".house_container").css('line-height').replace("px","");*/
+
+        jQuery(".house_container").css('height', five_lines);
+
+
+        jQuery(".object_read_more").click(function () {
+            jQuery(this).prev(".house_container").css('height', 'auto');
+            jQuery(this).css('display', 'none');
+            jQuery(this).next(".object_read_less").css('display', 'block');
+        });
+
+        jQuery(".object_read_less").click(function () {
+            jQuery(this).prev(".object_read_more").prev(".house_container").css('height', five_lines);
+            jQuery(this).prev(".object_read_more").css('display', 'block');
+            jQuery(this).css('display', 'none');
+
+        });
+
+    }
+
                                                         /*построение ассоциации*/
 
     var dot_number = 0;
@@ -107,40 +142,7 @@ jQuery(document).ready(function(){
         }
     });
 
-                                                                            /*Открытие read-more*/
 
-    /*var div_arrow = jQuery('.object_block').children('.object_text');
-     var div_number = jQuery(div_arrow).length;
-     var i = 0;
-     var divheight = [];
-     jQuery('.object_text').each(function(){
-     divheight[i] = jQuery(this).height();
-     i++;
-     });*/
-
-    var cheker = jQuery('div').is('.house_container');
-    var five_lines = jQuery('.realised_object_image img').height() * 2;
-
-    if (cheker == true) {
-        /*var lineheight = jQuery(".house_container").css('line-height').replace("px","");*/
-
-        jQuery(".house_container").css('height', five_lines);
-
-
-        jQuery(".object_read_more").click(function () {
-            jQuery(this).prev(".house_container").css('height', 'auto');
-            jQuery(this).css('display', 'none');
-            jQuery(this).next(".object_read_less").css('display', 'block');
-        });
-
-        jQuery(".object_read_less").click(function () {
-            jQuery(this).prev(".object_read_more").prev(".house_container").css('height', five_lines);
-            jQuery(this).prev(".object_read_more").css('display', 'block');
-            jQuery(this).css('display', 'none');
-
-        });
-
-    }
 
                                                                 /*выбор цвета домиков*/
 
