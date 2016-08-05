@@ -535,6 +535,7 @@ body {
                                             /*trans_grey_block*/
 
 .hungary {
+    background-attachment: fixed !important;
     color: #fff;
     font-family: 'Roboto Light', sans-serif;
 }
