@@ -1385,7 +1385,16 @@ body {
     /*transition: all ease .2s;*/
 }
 
+.slider_film {
+    position: relative;
+}
+
+.slider_container {
+    display: inline-block;
+}
+
 .slider_film_list {
+    position: relative;
     margin: 40px 0;
     padding: 0;
     list-style: none;
@@ -1406,7 +1415,8 @@ body {
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 }
 
-.arrow_next,.arrow_next_carousel, .arrow_prev,.arrow_prev_carousel {
+.arrow_next,.arrow_next_carousel, .arrow_next_carousel_first, .arrow_prev,
+.arrow_prev_carousel, .arrow_prev_carousel_first,.arrow_next_carousel_mini, .arrow_prev_carousel_mini {
     position: absolute;
     top: 50%;
     cursor: pointer;
@@ -1415,7 +1425,9 @@ body {
 }
 
 .arrow_next:hover, .arrow_prev:hover,
-.arrow_prev_carousel:hover, .arrow_next_carousel:hover {
+.arrow_prev_carousel:hover, .arrow_next_carousel:hover,
+.arrow_prev_carousel_first:hover, .arrow_next_carousel_first:hover,
+.arrow_prev_carousel_mini:hover, .arrow_next_carousel_mini:hover{
     opacity: 0.5;
 }
 
@@ -1423,15 +1435,28 @@ body {
     left: 20px;
 }
 
-.arrow_prev_carousel {
+.arrow_prev_carousel, .arrow_prev_carousel_first {
     left: 50px;
     top: 38%;
 }
 
-.arrow_next_carousel {
+.arrow_next_carousel, .arrow_next_carousel_first{
     right: 50px;
     top: 38%;
 }
+
+.arrow_next_carousel_mini, .arrow_prev_carousel_mini {
+    top: 52%;
+}
+
+.arrow_next_carousel_mini {
+    right: 65px;
+}
+
+.arrow_prev_carousel_mini {
+    left: 25px;
+}
+
 
 .arrow_next {
     right: 20px;
@@ -1613,17 +1638,23 @@ body {
     position: relative;
 }
 
-.item_slider_list {
+.item_slider_list,.item_slider_list_first {
     position: relative;
     padding-left: 0;
     list-style: none;
 }
 
-
 .carusel_hider {
     height: 430px;
     margin: 0 auto 50px;
     width: 960px;
+    overflow: hidden;
+}
+
+.carusel_hider_mini {
+    margin: 0 auto;
+    height: 150px;
+    width: 760px;
     overflow: hidden;
 }
 
@@ -1901,6 +1932,11 @@ body {
 }
 
 @media screen and (max-width: 1235px) {
+
+    .trans_grey_block {
+        width: auto;
+    }
+
     .news_img_block {
         width: 520px;
     }
@@ -1947,7 +1983,9 @@ body {
     }
 }
 
-@media screen and (max-width: 1122px) {
+@media screen and (max-width: 1050px) {
+
+
     .field_price {
         width: 500px;
     }
@@ -2026,28 +2064,56 @@ body {
     }
 
     .carusel_hider {
-        width: 650px;
+        width: 320px;
+        font-size: 20px;
     }
 
     .arrow_next_carousel {
         right: 220px;
     }
 
-    .arrow_prev_carousel {
-        left: 220px;
+    /*.arrow_prev_carousel {*/
+        /*left: 220px;*/
+    /*}*/
+
+    .arrow_next_carousel_first {
+        right: 220px;
     }
+
+    /*.arrow_prev_carousel_first {*/
+        /*left: 220px;*/
+    /*}*/
 }
 
 @media screen and (max-width: 1050px) {
 
+    .characters_description_text {
+        width: auto;
+    }
+    .characters_item {
+        width: auto;
+    }
+
+    .characters_description {
+        width: auto;
+    }
+
+    .carusel_hider {
+        width: 650px;
+    }
+
+    .arrow_next_carousel {
+        right: 62px;
+    }
+
+    .arrow_next_carousel_first {
+        right: 62px;
+    }
+
+
     .content_card {
         width: 720px;
     }
-
-    .slider_film_item {
-        margin: 0 15px;
-    }
-
 
     .content_card_right, .card_list_item_grey, .card_list_item_black {
         text-align: center;
@@ -2087,6 +2153,7 @@ body {
 
     .news_img_block {
         width: 320px;
+        height: 200px;
     }
 
     .news_item {
@@ -2105,28 +2172,56 @@ body {
 
 @media screen and (max-width: 835px) {
 
+
+
+    .news_right {
+        display: none;
+    }
+
     .player {
         display: none;
     }
 
+    .carusel_hider {
+        width: 320px;
+    }
+
+    .arrow_next_carousel_first {
+        right: 72px;
+    }
+
+    .arrow_next_carousel {
+        right: 72px;
+    }
+
+    .arrow_prev_carousel_first {
+        left: 70px;
+    }
+
+    .arrow_prev_carousel {
+        left: 70px;
+    }
 
     .slider_screen {
         width: 420px;
+        height: 300px;
     }
 
     .content_card {
         width: 420px;
     }
 
-    .slider_film_item {
-        margin: 30px 30px;
+    .carusel_hider_mini {
+        width: 350px;
     }
+
+    .arrow_prev_carousel_mini {
+        left: 55px;
+    }
+
 }
 
 @media screen and (max-width: 695px) {
-    .news_left {
-        margin-left: 60px;
-    }
     .news_right {
         width: auto;
     }

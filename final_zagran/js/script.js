@@ -250,6 +250,76 @@ jQuery(document).ready(function() {
         }
     });
 
+                                                        /*carousel_first*/
+
+
+    var list_first = jQuery('.item_slider').find('.item_slider_list_first');                /*список слайдов*/
+    var items_first = jQuery(".item_slider_list_first").find('.carusel_item');              /*один слайд*/
+    var slides_first = jQuery('.item_slider_list_first').children('.carusel_item');         /*количество слайдов*/
+    var slide_width_first = items_first.outerWidth();                                  /*длина одного слайда*/
+    var carusel_width_first = slide_width_first;
+
+    items_first.each(function() {
+        carusel_width_first += jQuery(this).outerWidth();
+    });
+
+    jQuery('.item_slider_list_first').css('width', carusel_width_first+'px');
+
+    var pixelsOffset_first = slide_width_first;
+    var currentLeftValue_first = 0;
+    var elementsCount_first = jQuery('.item_slider_list_first').find('.carusel_item').length;
+    var minimumOffset_first = - ((elementsCount_first - 3) * pixelsOffset_first);
+    var maximumOffset_first = 0;
+
+    jQuery(".arrow_prev_carousel_first").click(function() {
+        if (currentLeftValue_first != maximumOffset_first) {
+            currentLeftValue_first += slide_width_first;
+            jQuery('.item_slider_list_first').animate({ left : currentLeftValue_first + "px"}, 300);
+        }
+    });
+
+    jQuery(".arrow_next_carousel_first").click(function() {
+        if (currentLeftValue_first != minimumOffset_first) {
+            currentLeftValue_first -= slide_width_first;
+            jQuery('.item_slider_list_first').animate({ left : currentLeftValue_first + "px"}, 300);
+        }
+    });
+
+                                                    /*carousel_mini*/
+
+
+    var list_mini = jQuery('.slider_film').find('.slider_film_list');                /*список слайдов*/
+    var items_mini = jQuery(".slider_film_list").find('.slider_film_item');              /*один слайд*/
+    var slides_mini = jQuery('.slider_film_list').children('.slider_film_item');         /*количество слайдов*/
+    var slide_width_mini = items_mini.outerWidth()+40;                                  /*длина одного слайда*/
+    var carusel_width_mini = slide_width_mini;
+
+    items_mini.each(function() {
+        carusel_width_mini += jQuery(this).outerWidth()+40;
+    });
+
+    jQuery('.slider_film_list').css('width', carusel_width_mini+'px');
+
+    var pixelsOffset_mini = slide_width_mini;
+    var currentLeftValue_mini = 0;
+    var elementsCount_mini = jQuery('.slider_film_list').find('.slider_film_item').length;
+    var minimumOffset_mini = - ((elementsCount_mini - 4) * pixelsOffset_mini);
+    var maximumOffset_mini = 0;
+
+    jQuery(".arrow_prev_carousel_mini").click(function() {
+        if (currentLeftValue_mini != maximumOffset_mini) {
+            currentLeftValue_mini += slide_width_mini;
+            jQuery('.slider_film_list').animate({ left : currentLeftValue_mini + "px"}, 300);
+        }
+    });
+
+    jQuery(".arrow_next_carousel_mini").click(function() {
+        if (currentLeftValue_mini != minimumOffset_mini) {
+            currentLeftValue_mini -= slide_width_mini;
+            jQuery('.slider_film_list').animate({ left : currentLeftValue_mini + "px"}, 300);
+        }
+    });
+
 
 });
                                                         /*video*/
