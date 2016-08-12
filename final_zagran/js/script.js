@@ -322,20 +322,28 @@ jQuery(document).ready(function() {
 
                                                         /*вызов пропап card*/
 
-    jQuery(".yea_button").on("click", function(){
-        jQuery(".card_popup").removeClass("display_block");
-        jQuery(".index_popup").toggleClass('display_block animated fadeInRight');
+        jQuery(".yea_button").click(function(){
+            jQuery(".popup_wrapper").fadeIn(500);
+            jQuery(".card_popup").removeClass('display_block');
+            jQuery(".index_popup").toggleClass('display_block animated fadeInRight');
+
+
+        //jQuery(".card_popup").removeClass("display_block");
+        //jQuery(".index_popup").toggleClass('display_block animated fadeInRight');
 
         jQuery(document).mouseup(function (e) {
             var popup = jQuery(".index_popup");
             if (!jQuery('.yea_button').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
                 jQuery(".index_popup").removeClass('display_block animated fadeInRight');
+                jQuery(".popup_wrapper").fadeOut(500);
             }
         });
 
-    });
+        });
+
 
     jQuery(".card_button").on("click", function(){
+        jQuery(".popup_wrapper").fadeIn(500);
         jQuery(".index_popup").removeClass("display_block animated fadeInRight");
         jQuery(".card_popup").toggleClass('display_block');
 
@@ -343,17 +351,22 @@ jQuery(document).ready(function() {
             var popup_bucket = jQuery(".card_popup");
             if (!jQuery('.yea_button').is(e.target) && !popup_bucket.is(e.target) && popup_bucket.has(e.target).length == 0) {
                 jQuery(".card_popup").removeClass('display_block');
+                jQuery(".popup_wrapper").fadeOut(500);
             }
         });
 
     });
 
+                                                        /*hamburger*/
+
+    jQuery('.hamburger').on('click', function() {
+        jQuery('.menu_list_hamburger').toggleClass('display_block');
+        jQuery('.fixed').toggleClass('fixed_media');
+    });
+
                                                     /*validation*/
 
-
-
-    jQuery(".index_popup_button").toggleClass('display animated fadeInRight');
-
+                                                        /*popup*/
 
 
 });
