@@ -45,6 +45,7 @@
 /*}*/
 
 body {
+    scroll-behavior: smooth;
     margin: 0 auto;
     font-family: 'Fregat Bold', sans-serif;
 }

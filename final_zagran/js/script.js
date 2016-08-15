@@ -15,7 +15,7 @@ function initMap() {
 
 jQuery(document).ready(function() {
 
-    /*Открытие read-more*/
+                                                    /*Открытие read-more*/
 
 
     var cheker = jQuery('div').is('.numbers');
@@ -66,7 +66,7 @@ jQuery(document).ready(function() {
         });
     }
 
-    /*Открытие поиска*/
+                                                        /*Открытие поиска*/
 
     jQuery(".search_block").on("click", function () {
 
@@ -76,20 +76,20 @@ jQuery(document).ready(function() {
     });
 
 
-    /*Elips анимация*/
+                                                    /*Elips анимация*/
 
     jQuery(".elips").hover(function () {
         jQuery('.elips_text').toggleClass('animated display tada');
     });
 
-    /*hover_building*/
+                                                        /*hover_building*/
 
     jQuery(".field_price_item, .field_price_item_center").hover(function () {
         jQuery('.field_text', this).toggleClass('animated display_block fadeInDown');
         jQuery('.field_price_small', this).toggleClass('animated display_block fadeInDown');
     });
 
-    /*fixed menu*/
+                                                        /*fixed menu*/
 
 
     jQuery(window).scroll(function () {
@@ -128,7 +128,7 @@ jQuery(document).ready(function() {
         });
     });
 
-    /*lift*/
+                                                        /*lift*/
 
     jQuery('#scrollup').click(function () {
         jQuery('body,html').animate({
@@ -144,7 +144,7 @@ jQuery(document).ready(function() {
         }
     });
 
-    /*show_more_item*/
+                                                    /*show_more_item*/
 
     var counter = 3;
 
@@ -156,7 +156,7 @@ jQuery(document).ready(function() {
         jQuery(document).find('.field_price_searchpage:lt(' + counter + ')').addClass('image_display animated fadeInRight');
     });
 
-    /*show_more*/
+                                                            /*show_more*/
 
     //jQuery('.question_show,.question_less').on('click', function(){
     //    var parent = jQuery(this).parent();
@@ -219,7 +219,7 @@ jQuery(document).ready(function() {
 
     });
 
-    /*carousel*/
+                                                    /*carousel*/
 
 
     var list = jQuery('.item_slider').find('.item_slider_list');
@@ -258,7 +258,7 @@ jQuery(document).ready(function() {
         }
     });
 
-    /*carousel_first*/
+                                                        /*carousel_first*/
 
 
     var list_first = jQuery('.item_slider').find('.item_slider_list_first');
@@ -297,7 +297,7 @@ jQuery(document).ready(function() {
         }
     });
 
-    /*carousel_mini*/
+                                                /*carousel_mini*/
 
 
     var list_mini = jQuery('.slider_film').find('.slider_film_list');
@@ -372,7 +372,7 @@ jQuery(document).ready(function() {
 
     });
 
-    /*slider_popup*/
+                                                                /*slider_popup*/
 
     if (jQuery(window).width() > '1060') {
 
@@ -400,7 +400,7 @@ jQuery(document).ready(function() {
 
                                                     /*validation*/
 
-                                                        /*popup*/
+
 
 
 });
