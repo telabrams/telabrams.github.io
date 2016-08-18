@@ -208,13 +208,12 @@ header {
   bottom: 130px;
   position: absolute;
   right: 0;
-  z-index: 3;
-  cursor: pointer; }
+  z-index: 3; }
 
 .slider .navigation .dot {
   display: inline-block;
   width: 25px;
-  height: 5px;
+  height: 7px;
   background: #fff;
   cursor: pointer;
   margin: 0 5px; }
@@ -256,6 +255,10 @@ header {
     font-family: "Helvetica Bold", sans-serif; }
 
 .slider_item_button {
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  position: absolute;
   font-family: "BebasNeue Bold", sans-serif;
   color: #fff;
   float: left;
@@ -589,7 +592,8 @@ footer {
       color: #5d5d5d;
       font-family: "Helvetica Rooman", sans-serif; }
       .product_1_block .product_1_block_right .text p {
-        padding: 5px 15px 5px 35px; }
+        padding: 0 15px 0 35px;
+        margin: 10px 0; }
         .product_1_block .product_1_block_right .text p:first-child {
           padding-top: 0;
           margin-top: 0; }
@@ -706,6 +710,8 @@ footer {
     height: 150px !important; } }
 
 @media screen and (max-width: 620px) {
+  p {
+    font-size: 16px; }
   .slider {
     margin-top: 0;
     width: auto;
@@ -714,10 +720,12 @@ footer {
       display: none; }
     .slider .navigation {
       display: none; }
+    .slider .slider_item_button {
+      display: none; }
   /*--------------------------------------------Product--------------------------------------------------*/
   .product_content_left {
+    display: none;
     text-align: center;
-    display: block;
     float: none;
     margin: 0 auto;
     width: 85%; }
@@ -760,7 +768,7 @@ footer {
     width: auto !important;
     float: none !important;
     display: block !important;
-    height: 250px !important; }
+    height: 150px !important; }
   .product_1_block_right {
     float: none !important;
     width: auto !important;
@@ -774,4 +782,6 @@ footer {
   header .menu_wrapper {
     padding-bottom: 10px; }
   header .mail_block {
-    margin: 0 !important; } }
+    margin: 0 !important; }
+  .slider {
+    height: 200px; } }
