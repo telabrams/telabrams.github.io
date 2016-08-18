@@ -115,13 +115,14 @@
 
 jQuery(document).ready(function() { // Ждём загрузки страницы
 
-    var slides = jQuery(".slider .slides").children(".slide"); // Получаем массив всех слайдов
-    var width = jQuery(".slider .slides").width(); // Получаем ширину видимой области
+    var slide = jQuery(".slides");
+    var slides = slide.children(".slide"); // Получаем массив всех слайдов
+    var width = slide.width(); // Получаем ширину видимой области
     var i = slides.length; // Получаем количество слайдов
     var offset = i * width; // Задаем начальное смещение и ширину всех слайдов
     var cheki = i-1;
 
-    jQuery(".slider .slides").css('width',offset); // Задаем блоку со слайдами ширину всех слайдов
+    slide.css('width',offset); // Задаем блоку со слайдами ширину всех слайдов
 
     for (j=0; j < slides.length; j++) {
         if (j==0) {
@@ -133,36 +134,67 @@ jQuery(document).ready(function() { // Ждём загрузки страниц�
     }
 
     var dots = jQuery(".navigation").children(".dot");
-    offset = 0; // Обнуляем смещение, так как показывается начала 1 слайд
+    offset = 0; // Обнуляем смещение, так как показывается начало 1 слайд
     i = 0; // Обнуляем номер текущего слайда
 
-    jQuery('.navigation .dot').click(function(){
-        jQuery(".navigation .active").removeClass("active");
+    jQuery('.dot').click(function(){
+        jQuery(".active").removeClass("active");
         jQuery(this).addClass("active");
+        console.log(jQuery(this).index());
         i = jQuery(this).index();
         offset = i * width;
-        jQuery(".slider .slides").css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к следующему
+        slide.css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к следующему
     });
 
 
-    jQuery("body .slider .next").click(function(){	// Событие клика на кнопку "следующий слайд"
+    jQuery(".next").click(function(){	// Событие клика на кнопку "следующий слайд"
+        if (offset == width * cheki) {
+            offset = -width;
+            slide.css("transform","translate3d(-"+offset+"px, 0px, 0px)");
+            jQuery(".active").removeClass("active");
+            jQuery(dots[0]).addClass("active");
+            i = -1;
+        }
+
         if (offset < width * cheki) {	// Проверяем, дошли ли мы до конца
             offset += width; // Увеличиваем смещение до следующего слайда
-            jQuery(".slider .slides").css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к следующему
-            jQuery(".navigation .active").removeClass("active");
+            slide.css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к следующему
+            jQuery(".active").removeClass("active");
             jQuery(dots[++i]).addClass("active");
         }
     });
 
 
-    jQuery("body .slider .prev").click(function(){	// Событие клика на кнопку "предыдущий слайд"
+    jQuery(".prev").click(function(){	// Событие клика на кнопку "предыдущий слайд"
+        if (offset == 0) {
+            offset = width * slides.length;
+            slide.css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к предыдущему
+            jQuery(".active").removeClass("active");
+            jQuery(dots[slides.length]).addClass("active");
+            i = 4;
+        }
+
         if (offset > 0) { // Проверяем, дошли ли мы до конца
             offset -= width; // Уменьшаем смещение до предыдущегоо слайда
-            jQuery(".slider .slides").css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к предыдущему
-            jQuery(".navigation .active").removeClass("active");
+            slide.css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к предыдущему
+            jQuery(".active").removeClass("active");
             jQuery(dots[--i]).addClass("active");
         }
     });
+
+                                                                /*Timer*/
+
+    var run = setInterval('rotate()', 5000);
+
+    jQuery('.slider').hover(
+
+        function() {
+            clearInterval(run);
+        },
+        function() {
+            run = setInterval('rotate()', 5000);
+        }
+    );
 
                                                             /*active_link*/
 
@@ -201,3 +233,9 @@ jQuery(document).ready(function() { // Ждём загрузки страниц�
     }
 
 });
+
+                                                        /*Timer_start*/
+
+function rotate() {
+    jQuery('.next').click();
+}
