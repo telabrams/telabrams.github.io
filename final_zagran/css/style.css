@@ -1191,14 +1191,6 @@ body {
     content: ">";
 }
 
-.search_filter {
-    width: 500px;
-}
-
-.filter_block {
-    margin-top: 40px;
-}
-
 .search_line {
     width: 1000px;
     margin: 0 auto;
@@ -1218,6 +1210,8 @@ body {
 .result_container {
     text-align: center;
 }
+
+
 
 .result_container .block_header{
     padding: 50px 0;
@@ -2274,6 +2268,72 @@ body {
     margin-left: -261px;
 }
 
+/*NEWEST ADD*/
+
+.field_price_block .container_field_price_item {
+    float: left;
+    width: 33%;
+}
+
+.search_field_price_item {
+    margin: 5px auto;
+}
+
+.result_container a {
+    text-decoration: none;
+}
+
+.search_filter {
+    margin-top: 10px;
+    width: 500px;
+    margin-right: 10px !important;
+    background: transparent;
+
+}
+
+.ui-slider {
+    border: none;
+    background: #f5f5f5;
+    height: 10px;
+}
+
+.ui-state-default {
+    /*position: relative!important;*/
+    border-radius: 50%!important;
+    width: 18px!important;
+    height: 18px!important;
+    outline: none;
+    background: #fff!important;
+    -webkit-box-shadow: 0px 0px 5px 06px rgba(0,0,0,0.42);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.42);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.42);
+}
+
+.ui-widget-header {
+    background: #da6b44!important;
+}
+
+.filter_block {
+    position: relative;
+    margin-top: 40px;
+}
+
+#amount_first, #amount_second {
+    width: 90px;
+    right: 10px;
+    top: -20px;
+    border:0;
+    font-weight:bold;
+    position: absolute;
+    font-family: 'Fregat', sans-serif;
+    font-size: 14px;
+    color: #8b8b8b;
+}
+
+#amount_second {
+    left: 10px;
+}
+
 /*-----------------------------------------------------------------------//media//-----------------------------------------------------*/
 
 @media screen and (max-width: 1254px) {
@@ -2358,12 +2418,24 @@ body {
         width: 145px;
         height: 120px;
     }
-
+    /*NEWEST ADD*/
     .search_field_price_item {
-        width: 249px;
-        height: 149px;
+        width: 90%;
     }
-	
+
+    /*NEWEST ADD*/
+    .field_bottom_text {
+        width: auto;
+        font-size: 18px;
+        padding: 0 5px;
+        margin-bottom: 10px;
+    }
+
+    /*NEWEST ADD*/
+    .container_field_price_item {
+        min-height: 290px;
+    }
+
 	.catusel_pictures {
 		width: 300px;
 		height:	250px;
@@ -2576,10 +2648,6 @@ body {
         margin-top: 30px;
     }
 
-    .field_bottom_text {
-        font-size: 20px;
-    }
-
     .text_continent {
         font-size: 18px;
     }
@@ -2631,6 +2699,12 @@ body {
 
 }
 
+@media screen and (max-width: 712px) {
+    .fixe {
+        margin-top: 30px;
+    }
+}
+
 @media screen and (max-width: 695px) {
     .news_right {
         width: auto;
@@ -2667,3 +2741,4 @@ body {
 @media screen and (max-width: 480px) {
     .player{ display: none; }
 }
+

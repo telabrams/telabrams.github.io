@@ -7,12 +7,13 @@
     <title>Search</title>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/animate.css" rel="stylesheet" type="text/css" />
-    <link href="css/selectize.css" rel="stylesheet" type="text/css" />
+    <link href="css/iThing.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui-1.8.10.custom.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script src="js/selectize.jquery.js" type="text/javascript"></script>
     <script src="js/jquery.mb.YTPlayer.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="js/script.js" type="text/javascript"></script>
 </head>
 <body>
@@ -142,7 +143,10 @@
             <option>Type</option>
         </select>
         <div class="filter_block">
-            <div class="filter search_filter"></div>
+                <!--<label for="amount">Price range:</label>-->
+                <!--<input type="text" id="amount_first" readonly>-->
+                <!--<input type="text" id="amount_second" readonly>-->
+            <div class="filter search_filter" id="slider-range"></div>
             <a class="search_button_link" href="#"><div class="search_button fixe">
                 показать
             </div></a>
@@ -155,8 +159,8 @@
         Результат
     </div>
     <div class="field_price">
-        <a href="card.html"><div class="field_price_searchpage">
-            <div class="container_field_price_item">
+        <div class="field_price_block clearfix">
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_left_1.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -171,8 +175,8 @@
                     Исключительный пентхаус в новом доме
                     в Бордигере, Италия
                 </div>
-            </div>
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_left_2.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -186,8 +190,8 @@
                 <div class="field_bottom_text">
                     Двухуровневая квартира в тихом центре Риги
                 </div>
-            </div>
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_left_3.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -201,10 +205,8 @@
                 <div class="field_bottom_text">
                     Роскошные апартаменты с видом на море в центре Бордигера, Италия
                 </div>
-            </div>
-        </div></a>
-        <a href="card.html"><div class="field_price_searchpage">
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_right_1.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -219,8 +221,8 @@
                     Исключительный пентхаус в новом доме
                     в Бордигере, Италия
                 </div>
-            </div>
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_right_2.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -235,8 +237,8 @@
                     Исключительный пентхаус в новом доме
                     в Бордигере, Италия
                 </div>
-            </div>
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_right_3.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -251,10 +253,8 @@
                     Исключительный пентхаус в новом доме
                     в Бордигере, Италия
                 </div>
-            </div>
-        </div></a>
-        <a href="card.html"><div class="field_price_searchpage">
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_right_1.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -269,8 +269,8 @@
                     Исключительный пентхаус в новом доме
                     в Бордигере, Италия
                 </div>
-            </div>
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_right_2.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -285,8 +285,8 @@
                     Исключительный пентхаус в новом доме
                     в Бордигере, Италия
                 </div>
-            </div>
-            <div class="container_field_price_item">
+            </div></a>
+            <a href="card.html"><div class="container_field_price_item">
                 <div class="field_price_item search_field_price_item" style="background: url('img/field_right_3.png') no-repeat center center; background-size: cover;">
                     <div class="question_description">
                         <div class="question_field_text">
@@ -301,165 +301,15 @@
                     Исключительный пентхаус в новом доме
                     в Бордигере, Италия
                 </div>
-            </div>
-        </div></a>
-        <a href="card.html"><div class="field_price_searchpage">
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_1.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_2.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_3.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-        </div></a>
-        <a href="card.html"><div class="field_price_searchpage">
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_1.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_2.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_3.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-        </div></a>
-        <a href="card.html"><div class="field_price_searchpage">
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_1.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_2.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-            <div class="container_field_price_item">
-                <div class="field_price_item search_field_price_item" style="background: url('img/field_right_3.png') no-repeat center center; background-size: cover;">
-                    <div class="question_description">
-                        <div class="question_field_text">
-                            Coco Chalong
-                        </div>
-                        <div class="question_field_price_small">
-                            165 000 €
-                        </div>
-                    </div>
-                </div>
-                <div class="field_bottom_text">
-                    Исключительный пентхаус в новом доме
-                    в Бордигере, Италия
-                </div>
-            </div>
-        </div></a>
+            </div></a>
+       </div>
     </div>
     <div class="search_line"></div>
 </div>
 <div class="page">
-    <div class="search_button search_page_button">
-        показать еще 9
-    </div>
+    <!--<div class="search_button search_page_button">-->
+        <!--показать еще 9-->
+    <!--</div>-->
     <ul class="page_number">
         <a href="#"><li class="page_text_link"><< первая</li></a>
         <a href="#"><li class="page_number_link">1</li></a>
@@ -530,6 +380,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>

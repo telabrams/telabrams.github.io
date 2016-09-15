@@ -98,7 +98,6 @@ jQuery(document).ready(function() {
             scroll = jQuery(window).scrollTop();
 
         if (scroll > 0) {
-            console.log('1111');
             sticky_menu.addClass('fixed_menu');
         }
         else {
@@ -152,7 +151,6 @@ jQuery(document).ready(function() {
 
     jQuery('.search_page_button').on('click', function () {
         counter += 3;
-        console.log('puuuk');
         jQuery(document).find('.field_price_searchpage:lt(' + counter + ')').addClass('image_display animated fadeInRight');
     });
 
@@ -179,7 +177,6 @@ jQuery(document).ready(function() {
     jQuery(".slider_film_item").each(function () {
         //slider_arrow[slider_number] = $(this).attr('id', 'arrow_'+slider_number);
         slider_arrow[slider_number] = $(this).css("background-image");
-        //console.log(slider_background[slider_number]);
         slider_number++;
     });
 
@@ -398,9 +395,37 @@ jQuery(document).ready(function() {
         jQuery('.fixed').toggleClass('fixed_media');
     });
 
-                                                    /*validation*/
+                                                    /*filter*/
+
+    $( function() {
+        var item;
+        var i = 0;
+        $( "#slider-range" ).slider({
+            range: true,
+            min: 25000,
+            max: 25000000,
+            values: [ 2000000, 10000000 ],
+            slide: function( event, ui ) {
+                $( "#amount_first" ).val(ui.values[ 0 ] + " $" );
+                $( "#amount_second" ).val(ui.values[ 1 ] + " $" );
+            }
+        });
+        item = $('.ui-widget-content').children('.ui-state-default');
+        $('.ui-state-default').each(function(){
+            console.log($(item[i]).index());
+            if ($(item[i]).index()==1)
+                $(item[i]).append("<input type='text' id='amount_first' readonly>");
+            else
+                $(item[i]).append("<input type='text' id='amount_second' readonly>");
+            i++;
+        });
+        //$('.ui-widget-content .ui-state-default').append("<input type='text' id='amount_first' readonly>");
+        $( "#amount_first" ).val($( "#slider-range" ).slider( "values", 0 ) + " $");
+        $( "#amount_second" ).val($( "#slider-range" ).slider( "values", 1 ) + " $");
 
 
+
+    } );
 
 
 });
