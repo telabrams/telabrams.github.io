@@ -961,13 +961,15 @@
                     <div class="radio_button clearfix">
                         <div class="clearfix">
                             <input type="radio" name="credit" id="first_radio" checked>
-                            <label for="first_radio">Pay with your credit card via Stripe</label>
+                            <label id="first_label" for="first_radio" class="active_label">
+                                <img src="images/icons-assets/paypal_input.png" alt="">
+                            </label>
                         </div>
                       <div class="clearfix">
                           <input type="radio" name="credit" id="second_radio">
-                          <label for="second_radio">TEST MODE ENABLED. In test mode, you can use the card number
-                              4242424242424242 with any CVC and a valid expiration date or check the documentation
-                              "Testing Stripe" for more card numbers.</label>
+                          <label id="second_label" for="second_radio">
+                              <img src="images/icons-assets/Stripe.png" alt="">
+                          </label>
                       </div>
                     </div>
                     <input type="submit" value="CONTINUE TO PAYMENT" class="button">
