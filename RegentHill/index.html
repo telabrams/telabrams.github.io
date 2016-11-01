@@ -2,25 +2,200 @@
 <html lang="en">
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=0.9">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/slick.css"/>
     <link rel="stylesheet" href="css/slick-theme.css"/>
+    <!--<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>-->
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <!--tour-->
-    <!--<link rel="stylesheet" type="text/css" href="css/main_tour.css" />-->
-    <!--<link rel="stylesheet" type="text/css" href="css/jpreloader.css" />-->
 
 <body class="index">
+
+    <!--<div class="popup_wrapper">-->
+        <!--<div class="popup_container">-->
+            <!--<div class="popup_item">-->
+                <!--<form class="popup clearfix" action="">-->
+                    <!--<div class="item_form">-->
+                        <!--<span>Введите Ваше имя</span>-->
+                        <!--<input type="text">-->
+                    <!--</div>-->
+                    <!--<div class="item_form">-->
+                        <!--<span>Введите Ваш E-mail</span>-->
+                        <!--<input type="text">-->
+                    <!--</div>-->
+                    <!--<div class="item_form">-->
+                        <!--<span>Введите Вашу Фамилию</span>-->
+                        <!--<input type="text">-->
+                    <!--</div>-->
+                    <!--<div class="item_form">-->
+                        <!--<span>Введите Ваш Телефон</span>-->
+                        <!--<input type="text">-->
+                    <!--</div>-->
+                        <!--<span>-->
+                            <!--* - Поля являются обязательными для заполнения-->
+                        <!--</span>-->
+                    <!--<div class="item_form">-->
+                        <!--<input type="date">-->
+                        <!--<input type="time">-->
+                    <!--</div>-->
+                    <!--<div class="item_form">-->
+                        <!--<input type="submit">-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    
+    <div class="popup_wrapper">
+        <form class="popup clearfix" action="">
+            <div class="close_popup">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="item_form">
+                <span>Введите Ваше имя*</span>
+                <input type="text">
+            </div>
+            <div class="item_form">
+                <span>Введите Вашу Фамилию</span>
+                <input type="text">
+            </div>
+            <div class="item_form">
+                <span>Введите Ваш E-mail*</span>
+                <input type="text">
+                <span class="sub_span">* - Поля являются обязательными для заполнения</span>
+            </div>
+            <div class="item_form">
+                <span>Введите Ваш Телефон</span>
+                <input type="text">
+            </div>
+            <div class="item_form clearfix">
+                <div class="left">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <input type="date">
+                </div>
+                <div class="right">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <input type="time">
+                </div>
+            </div>
+            <div class="item_form">
+                <input class="button" type="submit" value="ОТПРАВИТЬ">
+            </div>
+        </form>
+    </div>
+    
+    <div class="popup_wrapper_cake">
+        <form class="popup_cake clearfix" action="">
+            <div class="close_popup">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="left">
+                <div class="top">
+                    <h3>Введите Количество Гостей:</h3>
+                    <div class="top_container">
+                        <div class="item_cake">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </div>
+                        <div class="item_cake">
+                            <input type="text" value="20">
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <h3>Как Гости Пьют ?</h3>
+                    <div class="top_container">
+                        <div class="item_cake">
+                            <input type="radio" id="small">
+                            <label for="small"></label>
+                        </div>
+                        <div class="item_cake">
+                            <input type="text" value="20" id="medium">
+                            <label for="medium"></label>
+                        </div>
+                        <div class="item_cake">
+                            <input type="text" value="20" id="large">
+                            <label for="large"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <h3>Выберите сезон, в который будет проходить
+                        Ваша свадьба:</h3>
+                </div>
+                <div class="bottom">
+                    <h3>Выберите продолжительность
+                        банкетного мероприятия:</h3>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="mobile_wrapper">
+        <div class="mobile_menu clearfix">
+            <div class="left">
+                <div class="logo_mob">
+                    <a href="index.html">
+                        <img src="images/logo_nav_small.svg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="languages clearfix">
+                    <ul class="lang clearfix">
+                        <li class="lang-item current-lang"><a href="">РУС</a></li>
+                        <li class="lang-item"><a href="">ENG</a></li>
+                        <!--<li class="lang-item"><a href="">УКР</a></li>-->
+                    </ul>
+                </div>
+                <div class="bar">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mobile_footer">
+            <ul>
+                <li>
+                    <a href="index.html">главная</a>
+                </li>
+                <li>
+                    <a href="about_us.html">о нас</a>
+                </li>
+                <li>
+                    <a href="menu.html">меню</a>
+                </li>
+                <li>
+                    <a href="">наши услуги</a>
+                </li>
+                <li>
+                    <a href="gallery.html">галерея</a>
+                </li>
+                <li>
+                    <a href="apartment.html">апартаменты</a>
+                </li>
+                <li>
+                    <a href="contacts.html">контакты</a>
+                </li>
+            </ul>
+            <ul class="sub_mobile_menu">
+                <li><a href="">Мероприятия</a></li>
+                <li><a href="">Кейтеринг</a></li>
+                <li><a href="">Техническое оснащение</a></li>
+                <li><a href="">Дополнительные услуги</a></li>
+            </ul>
+        </div>
+    </div>
 
     <aside>
         <div class="wrapper">
             <a href="index.html">
                 <div class="logo">
                     <img src="images/logo_nav_big.svg" alt="">
+                    <img src="images/logo_nav_small.svg" alt="">
                 </div>
             </a>
             <div class="contact_date">
@@ -34,33 +209,47 @@
                 <ul class="lang clearfix">
                     <li class="lang-item current-lang"><a href="">РУС</a></li>
                     <li class="lang-item"><a href="">ENG</a></li>
-                    <li class="lang-item"><a href="">УКР</a></li>
+                    <!--<li class="lang-item"><a href="">УКР</a></li>-->
                 </ul>
             </div>
-            <menu>
-                <li><a href="index.html">главная</a></li>
-                <li><a href="about_us.html">о нас</a></li>
-                <li><a href="menu.html">меню</a></li>
-                <li>
-                    <a href="">наши услуги</a>
-                    <ul>
-                        <li><a href="">Мероприятия</a></li>
-                        <li><a href="">Кейтеринг</a></li>
-                        <li><a href="">Техническое оснащение</a></li>
-                        <li><a href="">Дополнительные услуги</a></li>
+            <div class="menu_container">
+                <menu>
+                    <li>
+                        <a href="index.html">главная</a>
+                    </li>
+                    <li>
+                        <a href="about_us.html">о нас</a>
+                    </li>
+                    <li>
+                        <a href="menu.html">меню</a>
+                    </li>
+                    <li>
+                        <a href="">наши услуги</a>
+                        <ul>
+                            <li><a href="">Мероприятия</a></li>
+                            <li><a href="">Кейтеринг</a></li>
+                            <li><a href="">Техническое оснащение</a></li>
+                            <li><a href="">Дополнительные услуги</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="gallery.html">галерея</a>
+                    </li>
+                    <li>
+                        <a href="apartment.html">апартаменты</a>
+                    </li>
+                    <li>
+                        <a href="contacts.html">контакты</a>
+                    </li>
+                </menu>
+                <div class="clearfix"></div>
+                <div class="social">
+                    <ul class="clearfix">
+                        <li><a href=""><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                     </ul>
-                </li>
-                <li><a href="gallery.html">галерея</a></li>
-                <li><a href="apartment.html">апартаменты</a></li>
-                <li><a href="contacts.html">контакты</a></li>
-            </menu>
-            <div class="clearfix"></div>
-            <div class="social">
-                <ul class="clearfix">
-                    <li><a href=""><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                </ul>
+                </div>
             </div>
         </div>
     </aside>
@@ -97,7 +286,7 @@
     <div class="container">
         <div class="events_block clearfix" id="events_block">
             <div class="header-for-all">
-                <img src="images/vintage_element.svg" alt="">
+                <img src="images/svg/venzel_gold.svg" alt="">
                 <h2>
                     У нас вы можете заказать
                     любое мероприятие
@@ -110,7 +299,7 @@
             <div class="event_item">
                 <div class="image_container">
                     <div class="mask"></div>
-                    <img src="images/event_1.png" alt="">
+                    <img src="images/event_1.jpg" alt="">
                     <div class="hover_block">
                         <img src="images/cocktail.svg" alt="">
                     </div>
@@ -130,7 +319,7 @@
             <div class="event_item">
                 <div class="image_container">
                     <div class="mask"></div>
-                    <img src="images/event_2.png" alt="">
+                    <img src="images/event_2.jpg" alt="">
                     <div class="hover_block">
                         <img src="images/teacher.svg" alt="">
                     </div>
@@ -149,7 +338,7 @@
             <div class="event_item">
                 <div class="image_container">
                     <div class="mask"></div>
-                    <img src="images/event_3.png" alt="">
+                    <img src="images/event_3.jpg" alt="">
                     <div class="hover_block">
                         <img src="images/heart.svg" alt="">
                     </div>
@@ -174,7 +363,7 @@
     <div class="container">
         <div class="hall_block">
             <div class="header-for-all">
-                <!--<img src="images/vintage_element.svg" alt="">-->
+                <img src="images/svg/venzel_gold.svg" alt="">
                 <h2>
                     выбор зала
                 </h2>
@@ -235,8 +424,8 @@
         <!--</div>-->
     <!--</div>-->
     <div class="tour_block">
-        <img src="images/3d_tour.png" alt="">
-        <div class="container">
+        <!--<img src="images/3d_tour.png" alt="">-->
+        <div class="container clearfix">
             <a href="tour.html">
             </a>
             <div class="header">3d тур</div>
@@ -251,7 +440,7 @@
     <div class="container">
         <div class="apartment_block clearfix">
             <div class="header-for-all">
-                <img src="images/vintage_element.svg" alt="">
+                <img src="images/svg/venzel_gold.svg" alt="">
                 <h2>
                     апартаменты
                 </h2>
@@ -337,7 +526,7 @@
     <div class="container">
         <div class="news_block clearfix">
             <div class="header-for-all">
-                <img src="images/vintage_element.svg" alt="">
+                <img src="images/svg/venzel_gold.svg" alt="">
                 <h2>
                    новости
                 </h2>
@@ -453,21 +642,16 @@
         <a href="http://web-intellectus.com/">Создание и разработка сайта © Intellectus-studio 2016</a>
     </footer>
 
+    <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+    <!--<script src="js/jquery.mobile-1.4.5.min.js"></script>-->
     <script src="js/jquery.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/jquery-migrate.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA82yeRybJuw-9ehyzCuHLgSqmLFMuqhKY&callback=initMap"
+            async defer></script>
     <script src="js/script.js"></script>
-    <!--tour-->
-    <!--<script type="text/javascript" src="js/info.js"></script>-->
-    <!--<script type="text/javascript" src="js/jpreloader.min.js"></script>-->
-    <!--<script type="text/javascript" src="js/Three.js"></script>-->
-    <!--<script type="text/javascript" src="js/Detector.js"></script>-->
-    <!--<script type="text/javascript" src="js/RequestAnimationFrame.js"></script>-->
-    <!--<script type="text/javascript" src="js/Tween.js"></script>-->
-    <!--&lt;!&ndash; data &ndash;&gt;-->
-    <!--<script type="text/javascript" src="js/main_tour.js"></script>-->
-    <!--<script type="text/javascript" src="js/ysoft-script.js"></script>-->
 
 </body>
 
