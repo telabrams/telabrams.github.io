@@ -81,27 +81,27 @@ var officeData = { 'panorama': [
     'it': {
       'name': 'The House of IT Department',
       'role': '<iframe width="560" height="315" src="https://www.youtube.com/embed/JRdRF8fnKeM" frameborder="0" allowfullscreen></iframe>',
-      'image': 'img/no_image.jpg'
+      'image': 'images/no_image.jpg'
     },
     'bd': {
       'name': 'School of Business and Management',
       'role': 'Director - Julia Doe',
-      'image': 'img/julia.jpg'
+      'image': 'images/julia.jpg'
     },
     'darkroom': {
       'name': 'Public Library',
       'role': 'This is our proud public library with 2.500.000 books.',
-      'image': 'img/no_image.jpg'
+      'image': 'images/no_image.jpg'
     },
     'exit': {
       'name': 'Living Plant',
       'role': 'Every student needs fresh air. Our living plants will produce it.',
-      'image': 'img/no_image.jpg'
+      'image': 'images/no_image.jpg'
     },
     'DaVinci': {
       'name': 'Super VIP Jacuzee.',
       'role': 'Repaired by Yanto.',
-      'image': 'img/yanto.jpg'
+      'image': 'images/yanto.jpg'
     }
   } 
 };
