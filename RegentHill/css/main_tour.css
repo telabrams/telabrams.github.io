@@ -1,4 +1,6 @@
 body {
+	background:#000;
+	color:#fff;
 	padding:0;
 	margin:0;
 	overflow:hidden;
@@ -41,7 +43,7 @@ canvas { pointer-events:none; z-index:1; position:relative; }
   display: inline-block;
   height: 40px;
   width: 40px;
-  background-image: url("../images/sprite_marker.png");
+  background-image: url("../img/sprite_marker.png");
   overflow: hidden;
 }
 .marker-label {
@@ -60,7 +62,7 @@ canvas { pointer-events:none; z-index:1; position:relative; }
   height: 80px;
   margin-left: -40px;
   margin-top: -40px;
-  background-image: url("../images/panorama-icon-sprite-sheet.png");
+  background-image: url("../img/panorama-icon-sprite-sheet.png");
   cursor: pointer;
 }
 
