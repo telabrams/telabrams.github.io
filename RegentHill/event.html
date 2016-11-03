@@ -70,10 +70,10 @@
             </li>
         </ul>
         <ul class="sub_mobile_menu">
-            <li><a href="">Мероприятия</a></li>
-            <li><a href="">Кейтеринг</a></li>
-            <li><a href="">Техническое оснащение</a></li>
-            <li><a href="">Дополнительные услуги</a></li>
+            <li><a href="event.html">Мероприятия</a></li>
+            <!--<li><a href="">Кейтеринг</a></li>-->
+            <li><a href="service.html">Техническое оснащение</a></li>
+            <li><a href="service.html">Дополнительные услуги</a></li>
         </ul>
     </div>
 </div>
@@ -471,117 +471,177 @@
         
         <div class="popup_wrapper_cake">
             <form class="popup_cake clearfix" action="">
-                <div class="close_popup">
-                    <i class="fa fa-times" aria-hidden="true"></i>
+                <div class="popup_cake_wrapper">
+                    <div class="close_popup">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                    <div class="left">
+                        <div class="top">
+                            <h3>Введите Количество Гостей:</h3>
+                            <div class="top_container clearfix">
+                                <div class="item_cake">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="number" value="20">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <h3>Как Гости Пьют ?</h3>
+                            <div class="bottom_container clearfix">
+                                <div class="item_cake">
+                                    <input type="radio" id="small" name="drink_size" checked>
+                                    <label class="clone active_radio" for="small">
+                                        <div class="checked">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="default">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </div>
+                                    </label>
+                                    <label for="small">
+                                        <img src="images/svg/event/glass-and-bottle-of-wine-01.svg" alt="">
+                                        <h4>мало</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" id="medium" name="drink_size">
+                                    <label class="clone" for="medium">
+                                        <div class="checked">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="default">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </div>
+                                    </label>
+                                    <label for="medium">
+                                        <img src="images/svg/event/glass-and-bottle-of-wine-02.svg" alt="">
+                                        <h4>средне</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" id="large" name="drink_size">
+                                    <label class="clone" for="large">
+                                        <div class="checked">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="default">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </div>
+                                    </label>
+                                    <label for="large">
+                                        <img src="images/svg/event/glass-and-bottle-of-wine-03.svg" alt="">
+                                        <h4>много</h4>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="top">
+                            <h3>Выберите сезон, в который будет проходить
+                                Ваша свадьба:</h3>
+                            <div class="top_container clearfix">
+                                <div class="item_cake active_radio_season">
+                                    <input type="radio" name="season" id="winter" checked>
+                                    <label for="winter">
+                                        <h4>Зима</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="season" id="spring">
+                                    <label for="spring">
+                                        <h4>Весна</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="season" id="summer">
+                                    <label for="summer">
+                                        <h4>Лето</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="season" id="autumn">
+                                    <label for="autumn">
+                                        <h4>Осень</h4>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <h3>Выберите продолжительность
+                                банкетного мероприятия:</h3>
+                            <div class="bottom_container clearfix">
+                                <div class="item_cake active_radio_hours">
+                                    <input type="radio" name="time" id="four_hours" checked>
+                                    <label for="four_hours">
+                                        <h4>4 часа</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="time" id="five_hours">
+                                    <label for="five_hours">
+                                        <h4>5 часа</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="time" id="six_hours">
+                                    <label for="six_hours">
+                                        <h4>6 часа</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="time" id="seven_hours">
+                                    <label for="seven_hours">
+                                        <h4>7 часа</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="time" id="eight_hours">
+                                    <label for="eight_hours">
+                                        <h4>8 часа</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="time" id="nine_hours">
+                                    <label for="nine_hours">
+                                        <h4>9 часа</h4>
+                                    </label>
+                                </div>
+                                <div class="item_cake">
+                                    <input type="radio" name="time" id="all_hours">
+                                    <label for="all_hours">
+                                        <h4>Будем гулять всю ночь!</h4>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="button" value="ПРОСЧИТАТЬ">
                 </div>
-                <div class="left">
-                    <div class="top">
-                        <h3>Введите Количество Гостей:</h3>
-                        <div class="top_container clearfix">
-                            <div class="item_cake">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                            </div>
-                            <div class="item_cake">
-                                <input type="number" value="20">
-                            </div>
+                <div class="count_result clearfix">
+                    <h2>Для ваших гостей Вам необходимо преобрести:</h2>
+                    <div class="result_item">
+                        <img src="images/svg/event/wine.svg" alt="">
+                    </div>
+                    <div class="result_item">
+                        <ul>
+                            <li>Безалкогольные напитки</li>
+                            <li>Водка</li>
+                            <li>Вино</li>
+                        </ul>
+                        <div class="bottom clearfix">
+                            <input type="text" value="" disabled>
+                            <input type="text" value="" disabled>
                         </div>
                     </div>
-                    <div class="bottom">
-                        <h3>Как Гости Пьют ?</h3>
-                        <div class="bottom_container clearfix">
-                            <div class="item_cake">
-                                <input type="radio" id="small" name="drink_size" checked>
-                                <label class="clone active_radio" for="large">
-                                    <div class="checked">
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="default">
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </div>
-                                </label>
-                                <label for="small">
-                                    <img src="images/svg/event/glass-and-bottle-of-wine-01.svg" alt="">
-                                    <h4>мало</h4>
-                                </label>
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" id="medium" name="drink_size">
-                                <label class="clone" for="large">
-                                    <div class="checked">
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="default">
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </div>
-                                </label>
-                                <label for="medium">
-                                    <img src="images/svg/event/glass-and-bottle-of-wine-02.svg" alt="">
-                                    <h4>средне</h4>
-                                </label>
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" id="large" name="drink_size">
-                                <label class="clone" for="large">
-                                    <div class="checked">
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </div>
-                                   <div class="default">
-                                       <i class="fa fa-check" aria-hidden="true"></i>
-                                   </div>
-                                </label>
-                                <label for="large">
-                                    <img src="images/svg/event/glass-and-bottle-of-wine-03.svg" alt="">
-                                    <h4>много</h4>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="top">
-                        <h3>Выберите сезон, в который будет проходить
-                            Ваша свадьба:</h3>
-                        <div class="top_container clearfix">
-                            <div class="item_cake">
-                                <input type="radio" name="season">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="season">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="season">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="season">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottom">
-                        <h3>Выберите продолжительность
-                            банкетного мероприятия:</h3>
-                        <div class="bottom_container clearfix">
-                            <div class="item_cake">
-                                <input type="radio" name="time">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="time">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="time">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="time">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="time">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="time">
-                            </div>
-                            <div class="item_cake">
-                                <input type="radio" name="time">
-                            </div>
-                        </div>
+                    <div class="result_item">
+                        <ul>
+                            <li>30 л.</li>
+                            <li>15 л.</li>
+                            <li>25 л.</li>
+                        </ul>
                     </div>
                 </div>
             </form>
