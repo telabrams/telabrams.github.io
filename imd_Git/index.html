@@ -21,8 +21,8 @@
                 <div class="row clearfix">
                     <div class="col-md-12 clearfix">
                         <div class="top_header_item social_icon">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <a href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         </div>
                         <div class="top_header_item languages" onselectstart="return false" onmousedown="return false">
                             <ul>
@@ -43,13 +43,17 @@
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-md-4 clearfix">
-                        <div class="col-md-6">
+                        <div class="col-md-6 clearfix">
                             <a href="index.html">
                                 <img src="images/logo.jpg" alt="">
+                                <img src="images/logo_min.jpg" alt="">
                             </a>
+                            <div class="hamburger">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="desktop_menu col-md-8">
                         <menu>
                             <ul>
                                 <li><span>Про нас</span>
@@ -93,6 +97,69 @@
                             </ul>
                         </menu>
                     </div>
+                    <div class="mobile_menu col-md-8">
+                        <menu>
+                            <ul>
+                                <li><span>Про нас</span>
+                                    <ul class="sub-menu">
+                                        <li><a href="">Річний звіт</a></li>
+                                        <li><a href="">Історія</a></li>
+                                        <li><a href="">Місія</a></li>
+                                        <li><a href="">Премії</a></li>
+                                        <li><a href="">Відгуки</a></li>
+                                        <li><a href="">Контакти</a></li>
+                                        <li><a href="">Вакансії</a></li>
+                                    </ul>
+                                </li>
+                                <li><span>Особистості</span>
+                                    <ul class="sub-menu">
+                                        <li><a href="">Відділи</a></li>
+                                        <li><a href="">Доктори наук</a></li>
+                                        <li><a href="">Кандидати наук</a></li>
+                                        <li><a href="">Інженери</a></li>
+                                    </ul>
+                                </li>
+                                <li><span>Устаткування</span>
+                                    <ul class="sub-menu">
+                                        <li><a href="">Технологічне</a></li>
+                                        <li><a href="">Діагностичне</a></li>
+                                    </ul>
+                                </li>
+                                <li><span>Дослідження</span>
+                                    <ul class="sub-menu">
+                                        <li><a href="">Досліди</a></li>
+                                        <li><span>Проекти</span>
+                                            <ul class="sub--menu">
+                                                <li><a href="">Активні</a></li>
+                                                <li><a href="">Завершені</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="">Публікації</a></li>
+                                <li><a href="">Заходи</a></li>
+                            </ul>
+                            <div class="row clearfix">
+                                <div class="col-md-6 clearfix">
+                                    <div class="top_header_item social_icon">
+                                        <a href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="top_header_item languages" onselectstart="return false" onmousedown="return false">
+                                        <ul>
+                                            <li><a href="">UA</a></li>
+                                            <li><a href="">EN</a></li>
+                                            <li><a href="">RU</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="top_header_item search">
+                                        <input type="text" placeholder="Введіть текст сюди">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </menu>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,23 +182,93 @@
 
     <div class="ndi_mp">
         <h2>Відділи НДІ МП</h2>
-        <div class="row clearfix">
-            <div class="col-md-6">
-                <div class="img_container">
-                    <img src="images/main_ndi.jpg" alt="">
-                </div>
-                <div class="description">
-                    <h3>
-                        Відділ інтегральних схем
-                    </h3>
-                    <a href="" class="button_main">Дізнатися більше</a>
+        <div class="carousel">
+            <div class="slide">
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        <div class="img_container">
+                            <img src="images/yafirp.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <h3>
+                                Відділ ядерно-фізичних та радіаційних пристроїв
+                            </h3>
+                            <a href="" class="button_main">Дізнатися більше</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text">
+                            - напівпровідникові детектори; <br>
+                            - p-i-n фотоприймачі; <br>
+                            - датчики і електроніка для ядерних та радіаційно-фізичних пристроїв <br>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="text">
-                    - напівпровідникові детектори; <br>
-                    - p-i-n фотоприймачі; <br>
-                    - датчики і електроніка для ядерних та радіаційно-фізичних пристроїв <br>
+            <div class="slide">
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        <div class="img_container">
+                            <img src="images/main_ndi.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <h3>
+                                Відділ інтегральних схем
+                            </h3>
+                            <a href="" class="button_main">Дізнатися більше</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text">
+                            - напівпровідникові детектори; <br>
+                            - p-i-n фотоприймачі; <br>
+                            - датчики і електроніка для ядерних та радіаційно-фізичних пристроїв <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        <div class="img_container">
+                            <img src="images/admin.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <h3>
+                                Адміністративно-керуючий відділ
+                            </h3>
+                            <a href="" class="button_main">Дізнатися більше</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text">
+                            - напівпровідникові детектори; <br>
+                            - p-i-n фотоприймачі; <br>
+                            - датчики і електроніка для ядерних та радіаційно-фізичних пристроїв <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        <div class="img_container">
+                            <img src="images/NDV.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <h3>
+                                НДВ фізико-технологічних та аналітичних досліджень
+                            </h3>
+                            <a href="" class="button_main">Дізнатися більше</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text">
+                            - напівпровідникові детектори; <br>
+                            - p-i-n фотоприймачі; <br>
+                            - датчики і електроніка для ядерних та радіаційно-фізичних пристроїв <br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -252,48 +389,50 @@
     <footer>
         <div class="footer_menu">
             <div class="container">
-                <menu>
-                    <ul>
-                        <li><span>Про нас</span>
-                            <ul class="sub-menu">
-                                <li><a href="">Річний звіт</a></li>
-                                <li><a href="">Історія</a></li>
-                                <li><a href="">Місія</a></li>
-                                <li><a href="">Премії</a></li>
-                                <li><a href="">Відгуки</a></li>
-                                <li><a href="">Контакти</a></li>
-                                <li><a href="">Вакансії</a></li>
-                            </ul>
-                        </li>
-                        <li><span>Особистості</span>
-                            <ul class="sub-menu">
-                                <li><a href="">Відділи</a></li>
-                                <li><a href="">Доктори наук</a></li>
-                                <li><a href="">Кандидати наук</a></li>
-                                <li><a href="">Інженери</a></li>
-                            </ul>
-                        </li>
-                        <li><span>Устаткування</span>
-                            <ul class="sub-menu">
-                                <li><a href="">Технологічне</a></li>
-                                <li><a href="">Діагностичне</a></li>
-                            </ul>
-                        </li>
-                        <li><span>Дослідження</span>
-                            <ul class="sub-menu">
-                                <li><a href="">Досліди</a></li>
-                                <li><span>Проекти</span>
-                                    <ul class="sub--menu">
-                                        <li><a href="">Активні</a></li>
-                                        <li><a href="">Завершені</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="">Публікації</a></li>
-                        <li><a href="">Заходи</a></li>
-                    </ul>
-                </menu>
+                <div class="desktop_menu">
+                    <menu>
+                        <ul>
+                            <li><span>Про нас</span>
+                                <ul class="sub-menu">
+                                    <li><a href="">Річний звіт</a></li>
+                                    <li><a href="">Історія</a></li>
+                                    <li><a href="">Місія</a></li>
+                                    <li><a href="">Премії</a></li>
+                                    <li><a href="">Відгуки</a></li>
+                                    <li><a href="">Контакти</a></li>
+                                    <li><a href="">Вакансії</a></li>
+                                </ul>
+                            </li>
+                            <li><span>Особистості</span>
+                                <ul class="sub-menu">
+                                    <li><a href="">Відділи</a></li>
+                                    <li><a href="">Доктори наук</a></li>
+                                    <li><a href="">Кандидати наук</a></li>
+                                    <li><a href="">Інженери</a></li>
+                                </ul>
+                            </li>
+                            <li><span>Устаткування</span>
+                                <ul class="sub-menu">
+                                    <li><a href="">Технологічне</a></li>
+                                    <li><a href="">Діагностичне</a></li>
+                                </ul>
+                            </li>
+                            <li><span>Дослідження</span>
+                                <ul class="sub-menu">
+                                    <li><a href="">Досліди</a></li>
+                                    <li><span>Проекти</span>
+                                        <ul class="sub--menu">
+                                            <li><a href="">Активні</a></li>
+                                            <li><a href="">Завершені</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="">Публікації</a></li>
+                            <li><a href="">Заходи</a></li>
+                        </ul>
+                    </menu>
+                </div>
             </div>
         </div>
     
