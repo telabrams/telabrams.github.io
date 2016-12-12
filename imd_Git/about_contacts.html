@@ -22,6 +22,7 @@
                     <div class="col-md-12 clearfix">
                         <div class="top_header_item social_icon">
                             <a href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
                             <a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         </div>
                         <div class="top_header_item languages" onselectstart="return false" onmousedown="return false">
@@ -59,7 +60,7 @@
                                 <li><span>Про нас</span>
                                     <ul class="sub-menu">
                                         <li><a href="about_annual-report.html">Річний звіт</a></li>
-                                        <li><a href="">Історія</a></li>
+                                        <li><a href="about_history.html">Історія</a></li>
                                         <li><a href="">Місія</a></li>
                                         <li><a href="about_awards.html">Премії</a></li>
                                         <li><a href="">Відгуки</a></li>
@@ -103,7 +104,7 @@
                                 <li><span>Про нас</span>
                                     <ul class="sub-menu">
                                         <li><a href="about_annual-report.html">Річний звіт</a></li>
-                                        <li><a href="">Історія</a></li>
+                                        <li><a href="about_history.html">Історія</a></li>
                                         <li><a href="">Місія</a></li>
                                         <li><a href="about_awards.html">Премії</a></li>
                                         <li><a href="">Відгуки</a></li>
@@ -179,7 +180,7 @@
     <div class="contacts content">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <p>НДІ МП України знаходиться за адресою: <br>
                         вул. Північно-Сирецька, 3, м. Київ, Україна, 01001 <br>
                         тел: +38 (044) 123-45-67 <br>
@@ -188,44 +189,56 @@
                     <form action="">
                         <div class="input_container">
                             <span>Прізвище, ім’ я, по-батькові</span>
-                            <input type="text">
+                            <input type="text" required>
                         </div>
                         <div class="input_container">
                             <span>e-mail</span>
-                            <input type="email">
+                            <input type="email" required>
                         </div>
                         <div class="input_container">
                             <span>Ваше повідомлення</span>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea name="" id="" cols="30" rows="10" required></textarea>
                         </div>
                         <input class="button_main button_main_div" type="submit" value="Надіслати">
                     </form>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <h3>Як нас знайти?</h3>
                     <ul>
                         <li class="current-tab">Автовокзал/авто</li>
                         <li>Залізниця/авто</li>
                         <li>Залізниця/метро</li>
                     </ul>
-                    <p>Ви можете дістатись до ІМП на метро від станції <br>
-                        метро Залізничний Вокзал (червона гілка) <br>
-                        з пересадкою на ст. м. Нивки <br> на наземний вид транспорту: <br>
-                        тролейбус №5 або маршрутка: №5, №518, №32.</p>
-                    <div class="img_container tab_contacts">
-                        <a href="images/contacts_auto.jpg" data-lightbox="contacts" data-title="Автовокзал/авто">
-                            <img src="images/contacts_auto.jpg" alt="">
-                        </a>
+                    <div class="tab_contacts">
+                        <p>Ви можете дістатись до ІМП на метро від станції <br>
+                            метро Залізничний Вокзал (червона гілка) <br>
+                            з пересадкою на ст. м. Нивки <br> на наземний вид транспорту: <br>
+                            тролейбус №5 або маршрутка: №5, №518, №32.</p>
+                        <div class="img_container">
+                            <a href="images/contacts_auto.jpg" data-lightbox="contacts" data-title="Автовокзал/авто">
+                                <img src="images/contacts_auto.jpg" alt="">
+                            </a>
+                        </div>
                     </div>
-                    <div class="img_container tab_contacts">
-                        <a href="images/contacts_railway.jpg" data-lightbox="contacts" data-title="Залізниця/авто">
-                            <img src="images/contacts_railway.jpg" alt="">
-                        </a>
+                    <div class="tab_contacts">
+                        <p>Ви можете дістатись до ІМП на метро від станції метро
+                            Деміївська (синя гілка) з пересадкою на станції
+                            метро Майдан Незалежності (синя гілка) на станцію
+                            метро Хрещатик (червона гілка) і наступною пересадкою
+                            на наземний вид транспорту на станції метро Нивки:
+                            тролейбус №5 або маршрутка: №5, №518, №32</p>
+                        <div class="img_container">
+                            <a href="images/contacts_railway.jpg" data-lightbox="contacts" data-title="Залізниця/авто">
+                                <img src="images/contacts_railway.jpg" alt="">
+                            </a>
+                        </div>
                     </div>
-                    <div class="img_container tab_contacts">
-                        <a href="images/contacts_metro.png" data-lightbox="contacts" data-title="Залізниця/метро">
-                            <img src="images/contacts_metro.png" alt="">
-                        </a>
+                    <div class="tab_contacts">
+                        <div class="img_container">
+                            <a href="images/contacts_metro.png" data-lightbox="contacts" data-title="Залізниця/метро">
+                                <img src="images/contacts_metro.png" alt="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,7 +254,7 @@
                             <li><span>Про нас</span>
                                 <ul class="sub-menu">
                                     <li><a href="about_annual-report.html">Річний звіт</a></li>
-                                    <li><a href="">Історія</a></li>
+                                    <li><a href="about_history.html">Історія</a></li>
                                     <li><a href="">Місія</a></li>
                                     <li><a href="about_awards.html">Премії</a></li>
                                     <li><a href="">Відгуки</a></li>
@@ -340,8 +353,9 @@
                     2016, © НДІ МНанУ
                 </div>
                 <div class="footer_bottom_item social_icon">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <a href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
