@@ -13,6 +13,7 @@
 	.st7{fill:none;stroke:#000000;stroke-width:2.9859;stroke-miterlimit:10;}
 	.st8{fill:none;stroke:#FF4F00;stroke-width:3;stroke-miterlimit:10;}
 	.st9{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	#the_sun{display:none;}
 </style>
 <image style="display:none;overflow:visible;" width="256" height="256" xlink:href="car-2-256.png"  transform="matrix(1 0 0 1 -60.445 -87.1543)">
 </image>
@@ -33,7 +34,7 @@
 			z"/>
 	</g>
 </g>
-<g>
+<g id="the_sun">
 	<path id="SVGCleanerId_0" class="st3" d="M71.5,23c-0.3,0-0.6-0.3-0.6-0.6v-1.5c0-0.3,0.3-0.6,0.6-0.6c0.3,0,0.6,0.3,0.6,0.6v1.5
 		C72.1,22.7,71.9,23,71.5,23z"/>
 	<path id="SVGCleanerId_1" class="st3" d="M71.5,2.7c-0.3,0-0.6-0.3-0.6-0.6V0.6c0-0.3,0.3-0.6,0.6-0.6c0.3,0,0.6,0.3,0.6,0.6v1.5
