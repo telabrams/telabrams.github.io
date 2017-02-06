@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testApp">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }
+    
+         .blueText {
+             color: blue;
+         }
+    
+        .boldText {
+            font-weight: bold;
+        }
+    
+        .stripedblue {
+            color: blue;
+        }
+    
+        .stripedbeige {
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+<body>
+
+    <header>
+    
+    </header>
+
+    <main>
+        <h1>Test Work</h1>
+        <section ng-controller="userController">
+
+            <div class="container">
+                <div class="row clearfix filterInput">
+                    <div class="col-md-4">
+                        <span>Search by Name</span>
+                        <input type="text" ng-model="search.name">
+                    </div>
+                    <div class="col-md-4">
+                        <span>Search by Username</span>
+                        <input type="text" ng-model="search.username">
+                    </div>
+                    <div class="col-md-4">
+                        <span>Search by Email</span>
+                        <input type="text" ng-model="search.email">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row clearfix filterVariable">
+                    <div class="col-md-6">
+                        <span>Sort Type: {{ sortType }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span>Sort Reverse: {{ sortReverse }}</span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-4">
+                        <a href="#" ng-click="sortType= 'name'">
+                            Sort by Name
+                            <i class="fa fa-thumb-tack" aria-hidden="true" ng-show="sortType == 'name'"></i>
+
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" ng-click="sortType= 'username'">
+                            Sort by Username
+                            <i class="fa fa-thumb-tack" aria-hidden="true" ng-show="sortType == 'username'"></i>
+
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" ng-click="sortType= 'email'">
+                            Sort by Email
+                            <i class="fa fa-thumb-tack" aria-hidden="true" ng-show="sortType == 'email'"></i>
+
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" ng-click="sortType= 'address.street'">
+                            Sort by Street
+                            <i class="fa fa-thumb-tack" aria-hidden="true" ng-show="sortType == 'address.street'"></i>
+
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" ng-click="sortType= 'company.name'">
+                            Sort by Company Name
+                            <i class="fa fa-thumb-tack" aria-hidden="true" ng-show="sortType == 'company.name'"></i>
+
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" ng-click="sortReverse = !sortReverse">
+                            Sort Order
+                            <i ng-show="!sortReverse" class="fa fa-arrow-down"></i>
+                            <i ng-show="sortReverse" class="fa fa-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="popupButton" ng-click="popupCheck = !popupCheck">Add new user</button>
+
+                <div class="wrapperPopup" ng-show="popupCheck">
+
+                    <div class="popup col-md-5" ng-click="popupCheck = popupCheck">
+                        <div class="close" ng-click="popupCheck = !popupCheck">
+                            <i class="fa fa-window-close" aria-hidden="true"></i>
+                        </div>
+                        <form role='form' name="userForm" ng-submit='add(newUser, userForm) ' novalidate>
+                            <div class='form-group' ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                                <label>Name:</label>
+                                <input class='form-control' name="name" ng-model='newUser.name' type='text' required>
+                                <p style="color:red;" ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Your name is required.</p>
+                            </div>
+                            <div class='form-group' ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine && reserved}">
+                                <label>Username:</label>
+                                <input class='form-control' name="username" ng-model='newUser.username' type='text' ng-keyup="checkUsername(newUser.username)" required>
+                                <span style="color:red;" ng-show="reserved">This name is reserved</span>
+                                <p style="color:red;" ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Your username is required.</p>
+                            </div>
+                            <div class='form-group' ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine && reservedEmail}">
+                                <label>Email:</label>
+                                <input class='form-control' name="email" ng-model='newUser.email' type='email'  ng-keyup="checkEmail(newUser.email)">
+                                <span style="color:red;" ng-show="reservedEmail">This email is reserved</span>
+                                <p style="color:red;" ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Your email is required.</p>
+                            </div>
+                            <div class='form-group' ng-class="{ 'has-error' : userForm.phone.$error.pattern}">
+                                <label>Phone:</label>
+                                <input class='form-control' ng-model='newUser.phone' type='text' name="phone" required ng-pattern="phoneTemplate">
+                                <p style="color:red;" ng-show="userForm.phone.$error.pattern"  class="help-block">Wrong phone format</p>
+                            </div>
+                            <div class='form-group' ng-class="{ 'has-error' : userForm.website.$error.pattern}">
+                                <label>Website:</label>
+                                <input class='form-control' ng-model='newUser.website' name="website" type='text' ng-pattern="websiteTemplate" required>
+                                <p style="color:red;" ng-show="userForm.website.$error.pattern"  class="help-block">Wrong website format</p>
+                            </div>
+                            <div class='form-group'>
+                                <label>City:</label>
+                                <input class='form-control' ng-model='newUser.address.city' type='text'>
+                            </div>
+                            <div class='form-group'>
+                                <label>Street:</label>
+                                <input class='form-control' ng-model='newUser.address.street' type='text'>
+                            </div>
+                            <div class='form-group' ng-class="{ 'has-error' : userForm.company.$invalid && !userForm.company.$pristine && reservedCompany}">
+                                <label>Company Name</label>
+                                <input class='form-control' name="company" ng-model='newUser.company.name' ng-keyup="checkCompanyName(newUser.company.name)" type='text' required>
+                                <span style="color:red;" ng-show="reservedCompany">This name is reserved</span>
+                            </div>
+                            <span ng-model="newUser.address.geo.lat = position.coords.latitude"></span>
+                            <span ng-model="newUser.address.geo.lng = position.coords.longitude"></span>
+                            <button type="submit" ng-disabled="userForm.$invalid || reserved || reservedCompany || reservedEmail" ng-click="popupCheck = !popupCheck">Save</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row clearfix" ng-show="end">
+                    <div class="overLoad col-md-12">Load Complete!</div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-6" ng-repeat="user in users | toArray | filter:search:strict | orderBy:sortType:sortReverse" ng-model="load($index)">
+                        <figure>
+                            <h2>Name: {{user.name}}</h2>
+                            <h3>Username: {{user.username}}</h3>
+                            <h4>
+                                <a class="emailLink" id="mail_{{user.id}}" href="mailto:{{user.email}}">{{user.email}}</a>
+                                <button class="emailCopy"><i class="fa fa-files-o" aria-hidden="true" ng-click="copy(user.id)"></i></button>
+                            </h4>
+                            <p>Phone: {{user.phone}}</p>
+                            <p>Website: {{user.website}}</p>
+                            <p>Address: <span>{{user.address.city}}, {{user.address.street}} street</span></p>
+                            <p>Company name: {{user.company.name}}</p>
+                            <p><span>Range to user: {{range(position.coords.latitude, position.coords.longitude, user.address.geo.lat, user.address.geo.lng)}} km</span></p>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            {{ServerResponse}}
+        </section>
+    </main>
+
+
+    <footer>
+    
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/imagesloaded.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="js/toArrayFilter.js"></script>
+    <script src="js/angularScript_1.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
