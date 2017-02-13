@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="insuranceApp" ng-cloak>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,12 +12,18 @@
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/select2.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <!--<style>-->
+        <!--[ng\:cloak], [ng-cloak], .ng-cloak {-->
+            <!--display: none;-->
+        <!--}-->
+    <!--</style>-->
 
-<body>
+<body ng-controller="autoLabel">
 
     <header>
     
         <div class="container">
+    
             <div class="row clearfix">
                 <div class="col-xs-1">
                     <div class="button">
@@ -103,7 +109,7 @@
                             </div>
                             <div class="auto_wrapper">
                                 <div class="auto_tabs">
-                                    <div class="auto_tabs_item current-auto-tab">
+                                    <div class="auto_tabs_item current-auto-tab" ng-click="autoCategory = 'Легкове авто'; engine = 'до 1600 см'" ng-mousedown="virginUse('engine_xs', 'current-engine'); arrayConvert = autoArrayConvert">
                                         <div class="mask_click"></div>
                                         <div class="arrow"></div>
                                         <div class="img_container">
@@ -112,7 +118,7 @@
                                         </div>
                                         <span>Легкове авто</span>
                                     </div>
-                                    <div class="auto_tabs_item">
+                                    <div class="auto_tabs_item" ng-click="autoCategory = 'Вантажне авто'; engine = 'до 2 тонн (включно)'" ng-mousedown="virginUse('weight_xs', 'current-weight'); arrayConvert = truckArrayConvert">
                                         <div class="mask_click"></div>
                                         <div class="arrow"></div>
                                         <div class="img_container">
@@ -121,7 +127,7 @@
                                         </div>
                                         <span>Вантажне авто</span>
                                     </div>
-                                    <div class="auto_tabs_item">
+                                    <div class="auto_tabs_item" ng-click="autoCategory = 'Автобус'; engine = 'до 20 місць'" ng-mousedown="virginUse('passengers_xs', 'current-passengers'); arrayConvert = busArrayConvert">
                                         <div class="mask_click"></div>
                                         <div class="arrow"></div>
                                         <div class="img_container">
@@ -130,7 +136,7 @@
                                         </div>
                                         <span>Автобус</span>
                                     </div>
-                                    <div class="auto_tabs_item">
+                                    <div class="auto_tabs_item" ng-click="autoCategory = 'Мотоцикл / моторолер'; engine = 'до 300 см'" ng-mousedown="virginUse('moto_xs', 'current-moto'); arrayConvert = motoArrayConvert">
                                         <div class="mask_click"></div>
                                         <div class="arrow"></div>
                                         <div class="img_container">
@@ -139,7 +145,7 @@
                                         </div>
                                         <span>Мотоцикл / моторолер</span>
                                     </div>
-                                    <div class="auto_tabs_item">
+                                    <div class="auto_tabs_item" ng-click="autoCategory = 'Причіп / трейлер'; engine = 'Причіп / трейлер для легкового авто'" ng-mousedown="virginUse('tourist_xs', 'current-tourist'); arrayConvert = wagenArrayConvert">
                                         <div class="mask_click"></div>
                                         <div class="arrow"></div>
                                         <div class="img_container">
@@ -153,51 +159,51 @@
                                     <span>Об’єм двигуна:</span>
                                     <div class="input_container">
                                         <input type="radio" checked name="engine_size" id="engine_xs">
-                                        <label class="button_more_label current-engine" for="engine_xs">до 1600 см<sup>3</sup></label>
+                                        <label class="button_more_label current-engine" for="engine_xs" ng-click="autoTabsClick(coeficient.data.B1); engine = 'до 1600 см'; sup = true">до 1600 см<sup>3</sup></label>
                                         <input type="radio" name="engine_size" id="engine_sm">
-                                        <label class="button_more_label" for="engine_sm">1601 – 2000 см<sup>3</sup></label>
+                                        <label class="button_more_label" for="engine_sm" ng-click="autoTabsClick(coeficient.data.B2); engine = '1601 – 2000 см'; sup = true">1601 – 2000 см<sup>3</sup></label>
                                         <input type="radio" name="engine_size" id="engine_md">
-                                        <label class="button_more_label" for="engine_md">2001 – 2500 см<sup>3</sup></label>
+                                        <label class="button_more_label" for="engine_md" ng-click="autoTabsClick(coeficient.data.B2); engine = '2001 – 2500 см'; sup = true">2001 – 2500 см<sup>3</sup></label>
                                         <input type="radio" name="engine_size" id="engine_lg">
-                                        <label class="button_more_label" for="engine_lg">2501 – 3000 см<sup>3</sup></label>
+                                        <label class="button_more_label" for="engine_lg" ng-click="autoTabsClick(coeficient.data.B3); engine = '2501 – 3000 см'; sup = true">2501 – 3000 см<sup>3</sup></label>
                                         <input type="radio" name="engine_size" id="engine_xl">
-                                        <label class="button_more_label" for="engine_xl">3001 см<sup>3</sup> та більше</label>
+                                        <label class="button_more_label" for="engine_xl" ng-click="autoTabsClick(coeficient.data.B4); engine = '3001 см'; sup = true">3001 см<sup>3</sup> та більше</label>
                                     </div>
                                 </div>
                                 <div class="auto_tabs_bottom weight_block">
                                     <span>Вантажопідйомність:</span>
                                     <div class="input_container">
                                         <input type="radio" checked name="weight" id="weight_xs">
-                                        <label class="button_more_label current-weight" for="weight_xs">до 2 тонн (включно)</label>
+                                        <label class="button_more_label current-weight" for="weight_xs" ng-click="engine = 'до 2 тонн (включно)'; sup = false">до 2 тонн (включно)</label>
                                         <input type="radio" name="weight" id="weight_sm">
-                                        <label class="button_more_label " for="weight_sm">понад 2 тонни</label>
+                                        <label class="button_more_label " for="weight_sm" ng-click="engine = 'понад 2 тонни'; sup = false">понад 2 тонни</label>
                                     </div>
                                 </div>
                                 <div class="auto_tabs_bottom passengers_block">
                                     <span>Кількість місць для сидіння:</span>
                                     <div class="input_container">
                                         <input type="radio" checked name="passengers" id="passengers_xs">
-                                        <label class="button_more_label current-passengers" for="passengers_xs">до 20 місць</label>
+                                        <label class="button_more_label current-passengers" for="passengers_xs" ng-click="engine = 'до 20 місць'; sup = false">до 20 місць</label>
                                         <input type="radio" name="passengers" id="passengers_sm">
-                                        <label class="button_more_label" for="passengers_sm">21 місце та більше</label>
+                                        <label class="button_more_label" for="passengers_sm" ng-click="engine = '21 місце та більше'; sup = false">21 місце та більше</label>
                                     </div>
                                 </div>
                                 <div class="auto_tabs_bottom moto_block">
                                     <span>Об’єм двигуна:</span>
                                     <div class="input_container">
                                         <input type="radio" checked name="moto" id="moto_xs">
-                                        <label class="button_more_label current-moto" for="moto_xs">до 300 см<sup>3</sup></label>
+                                        <label class="button_more_label current-moto" for="moto_xs" ng-click="engine = 'до 300 см'; sup = true">до 300 см<sup>3</sup></label>
                                         <input type="radio" name="moto" id="moto_sm">
-                                        <label class="button_more_label" for="moto_sm">від 301 см<sup>3</sup> та більше</label>
+                                        <label class="button_more_label" for="moto_sm" ng-click="engine = 'від 301 см'; sup = true">від 301 см<sup>3</sup> та більше</label>
                                     </div>
                                 </div>
                                 <div class="auto_tabs_bottom tourist_block">
                                     <span>Спосiб застосування:</span>
                                     <div class="input_container">
                                         <input type="radio" checked name="tourist" id="tourist_xs">
-                                        <label class="button_more_label current-tourist" for="tourist_xs">для легкового авто</label>
+                                        <label class="button_more_label current-tourist" for="tourist_xs" ng-click="engine = 'Причіп / трейлер для легкового авто'; sup = false">для легкового авто</label>
                                         <input type="radio" name="tourist" id="tourist_sm">
-                                        <label class="button_more_label" for="tourist_sm">для вантажного авто</label>
+                                        <label class="button_more_label" for="tourist_sm" ng-click="engine = 'Причіп / трейлер для вантажного авто'; sup = false">для вантажного авто</label>
                                     </div>
                                 </div>
                             </div>
@@ -213,32 +219,35 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <!--<input type="text">-->
-                                            <select class="selectForPlugin" name="">
-                                                <option selected value="">Київ</option>
-                                                <option value="">Харків</option>
-                                                <option value="">Одеса</option>
-                                                <option value="">Дніпро</option>
-                                                <option value="">Донецьк</option>
-                                                <option value="">Львів</option>
-                                            </select>
+                                        <td class="filter_container">
+                                            <input class="town_search" type="text" ng-model="query" ng-class="{'error_red' : wrongCityCheck}" ng-change="checkCity(query,cityArray)" placeholder="{{placeCity}}" ng-blur="filterShow = !filterShow" ng-focus="filterShow = !filterShow">
+                                           <div class="town_filter" ng-show="filterShow">
+                                                <ul class="selectForPlugin">
+                                                    <li ng-repeat="city in townArray[0].town | filter:query" ng-mousedown="clickCity('city0',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[1].town | filter:query" ng-mousedown="clickCity('city1',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[2].town | filter:query" ng-mousedown="clickCity('city2',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[3].town | filter:query" ng-mousedown="clickCity('city3',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[4].town | filter:query" ng-mousedown="clickCity('city4',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[5].town | filter:query" ng-mousedown="clickCity('city5',city); checkCity(city,cityArray)">{{city}}</li>
+                                                </ul>
+                                            </div>
+                                            <p style="color:red;" class="help-block" ng-show="wrongCityCheck">Оберіть місто</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Рік випуску ТЗ</td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block tz_auto">
                                                 <input type="radio" checked name="year" id="year_xs">
-                                                <label class="button_more_label current-label" for="year_xs">2013 р. і раніше</label>
+                                                <label class="button_more_label current-label" for="year_xs" ng-click="insuranceChooseYear(insuranceDriveExperience.more_2013, 0); year_1=false; year_2=false; year_3=false; year_4=false; autoYear = '2013 р. і раніше'; DTP = 'більше 4 років'">2013 р. і раніше</label>
                                                 <input type="radio" name="year" id="year_sm">
-                                                <label class="button_more_label" for="year_sm">2014</label>
+                                                <label class="button_more_label" for="year_sm" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2014, 1); year_1=true; year_2=false; year_3=false; year_4=false; autoYear = '2014 р.'; DTP = 'більше 3 років'">2014</label>
                                                 <input type="radio" name="year" id="year_md">
-                                                <label class="button_more_label" for="year_md">2015</label>
+                                                <label class="button_more_label" for="year_md" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2015, 2);year_1=true; year_2=true; year_3=false; year_4=false; autoYear = '2015 р.'; DTP = 'більше 2 років'">2015</label>
                                                 <input type="radio" name="year" id="year_lg">
-                                                <label class="button_more_label" for="year_lg">2016</label>
+                                                <label class="button_more_label" for="year_lg" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2016, 3);year_1=true; year_2=true; year_3=true; year_4=false; autoYear = '2016 р.'; DTP = 'більше 1 років'">2016</label>
                                                 <input type="radio" name="year" id="year_xl">
-                                                <label class="button_more_label" for="year_xl">2017</label>
+                                                <label class="button_more_label" for="year_xl" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2017, 4);year_1=true; year_2=true; year_3=true; year_4=true; autoYear = '2017 р.'; DTP = 'до 1 року'">2017</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -250,17 +259,17 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block dtp_auto">
                                                 <input type="radio" checked name="dtp" id="dtp_xs">
-                                                <label class="button_more_label current-label" for="dtp_xs">більше 4 років</label>
+                                                <label class="button_more_label current-label" ng-hide="year_1" for="dtp_xs" ng-click="DTP = 'більше 4 років'">більше 4 років</label>
                                                 <input type="radio" name="dtp" id="dtp_sm">
-                                                <label class="button_more_label" for="dtp_sm">більше 3 років</label>
+                                                <label class="button_more_label" for="dtp_sm" ng-hide="year_2" ng-click="DTP = 'більше 3 років'">більше 3 років</label>
                                                 <input type="radio" name="dtp" id="dtp_md">
-                                                <label class="button_more_label" for="dtp_md">більше 2 років</label>
+                                                <label class="button_more_label" for="dtp_md" ng-hide="year_3" ng-click="DTP = 'більше 2 років'">більше 2 років</label>
                                                 <input type="radio" name="dtp" id="dtp_lg">
-                                                <label class="button_more_label" for="dtp_lg">більше 1 року</label>
+                                                <label class="button_more_label" for="dtp_lg" ng-hide="year_4" ng-click="DTP = 'більше 1 років'">більше 1 року</label>
                                                 <input type="radio" name="dtp" id="dtp_xl">
-                                                <label class="button_more_label" for="dtp_xl">до 1 року</label>
+                                                <label class="button_more_label" for="dtp_xl" ng-click="DTP = 'до 1 року'">до 1 року</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -269,9 +278,9 @@
                                         <td>
                                             <div class="radio_block">
                                                 <input type="radio" checked name="taxi" id="taxi_xs">
-                                                <label class="button_more_label current-label" for="taxi_xs">Ні</label>
+                                                <label class="button_more_label current-label" for="taxi_xs" ng-click="taxiClick(coeficient.data.G1); taxiQuestion = 'Ні'">Ні</label>
                                                 <input type="radio" name="taxi" id="taxi_sm">
-                                                <label class="button_more_label" for="taxi_sm">Так</label>
+                                                <label class="button_more_label" for="taxi_sm" ng-click="taxiClick(coeficient.data.G2); taxiQuestion = 'Так'">Так</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -280,30 +289,30 @@
                                         <td>
                                             <div class="radio_block">
                                                 <input type="radio" checked name="pilga" id="pilga_xs">
-                                                <label class="button_more_label current-label" for="pilga_xs">Не маю</label>
+                                                <label class="button_more_label current-label" for="pilga_xs" ng-click="pilgaClick(coeficient.data.L); pilgaText = 'Не маю'; KBMCheck = false">Не маю</label>
                                                 <input type="radio" name="pilga" id="pilga_sm">
-                                                <label class="button_more_label" for="pilga_sm">Пенсіонер</label>
+                                                <label class="button_more_label" for="pilga_sm" ng-click="pilgaClick(coeficient.data.M); pilgaText = 'Пенсіонер'; KBM = KBMdef; KBMCheck = true">Пенсіонер</label>
                                                 <input type="radio" name="pilga" id="pilga_md">
-                                                <label class="button_more_label" for="pilga_md">Учасник війни</label>
+                                                <label class="button_more_label" for="pilga_md" ng-click="pilgaClick(coeficient.data.M); pilgaText = 'Учасник війни'; KBM = KBMdef; KBMCheck = true">Учасник війни</label>
                                                 <input type="radio" name="pilga" id="pilga_lg">
-                                                <label class="button_more_label" for="pilga_lg">Інвалід 2гр.</label>
+                                                <label class="button_more_label" for="pilga_lg" ng-click="pilgaClick(coeficient.data.M); pilgaText = 'Інвалід 2гр.'; KBM = KBMdef; KBMCheck = true">Інвалід 2гр.</label>
                                                 <input type="radio" name="pilga" id="pilga_xl">
-                                                <label class="button_more_label" for="pilga_xl">Чорнобилець 1 / 2гр</label>
+                                                <label class="button_more_label" for="pilga_xl" ng-click="pilgaClick(coeficient.data.M); pilgaText = 'Чорнобилець 1 / 2гр'; KBM = KBMdef; KBMCheck = true">Чорнобилець 1 / 2гр</label>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr id="limit">
                                         <td>Збільшити ліміт покриття, ДЦВ</td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block dtp_auto">
                                                 <input type="radio" checked name="limit" id="limit_xs">
-                                                <label class="button_more_label current-label" for="limit_xs">Ні</label>
+                                                <label class="button_more_label current-label" for="limit_xs" ng-click="limitCount=false; francPzu = '1000'; dgo = '/ ДГО, 0'">Ні</label>
                                                 <input type="radio" name="limit" id="limit_sm">
-                                                <label class="button_more_label" for="limit_sm">+ 100 000 <span class="arno">₴</span> (≈ 200 <span class="arno">₴</span>)</label>
+                                                <label class="button_more_label" for="limit_sm" ng-click="limitCount=dcvObject.limit[0]; francPzu = '0'; dgo = '/ ДГО, + 100 000'">+ 100 000 <span class="arno">₴</span> (≈ 200 <span class="arno">₴</span>)</label>
                                                 <input type="radio" name="limit" id="limit_md">
-                                                <label class="button_more_label" for="limit_md">+ 200 000 <span class="arno">₴</span> (≈ 250 <span class="arno">₴</span>)</label>
+                                                <label class="button_more_label" for="limit_md" ng-click="limitCount=dcvObject.limit[1]; francPzu = '0'; dgo = '/ ДГО, + 200 000'">+ 200 000 <span class="arno">₴</span> (≈ 250 <span class="arno">₴</span>)</label>
                                                 <input type="radio" name="limit" id="limit_lg">
-                                                <label class="button_more_label" for="limit_lg">+ 500 000 <span class="arno">₴</span> (≈ 350 <span class="arno">₴</span>)</label>
+                                                <label class="button_more_label" for="limit_lg" ng-click="limitCount=dcvObject.limit[2]; francPzu = '0'; dgo = '/ ДГО, + 500 000'">+ 500 000 <span class="arno">₴</span> (≈ 350 <span class="arno">₴</span>)</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -322,32 +331,35 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <!--<input type="text">-->
-                                            <select class="selectForPlugin" name="">
-                                                <option selected value="">Київ</option>
-                                                <option value="">Харків</option>
-                                                <option value="">Одеса</option>
-                                                <option value="">Дніпро</option>
-                                                <option value="">Донецьк</option>
-                                                <option value="">Львів</option>
-                                            </select>
+                                        <td class="filter_container">
+                                            <input class="town_search" type="text" ng-model="query" ng-change="checkCity(query,cityArray)" placeholder="{{placeCity}}" ng-blur="filterShow = !filterShow" ng-focus="filterShow = !filterShow">
+                                            <div class="town_filter" ng-show="filterShow">
+                                                <ul class="selectForPlugin">
+                                                    <li ng-repeat="city in townArray[0].town | filter:query" ng-mousedown="clickCity('city0',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[1].town | filter:query" ng-mousedown="clickCity('city1',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[2].town | filter:query" ng-mousedown="clickCity('city2',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[3].town | filter:query" ng-mousedown="clickCity('city3',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[4].town | filter:query" ng-mousedown="clickCity('city4',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[5].town | filter:query" ng-mousedown="clickCity('city5',city); checkCity(city,cityArray)">{{city}}</li>
+                                                </ul>
+                                            </div>
+                                            <p style="color:red;" class="help-block" ng-show="wrongCityCheck">Оберіть місто</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Рік випуску ТЗ</td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block tz_weight">
                                                 <input type="radio" checked name="truck_year" id="truck_year_xs">
-                                                <label class="button_more_label current-label" for="truck_year_xs">2013 р. і раніше</label>
+                                                <label class="button_more_label current-label" for="truck_year_xs" ng-click="insuranceChooseYear(insuranceDriveExperience.more_2013, 0); year_1=false; year_2=false; year_3=false; year_4=false; autoYear = '2013 р. і раніше'; DTP = 'більше 4 років'">2013 р. і раніше</label>
                                                 <input type="radio" name="truck_year" id="truck_year_sm">
-                                                <label class="button_more_label" for="truck_year_sm">2014</label>
+                                                <label class="button_more_label" for="truck_year_sm" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2014, 1); year_1=true; year_2=false; year_3=false; year_4=false; autoYear = '2014 р.'; DTP = 'більше 3 років'">2014</label>
                                                 <input type="radio" name="truck_year" id="truck_year_md">
-                                                <label class="button_more_label" for="truck_year_md">2015</label>
+                                                <label class="button_more_label" for="truck_year_md" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2015, 2);year_1=true; year_2=true; year_3=false; year_4=false; autoYear = '2015 р.'; DTP = 'більше 2 років'">2015</label>
                                                 <input type="radio" name="truck_year" id="truck_year_lg">
-                                                <label class="button_more_label" for="truck_year_lg">2016</label>
+                                                <label class="button_more_label" for="truck_year_lg" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2016, 3);year_1=true; year_2=true; year_3=true; year_4=false; autoYear = '2016 р.'; DTP = 'більше 1 років'">2016</label>
                                                 <input type="radio" name="truck_year" id="truck_year_xl">
-                                                <label class="button_more_label" for="truck_year_xl">2017</label>
+                                                <label class="button_more_label" for="truck_year_xl" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2017, 4);year_1=true; year_2=true; year_3=true; year_4=true; autoYear = '2017 р.'; DTP = 'до 1 року'">2017</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -359,17 +371,17 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block dtp_weight">
                                                 <input type="radio" checked name="truck_dtp" id="truck_dtp_xs">
-                                                <label class="button_more_label current-label" for="truck_dtp_xs">більше 4 років</label>
+                                                <label class="button_more_label current-label" for="truck_dtp_xs" ng-hide="year_1" ng-click="DTP = 'більше 4 років'">більше 4 років</label>
                                                 <input type="radio" name="truck_dtp" id="truck_dtp_sm">
-                                                <label class="button_more_label" for="truck_dtp_sm">більше 3 років</label>
+                                                <label class="button_more_label" for="truck_dtp_sm" ng-hide="year_2" ng-click="DTP = 'більше 3 років'">більше 3 років</label>
                                                 <input type="radio" name="truck_dtp" id="truck_dtp_md">
-                                                <label class="button_more_label" for="truck_dtp_md">більше 2 років</label>
+                                                <label class="button_more_label" for="truck_dtp_md" ng-hide="year_3" ng-click="DTP = 'більше 2 років'">більше 2 років</label>
                                                 <input type="radio" name="truck_dtp" id="truck_dtp_lg">
-                                                <label class="button_more_label" for="truck_dtp_lg">більше 1 року</label>
+                                                <label class="button_more_label" for="truck_dtp_lg" ng-hide="year_4" ng-click="DTP = 'більше 1 років'">більше 1 року</label>
                                                 <input type="radio" name="truck_dtp" id="truck_dtp_xl">
-                                                <label class="button_more_label" for="truck_dtp_xl">до 1 року</label>
+                                                <label class="button_more_label" for="truck_dtp_xl" ng-click="DTP = 'до 1 року'">до 1 року</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -388,32 +400,35 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <!--<input type="text">-->
-                                            <select class="selectForPlugin" name="">
-                                                <option selected value="">Київ</option>
-                                                <option value="">Харків</option>
-                                                <option value="">Одеса</option>
-                                                <option value="">Дніпро</option>
-                                                <option value="">Донецьк</option>
-                                                <option value="">Львів</option>
-                                            </select>
+                                        <td class="filter_container">
+                                            <input class="town_search" type="text" ng-model="query" ng-change="checkCity(query,cityArray)" placeholder="{{placeCity}}" ng-blur="filterShow = !filterShow" ng-focus="filterShow = !filterShow">
+                                            <div class="town_filter" ng-show="filterShow">
+                                                <ul class="selectForPlugin">
+                                                    <li ng-repeat="city in townArray[0].town | filter:query" ng-mousedown="clickCity('city0',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[1].town | filter:query" ng-mousedown="clickCity('city1',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[2].town | filter:query" ng-mousedown="clickCity('city2',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[3].town | filter:query" ng-mousedown="clickCity('city3',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[4].town | filter:query" ng-mousedown="clickCity('city4',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[5].town | filter:query" ng-mousedown="clickCity('city5',city); checkCity(city,cityArray)">{{city}}</li>
+                                                </ul>
+                                            </div>
+                                            <p style="color:red;" class="help-block" ng-show="wrongCityCheck">Оберіть місто</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Рік випуску ТЗ</td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block tz_bus">
                                                 <input type="radio" checked name="bus_year" id="bus_year_xs">
-                                                <label class="button_more_label current-label" for="bus_year_xs">2013 р. і раніше</label>
+                                                <label class="button_more_label current-label" for="bus_year_xs" ng-click="insuranceChooseYear(insuranceDriveExperience.more_2013, 0); year_1=false; year_2=false; year_3=false; year_4=false; autoYear = '2013 р. і раніше'; DTP = 'більше 4 років'">2013 р. і раніше</label>
                                                 <input type="radio" name="bus_year" id="bus_year_sm">
-                                                <label class="button_more_label" for="bus_year_sm">2014</label>
+                                                <label class="button_more_label" for="bus_year_sm" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2014, 1); year_1=true; year_2=false; year_3=false; year_4=false; autoYear = '2014 р.'; DTP = 'більше 3 років'">2014</label>
                                                 <input type="radio" name="bus_year" id="bus_year_md">
-                                                <label class="button_more_label" for="bus_year_md">2015</label>
+                                                <label class="button_more_label" for="bus_year_md" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2015, 2);year_1=true; year_2=true; year_3=false; year_4=false; autoYear = '2015 р.'; DTP = 'більше 2 років'">2015</label>
                                                 <input type="radio" name="bus_year" id="bus_year_lg">
-                                                <label class="button_more_label" for="bus_year_lg">2016</label>
+                                                <label class="button_more_label" for="bus_year_lg" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2016, 3);year_1=true; year_2=true; year_3=true; year_4=false; autoYear = '2016 р.'; DTP = 'більше 1 років'">2016</label>
                                                 <input type="radio" name="bus_year" id="bus_year_xl">
-                                                <label class="button_more_label" for="bus_year_xl">2017</label>
+                                                <label class="button_more_label" for="bus_year_xl" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2017, 4);year_1=true; year_2=true; year_3=true; year_4=true; autoYear = '2017 р.'; DTP = 'до 1 року'">2017</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -425,17 +440,17 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block dtp_bus">
                                                 <input type="radio" checked name="bus_dtp" id="bus_dtp_xs">
-                                                <label class="button_more_label current-label" for="bus_dtp_xs">більше 4 років</label>
+                                                <label class="button_more_label current-label" for="bus_dtp_xs" ng-hide="year_1" ng-click="DTP = 'більше 4 років'">більше 4 років</label>
                                                 <input type="radio" name="bus_dtp" id="bus_dtp_sm">
-                                                <label class="button_more_label" for="bus_dtp_sm">більше 3 років</label>
+                                                <label class="button_more_label" for="bus_dtp_sm" ng-hide="year_2" ng-click="DTP = 'більше 3 років'">більше 3 років</label>
                                                 <input type="radio" name="bus_dtp" id="bus_dtp_md">
-                                                <label class="button_more_label" for="bus_dtp_md">більше 2 років</label>
+                                                <label class="button_more_label" for="bus_dtp_md" ng-hide="year_3" ng-click="DTP = 'більше 2 років'">більше 2 років</label>
                                                 <input type="radio" name="bus_dtp" id="bus_dtp_lg">
-                                                <label class="button_more_label" for="bus_dtp_lg">більше 1 року</label>
+                                                <label class="button_more_label" for="bus_dtp_lg" ng-hide="year_4" ng-click="DTP = 'більше 1 років'">більше 1 року</label>
                                                 <input type="radio" name="bus_dtp" id="bus_dtp_xl">
-                                                <label class="button_more_label" for="bus_dtp_xl">до 1 року</label>
+                                                <label class="button_more_label" for="bus_dtp_xl" ng-click="DTP = 'до 1 року'">до 1 року</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -465,32 +480,35 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <!--<input type="text">-->
-                                            <select class="selectForPlugin" name="">
-                                                <option selected value="">Київ</option>
-                                                <option value="">Харків</option>
-                                                <option value="">Одеса</option>
-                                                <option value="">Дніпро</option>
-                                                <option value="">Донецьк</option>
-                                                <option value="">Львів</option>
-                                            </select>
+                                        <td class="filter_container">
+                                            <input class="town_search" type="text" ng-model="query" ng-change="checkCity(query,cityArray)" placeholder="{{placeCity}}" ng-blur="filterShow = !filterShow" ng-focus="filterShow = !filterShow">
+                                            <div class="town_filter" ng-show="filterShow">
+                                                <ul class="selectForPlugin">
+                                                    <li ng-repeat="city in townArray[0].town | filter:query" ng-mousedown="clickCity('city0',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[1].town | filter:query" ng-mousedown="clickCity('city1',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[2].town | filter:query" ng-mousedown="clickCity('city2',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[3].town | filter:query" ng-mousedown="clickCity('city3',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[4].town | filter:query" ng-mousedown="clickCity('city4',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[5].town | filter:query" ng-mousedown="clickCity('city5',city); checkCity(city,cityArray)">{{city}}</li>
+                                                </ul>
+                                            </div>
+                                            <p style="color:red;" class="help-block" ng-show="wrongCityCheck">Оберіть місто</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Рік випуску ТЗ</td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block tz_moto">
                                                 <input type="radio" checked name="moto_year" id="moto_year_xs">
-                                                <label class="button_more_label current-label" for="moto_year_xs">2013 р. і раніше</label>
+                                                <label class="button_more_label current-label" for="moto_year_xs" ng-click="insuranceChooseYear(insuranceDriveExperience.more_2013, 0); year_1=false; year_2=false; year_3=false; year_4=false; autoYear = '2013 р. і раніше'; DTP = 'більше 4 років'">2013 р. і раніше</label>
                                                 <input type="radio" name="moto_year" id="moto_year_sm">
-                                                <label class="button_more_label" for="moto_year_sm">2014</label>
+                                                <label class="button_more_label" for="moto_year_sm" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2014, 1); year_1=true; year_2=false; year_3=false; year_4=false; autoYear = '2014 р.'; DTP = 'більше 3 років'">2014</label>
                                                 <input type="radio" name="moto_year" id="moto_year_md">
-                                                <label class="button_more_label" for="moto_year_md">2015</label>
+                                                <label class="button_more_label" for="moto_year_md" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2015, 2);year_1=true; year_2=true; year_3=false; year_4=false; autoYear = '2015 р.'; DTP = 'більше 2 років'">2015</label>
                                                 <input type="radio" name="moto_year" id="moto_year_lg">
-                                                <label class="button_more_label" for="moto_year_lg">2016</label>
+                                                <label class="button_more_label" for="moto_year_lg" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2016, 3);year_1=true; year_2=true; year_3=true; year_4=false; autoYear = '2016 р.'; DTP = 'більше 1 років'">2016</label>
                                                 <input type="radio" name="moto_year" id="moto_year_xl">
-                                                <label class="button_more_label" for="moto_year_xl">2017</label>
+                                                <label class="button_more_label" for="moto_year_xl" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2017, 4);year_1=true; year_2=true; year_3=true; year_4=true; autoYear = '2017 р.'; DTP = 'до 1 року'">2017</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -502,17 +520,17 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block dtp_moto">
                                                 <input type="radio" checked name="moto_dtp" id="moto_dtp_xs">
-                                                <label class="button_more_label current-label" for="moto_dtp_xs">більше 4 років</label>
+                                                <label class="button_more_label current-label" for="moto_dtp_xs" ng-hide="year_1" ng-click="DTP = 'більше 4 років'">більше 4 років</label>
                                                 <input type="radio" name="moto_dtp" id="moto_dtp_sm">
-                                                <label class="button_more_label" for="moto_dtp_sm">більше 3 років</label>
+                                                <label class="button_more_label" for="moto_dtp_sm" ng-hide="year_2" ng-click="DTP = 'більше 3 років'">більше 3 років</label>
                                                 <input type="radio" name="moto_dtp" id="moto_dtp_md">
-                                                <label class="button_more_label" for="moto_dtp_md">більше 2 років</label>
+                                                <label class="button_more_label" for="moto_dtp_md" ng-hide="year_3" ng-click="DTP = 'більше 2 років'">більше 2 років</label>
                                                 <input type="radio" name="moto_dtp" id="moto_dtp_lg">
-                                                <label class="button_more_label" for="moto_dtp_lg">більше 1 року</label>
+                                                <label class="button_more_label" for="moto_dtp_lg" ng-hide="year_4" ng-click="DTP = 'більше 1 років'">більше 1 року</label>
                                                 <input type="radio" name="moto_dtp" id="moto_dtp_xl">
-                                                <label class="button_more_label" for="moto_dtp_xl">до 1 року</label>
+                                                <label class="button_more_label" for="moto_dtp_xl" ng-click="DTP = 'до 1 року'">до 1 року</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -531,32 +549,35 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <!--<input type="text">-->
-                                            <select class="selectForPlugin" name="">
-                                                <option selected value="">Київ</option>
-                                                <option value="">Харків</option>
-                                                <option value="">Одеса</option>
-                                                <option value="">Дніпро</option>
-                                                <option value="">Донецьк</option>
-                                                <option value="">Львів</option>
-                                            </select>
+                                        <td class="filter_container">
+                                            <input class="town_search" type="text" ng-model="query" ng-change="checkCity(query,cityArray)" placeholder="{{placeCity}}" ng-blur="filterShow = !filterShow" ng-focus="filterShow = !filterShow">
+                                            <div class="town_filter" ng-show="filterShow">
+                                                <ul class="selectForPlugin">
+                                                    <li ng-repeat="city in townArray[0].town | filter:query" ng-mousedown="clickCity('city0',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[1].town | filter:query" ng-mousedown="clickCity('city1',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[2].town | filter:query" ng-mousedown="clickCity('city2',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[3].town | filter:query" ng-mousedown="clickCity('city3',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[4].town | filter:query" ng-mousedown="clickCity('city4',city); checkCity(city,cityArray)">{{city}}</li>
+                                                    <li ng-repeat="city in townArray[5].town | filter:query" ng-mousedown="clickCity('city5',city); checkCity(city,cityArray)">{{city}}</li>
+                                                </ul>
+                                            </div>
+                                            <p style="color:red;" class="help-block" ng-show="wrongCityCheck">Оберіть місто</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Рік випуску ТЗ</td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block tz_wagen">
                                                 <input type="radio" checked name="wagen_year" id="wagen_year_xs">
-                                                <label class="button_more_label current-label" for="wagen_year_xs">2013 р. і раніше</label>
+                                                <label class="button_more_label current-label" for="wagen_year_xs" ng-click="insuranceChooseYear(insuranceDriveExperience.more_2013, 0); year_1=false; year_2=false; year_3=false; year_4=false; autoYear = '2013 р. і раніше'; DTP = 'більше 4 років'">2013 р. і раніше</label>
                                                 <input type="radio" name="wagen_year" id="wagen_year_sm">
-                                                <label class="button_more_label" for="wagen_year_sm">2014</label>
+                                                <label class="button_more_label" for="wagen_year_sm" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2014, 1); year_1=true; year_2=false; year_3=false; year_4=false; autoYear = '2014 р.'; DTP = 'більше 3 років'">2014</label>
                                                 <input type="radio" name="wagen_year" id="wagen_year_md">
-                                                <label class="button_more_label" for="wagen_year_md">2015</label>
+                                                <label class="button_more_label" for="wagen_year_md" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2015, 2);year_1=true; year_2=true; year_3=false; year_4=false; autoYear = '2015 р.'; DTP = 'більше 2 років'">2015</label>
                                                 <input type="radio" name="wagen_year" id="wagen_year_lg">
-                                                <label class="button_more_label" for="wagen_year_lg">2016</label>
+                                                <label class="button_more_label" for="wagen_year_lg" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2016, 3);year_1=true; year_2=true; year_3=true; year_4=false; autoYear = '2016 р.'; DTP = 'більше 1 років'">2016</label>
                                                 <input type="radio" name="wagen_year" id="wagen_year_xl">
-                                                <label class="button_more_label" for="wagen_year_xl">2017</label>
+                                                <label class="button_more_label" for="wagen_year_xl" ng-click="insuranceChooseYear(insuranceDriveExperience.year_2017, 4);year_1=true; year_2=true; year_3=true; year_4=true; autoYear = '2017 р.'; DTP = 'до 1 року'">2017</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -568,17 +589,17 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="radio_block">
+                                            <div class="radio_block dtp_wagen">
                                                 <input type="radio" checked name="wagen_dtp" id="wagen_dtp_xs">
-                                                <label class="button_more_label current-label" for="wagen_dtp_xs">більше 4 років</label>
+                                                <label class="button_more_label current-label" for="wagen_dtp_xs" ng-hide="year_1" ng-click="DTP = 'більше 4 років'">більше 4 років</label>
                                                 <input type="radio" name="wagen_dtp" id="wagen_dtp_sm">
-                                                <label class="button_more_label" for="wagen_dtp_sm">більше 3 років</label>
+                                                <label class="button_more_label" for="wagen_dtp_sm" ng-hide="year_2" ng-click="DTP = 'більше 3 років'">більше 3 років</label>
                                                 <input type="radio" name="wagen_dtp" id="wagen_dtp_md">
-                                                <label class="button_more_label" for="wagen_dtp_md">більше 2 років</label>
+                                                <label class="button_more_label" for="wagen_dtp_md" ng-hide="year_3" ng-click="DTP = 'більше 2 років'">більше 2 років</label>
                                                 <input type="radio" name="wagen_dtp" id="wagen_dtp_lg">
-                                                <label class="button_more_label" for="wagen_dtp_lg">більше 1 року</label>
+                                                <label class="button_more_label" for="wagen_dtp_lg" ng-hide="year_4" ng-click="DTP = 'більше 1 років'">більше 1 року</label>
                                                 <input type="radio" name="wagen_dtp" id="wagen_dtp_xl">
-                                                <label class="button_more_label" for="wagen_dtp_xl">до 1 року</label>
+                                                <label class="button_more_label" for="wagen_dtp_xl" ng-click="DTP = 'до 1 року'">до 1 року</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -586,7 +607,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="calc_n flor_next">Розрахувати</div>
+                        <div class="calc_n flor_next" ng-show="!wrongCityCheck" ng-click="clickLimit(limitCount)">Розрахувати</div>
                     </div>
                     <div class="state_2 flor">
                         <div class="desktop">
@@ -660,7 +681,7 @@
                                                 </table>
                                             </div>
                                             <div class="col-lg-6">
-                                                <table>
+                                                <table id="changing_table">
                                                     <thead>
                                                     <tr>
                                                         <td>ПОЛІС ДЦВ</td>
@@ -669,7 +690,7 @@
                                                     <tbody>
                                                     <tr>
                                                         <td>Додатковий ліміт покриття</td>
-                                                        <td>100 000</td>
+                                                        <td id="additional_limit">100 000</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -713,26 +734,28 @@
                                                         <tbody>
                                                         <tr>
                                                             <td>ОСЦПВ</td>
-                                                            <td>1037<span class="arno">₴</span></td>
+                                                            <td class="oscpv">1037<span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>франшиза</td>
-                                                            <td>0<span class="arno">₴</span></td>
+                                                            <td>{{francAxa}}<span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>ДЦВ</td>
-                                                            <td>100<span class="arno">₴</span></td>
+                                                            <td class="dcv">
+                                                                {{insertCash(pasteData.axa)}}
+                                                                <span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>ВСЬОГО</td>
-                                                            <td>1137<span class="arno">₴</span></td>
+                                                            <td class="insuranceFinalPrice">1137<span class="arno">₴</span></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
                                             <div class="button_section">
-                                                <div class="calc_n flor_next">Придбати</div>
+                                                <div class="calc_n flor_next" ng-click="insuranceChoose(KBM[0]); insuranceName = 'АХА Страхування (Франція)'; franc=francAxa">Придбати</div>
                                             </div>
                                         </div>
                                     </div>
@@ -754,9 +777,9 @@
                                                     <span>Тех Асистанс
                                                         <div class="question_circle_wrapper">
                                                             <div class="question_circle">?</div>
-                                                            <div class="answer_circle">евакуація з місця ДТП
-                                                                доставка палива
-                                                                заміна колеса
+                                                            <div class="answer_circle">евакуація з місця ДТП<br>
+                                                                доставка палива<br>
+                                                                заміна колеса<br>
                                                                 запуск двигуна
                                                             </div>
                                                         </div>
@@ -768,26 +791,26 @@
                                                         <tbody>
                                                         <tr>
                                                             <td>ОСЦПВ</td>
-                                                            <td>1037<span class="arno">₴</span></td>
+                                                            <td class="oscpv">1037<span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>франшиза</td>
-                                                            <td>0<span class="arno">₴</span></td>
+                                                            <td>{{francPzu}}<span class="arno">₴</span></td>
                                                         </tr>
-                                                        <!--<tr>-->
-                                                            <!--<td>ДЦВ</td>-->
-                                                            <!--<td>100<span class="arno">₴</span></td>-->
-                                                        <!--</tr>-->
-                                                        <!--<tr>-->
-                                                            <!--<td>ВСЬОГО</td>-->
-                                                            <!--<td>1137<span class="arno">₴</span></td>-->
-                                                        <!--</tr>-->
+                                                        <tr>
+                                                            <td>ДЦВ</td>
+                                                            <td class="dcv">{{insertCash(pasteData.pzu)}}<span class="arno">₴</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ВСЬОГО</td>
+                                                            <td class="insuranceFinalPrice">1137<span class="arno">₴</span></td>
+                                                        </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
                                             <div class="button_section">
-                                                <div class="calc_n flor_next">Придбати</div>
+                                                <div class="calc_n flor_next" ng-click="insuranceChoose(KBM[1]); insuranceName = 'ПЗУ Україна (Польша)'; franc=francPzu">Придбати</div>
                                             </div>
                                         </div>
                                     </div>
@@ -823,26 +846,26 @@
                                                         <tbody>
                                                         <tr>
                                                             <td>ОСЦПВ</td>
-                                                            <td>1037<span class="arno">₴</span></td>
+                                                            <td class="oscpv">1037<span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>франшиза</td>
-                                                            <td>0<span class="arno">₴</span></td>
+                                                            <td>{{francUnika}}<span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>ДЦВ</td>
-                                                            <td>100<span class="arno">₴</span></td>
+                                                            <td class="dcv">{{insertCash(pasteData.unika)}}<span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>ВСЬОГО</td>
-                                                            <td>1137<span class="arno">₴</span></td>
+                                                            <td class="insuranceFinalPrice">1137<span class="arno">₴</span></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
                                             <div class="button_section">
-                                                <div class="calc_n flor_next">Придбати</div>
+                                                <div class="calc_n flor_next" ng-click="insuranceChoose(KBM[2]); insuranceName = 'Уніка (Австрія)'; franc=francUnika">Придбати</div>
                                             </div>
                                         </div>
                                     </div>
@@ -878,26 +901,26 @@
                                                         <tbody>
                                                         <tr>
                                                             <td>ОСЦПВ</td>
-                                                            <td>1037<span class="arno">₴</span></td>
+                                                            <td class="oscpv">1037<span class="arno">₴</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>франшиза</td>
-                                                            <td>0<span class="arno">₴</span></td>
+                                                            <td>{{francUsg}}<span class="arno">₴</span></td>
                                                         </tr>
-                                                        <!--<tr>-->
-                                                            <!--<td>ДЦВ</td>-->
-                                                            <!--<td>100<span class="arno">₴</span></td>-->
-                                                        <!--</tr>-->
-                                                        <!--<tr>-->
-                                                            <!--<td>ВСЬОГО</td>-->
-                                                            <!--<td>1137<span class="arno">₴</span></td>-->
-                                                        <!--</tr>-->
+                                                        <tr>
+                                                            <td>ДЦВ</td>
+                                                            <td class="dcv">{{insertCash(pasteData.usg)}}<span class="arno">₴</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ВСЬОГО</td>
+                                                            <td class="insuranceFinalPrice">1137<span class="arno">₴</span></td>
+                                                        </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
                                             <div class="button_section">
-                                                <div class="calc_n flor_next">Придбати</div>
+                                                <div class="calc_n flor_next" ng-click="insuranceChoose(KBM[3]); insuranceName = 'УСГ (Австрія)'; franc=francUsg">Придбати</div>
                                             </div>
                                         </div>
                                     </div>
@@ -956,7 +979,7 @@
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-5">
-                                            <div class="calc_n flor_next">Відправити</div>
+                                            <div class="calc_n flor_next" ng-click="calculating(KBP,K1,K2,K3,K4,K5,K6,KBMcoef,Kpil)">Відправити</div>
                                         </div>
                                     </div>
                                 </div>
@@ -975,193 +998,216 @@
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-5">
-                                            <div class="calc_n flor_next">Відправити</div>
+                                            <div class="calc_n flor_next" ng-click="calculating(KBP,K1,K2,K3,K4,K5,K6,KBMcoef,Kpil)">Відправити</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="download_block">
                                     <div class="row clearfix">
                                         <div class="col-md-9">
-                                            <div class="state_3_item">
-                                                <h4>Страхувальник</h4>
-                                                <div class="row clearfix">
-                                                    <div class="col-md-6">
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Прізвище
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Ім’я
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               По Батькові
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Дата народження
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               ІПН
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="state_3_item">
-                                                <h4>Документ</h4>
-                                                <div class="row clearfix">
-                                                    <div class="col-md-6">
-                                                        <div class="input_container">
-                                                           <span>
-                                                              Тип документа
-                                                           </span>
-                                                            <div class="pseudo_select">
-                                                                <div class="mirror">
-                                                                    Паспорт
+                                            <form role='form' class="preForm" name="preForm" ng-submit='validation(preForm)' novalidate>
+                                                <div class="state_3_item">
+                                                        <h4>Страхувальник</h4>
+                                                        <div class="row clearfix">
+                                                            <div class="col-md-6">
+                                                                <div class="input_container" ng-class="{ 'has-error' : preForm.surname.$invalid && !preForm.surname.$pristine }">
+                                                                   <span>
+                                                                       Прізвище<span class="redstar" style="color: red">*</span>
+                                                                   </span>
+                                                                    <input type="text" name="surname" ng-model="preFinalForm.surname" required>
+                                                                    <p style="color:red;" ng-show="preForm.surname.$invalid && !preForm.surname.$pristine" class="help-block">Введіть ваше Прізвище</p>
                                                                 </div>
-                                                                <div class="option_wrapper">
-                                                                    <div class="option current-option">
+                                                                <div class="input_container" ng-class="{ 'has-error' : preForm.name.$invalid && !preForm.name.$pristine }">
+                                                                   <span>
+                                                                       Ім’я<span class="redstar" style="color: red">*</span>
+                                                                   </span>
+                                                                    <input type="text" name="name" ng-model="preFinalForm.name" required>
+                                                                    <p style="color:red;" ng-show="preForm.name.$invalid && !preForm.name.$pristine" class="help-block">Введіть ваше Ім’я</p>
+                                                                </div>
+                                                                <div class="input_container" ng-class="{ 'has-error' : preForm.bat.$invalid && !preForm.bat.$pristine }">
+                                                                   <span>
+                                                                       По Батькові<span class="redstar" style="color: red">*</span>
+                                                                   </span>
+                                                                    <input type="text" name="bat" ng-model="preFinalForm.bat" required >
+                                                                    <p style="color:red;" ng-show="preForm.bat.$invalid && !preForm.bat.$pristine" class="help-block">Заповніть це поле</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="input_container" ng-class="{ 'has-error' : preForm.date.$error.pattern && !preForm.date.$pristine}">
+                                                                   <span>
+                                                                       Дата народження<span class="redstar" style="color: red">*</span>
+                                                                   </span>
+                                                                    <input type="text" name="date" placeholder="XXXX-XX-XX" ng-model="preFinalForm.date" required ng-pattern="numberReg">
+                                                                    <p style="color:red;" ng-show="preForm.date.$error.pattern && !preForm.date.$pristine" class="help-block">Не вірний формат дати</p>
+                                                                </div>
+                                                                <div class="input_container" ng-class="{ 'has-error' : preForm.ipn.$error.pattern && !preForm.ipn.$pristine}">
+                                                                   <span>
+                                                                       ІПН<span class="redstar" style="color: red">*</span>
+                                                                   </span>
+                                                                    <input type="text" required name="ipn" placeholder="XXXXXXXXXX" ng-model="preFinalForm.ipn" required ng-pattern="ipnReg">
+                                                                    <p style="color:red;" ng-show="preForm.ipn.$error.pattern && !preForm.ipn.$pristine" class="help-block">Не вірний формат ІПН</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <div class="state_3_item">
+                                                    <h4>Документ</h4>
+                                                    <div class="row clearfix">
+                                                        <div class="col-md-6">
+                                                            <div class="input_container">
+                                                               <span>
+                                                                  Тип документа<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <div class="pseudo_select">
+                                                                    <div class="mirror">
                                                                         Паспорт
                                                                     </div>
-                                                                    <div class="option">
-                                                                        Посвідчення водія
-                                                                    </div>
-                                                                    <div class="option reserved">
+                                                                    <div class="option_wrapper">
+                                                                        <div class="option current-option">
+                                                                            Паспорт
+                                                                        </div>
+                                                                        <div class="option">
+                                                                            Посвідчення водія
+                                                                        </div>
+                                                                        <div class="option reserved">
 
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="input_container">
+                                                                <div class="row clearfix">
+                                                                    <div class="col-md-4" ng-class="{ 'has-error' : preForm.series.$error.pattern && !preForm.series.$pristine}">
+                                                                            <span>
+                                                                                Серія<span class="redstar" style="color: red">*</span>
+                                                                            </span>
+                                                                        <input type="text" name="series" placeholder="XX" ng-model="preFinalForm.series" required ng-pattern="seriesReg">
+                                                                    </div>
+                                                                    <div class="col-md-8" ng-class="{ 'has-error' : preForm.docNumber.$error.pattern && !preForm.docNumber.$pristine}">
+                                                                           <span>
+                                                                               Номер<span class="redstar" style="color: red">*</span>
+                                                                           </span>
+                                                                        <input type="text" required name="docNumber" placeholder="XXXXXX" ng-model="preFinalForm.docNumber" required ng-pattern="docNumberReg">
+                                                                        <p style="color:red;" ng-show="preForm.docNumber.$error.pattern && !preForm.docNumber.$pristine" class="help-block">Не вірний формат Номера</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="input_container">
-                                                            <div class="row clearfix">
-                                                                <div class="col-md-4">
-                                                                        <span>
-                                                                            Серія
-                                                                        </span>
+                                                        <div class="col-md-6">
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.whome.$invalid && !preForm.whome.$pristine }">
+                                                               <span>
+                                                                   Ким виданий<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" required name="whome" ng-model="preFinalForm.whome">
+                                                                <p style="color:red;" ng-show="preForm.whome.$invalid && !preForm.whome.$pristine" class="help-block">Заповніть це поле</p>
+                                                            </div>
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.docDate.$error.pattern && !preForm.docDate.$pristine}">
+                                                               <span>
+                                                                   Дата видачі<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" name="docDate" placeholder="XXXX-XX-XX" ng-model="preFinalForm.docDate" required ng-pattern="numberReg">
+                                                                <p style="color:red;" ng-show="preForm.docDate.$error.pattern && !preForm.docDate.$pristine" class="help-block">Не вірний формат дати</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="state_3_item">
+                                                    <h4>Адреса прописки</h4>
+                                                    <div class="row clearfix">
+                                                        <div class="col-md-6">
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.city.$invalid && !preForm.city.$pristine}">
+                                                               <span>
+                                                                   Місто<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" name="city" ng-model="preFinalForm.city" required>
+                                                                <p style="color:red;" ng-show="preForm.city.$invalid && !preForm.city.$pristine" class="help-block">Вкажіть місто</p>
+                                                            </div>
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.street.$invalid && !preForm.street.$pristine}">
+                                                               <span>
+                                                                   Вулиця<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" name="street" ng-model="preFinalForm.street" required>
+                                                                <p style="color:red;" ng-show="preForm.street.$invalid && !preForm.street.$pristine" class="help-block">Вкажіть вулицю</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="top">
+                                                                <div class="nothing"></div>
+                                                            </div>
+                                                            <div class="bottom">
+                                                                <div class="input_container small" ng-class="{ 'has-error' : preForm.house.$invalid && !preForm.house.$pristine}">
+                                                                    <span>Будинок<span class="redstar" style="color: red">*</span></span>
+                                                                    <input type="text" name="house" ng-model="preFinalForm.house" required>
+                                                                    <p style="color:red;" ng-show="preForm.house.$invalid && !preForm.house.$pristine" class="help-block"></p>
+                                                                </div>
+                                                                <div class="input_container small">
+                                                                    <span>Квартира</span>
                                                                     <input type="text">
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                       <span>
-                                                                           Номер
-                                                                       </span>
-                                                                    <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="state_3_item">
+                                                    <h4>Транспортний засіб</h4>
+                                                    <div class="row clearfix">
+                                                        <div class="col-md-6">
+                                                            <div class="input_container" id="forAutoFilter" ng-class="{ 'has-error' :  auto.$invalid && !auto.$pristine}">
+                                                               <span>
+                                                                   Марка ТЗ<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" ng-model="auto" name="autoFilter" ng-blur="filterShow = !filterShow" ng-focus="filterShow = !filterShow" ng-change="checkMark(auto,arrayConvert)" required>
+                                                                <div class="auto_filter" ng-show="filterShow">
+                                                                    <ul class="selectForPlugin">
+                                                                        <li ng-repeat="mark in arrayConvert | filter:auto" ng-mousedown="clickAuto(mark); checkMark(mark,arrayConvert)">{{mark}}</li>
+                                                                    </ul>
                                                                 </div>
+                                                                <p style="color:red;" ng-show="wrongMarkCheck">Оберіть марку</p>
+                                                            </div>
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.model.$invalid && !preForm.model.$pristine}">
+                                                               <span>
+                                                                   Модель ТЗ<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" name="model" ng-model="preFinalForm.model" required>
+                                                                <p style="color:red;" ng-show="preForm.model.$invalid && !preForm.model.$pristine" class="help-block">Вкажіть модель ТЗ</p>
+                                                            </div>
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.yearTz.$error.pattern && !preForm.yearTz.$pristine}">
+                                                               <span>
+                                                                   Рік випуску ТЗ<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" name="yearTz" placeholder="XXXX" ng-model="preFinalForm.yearTz" required ng-pattern="yearNumberReg">
+                                                                <p style="color:red;" ng-show="preForm.yearTz.$error.pattern && !preForm.yearTz.$pristine" class="help-block">Не вірний формат дати</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.vin.$invalid && !preForm.vin.$pristine}">
+                                                               <span>
+                                                                   VIN код<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" name="vin" ng-model="preFinalForm.vin" required>
+                                                                <p style="color:red;" ng-show="preForm.vin.$invalid && !preForm.vin.$pristine" class="help-block">Введіть VIN код</p>
+                                                            </div>
+                                                            <div class="input_container" ng-class="{ 'has-error' : preForm.registNumber.$invalid && !preForm.registNumber.$pristine}">
+                                                               <span>
+                                                                   Реєстраційний номер ТЗ<span class="redstar" style="color: red">*</span>
+                                                               </span>
+                                                                <input type="text" name="registNumber" ng-model="preFinalForm.registNumber" required>
+                                                                <p style="color:red;" ng-show="preForm.registNumber.$invalid && !preForm.registNumber.$pristine" class="help-block">Введіть реєстраційний номер ТЗ</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Ким виданий
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Дата видачі
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="state_3_item">
-                                                <h4>Адреса прописки</h4>
                                                 <div class="row clearfix">
-                                                    <div class="col-md-6">
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Місто
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Вулиця
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="top">
-                                                            <div class="nothing"></div>
-                                                        </div>
-                                                        <div class="bottom">
-                                                            <div class="input_container small">
-                                                                <span>Будинок</span>
-                                                                <input type="text">
-                                                            </div>
-                                                            <div class="input_container small">
-                                                                <span>Квартира</span>
-                                                                <input type="text">
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-md-12">
+                                                        <p class="star_helper"><span class="redstar" style="color: red">*</span> - обов’язкові поля</p>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="state_3_item">
-                                                <h4>Транспортний засіб</h4>
                                                 <div class="row clearfix">
-                                                    <div class="col-md-6">
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Марка ТЗ
-                                                           </span>
-                                                            <select name="" id="selectTz">
-                                                                <option value="">Opel</option>
-                                                                <option value="">Nissan</option>
-                                                                <option value="">Hyundai</option>
-                                                                <option value="">Toyota</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Модель ТЗ
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Рік випуску ТЗ
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input_container">
-                                                           <span>
-                                                               VIN код
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
-                                                        <div class="input_container">
-                                                           <span>
-                                                               Реєстраційний номер ТЗ
-                                                           </span>
-                                                            <input type="text">
-                                                        </div>
+                                                    <div class="col-md-12">
+                                                        <button type="submit" ng-disabled="preForm.$invalid" ng-class="{'disabled' : preForm.$invalid}" class="calc_n flor_next" id="marked" ng-click="calculating(KBP,K1,K2,K3,K4,K5,K6,KBMcoef,Kpil)">Відправити</button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row clearfix">
-                                                <div class="col-md-12">
-                                                    <div class="calc_n flor_next" id="marked">Відправити</div>
-                                                </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -1188,7 +1234,7 @@
                                     <span>Готово</span>
                                 </div>
                             </div>
-                            <form action="">
+                            <form role='form' class="finalForm" name="finalForm" ng-submit='validation(finalForm)' novalidate>
                                 <div class="checkout_wrapper">
                                     <div class="header">
                                         <h4>ДОСТАВКА ТА ОПЛАТА</h4>
@@ -1200,31 +1246,35 @@
                                                     <h3>Замовник поліса</h3>
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
-                                                            <div class="input_container">
+                                                            <div class="input_container" ng-class="{ 'has-error' : finalForm.surname.$invalid && !finalForm.surname.$pristine}">
                                                                <span>
-                                                                   Прізвище
+                                                                   Прізвище<span class="redstar" style="color: red">*</span>
                                                                </span>
-                                                                <input type="text">
+                                                                <input type="text" name="surname" ng-model="preFinalForm.surname" required>
+                                                                <p style="color:red;" ng-show="finalForm.surname.$invalid && !finalForm.surname.$pristine" class="help-block">Введіть ваше Прізвище</p>
                                                             </div>
-                                                            <div class="input_container">
+                                                            <div class="input_container" ng-class="{ 'has-error' : finalForm.name.$invalid && !finalForm.name.$pristine}">
                                                                <span>
-                                                                   Ім’я
+                                                                   Ім’я<span class="redstar" style="color: red">*</span>
                                                                </span>
-                                                                <input type="text">
+                                                                <input type="text" name="name" ng-model="preFinalForm.name" required>
+                                                                <p style="color:red;" ng-show="finalForm.name.$invalid && !finalForm.name.$pristine" class="help-block">Введіть ваше Ім’я</p>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <div class="input_container">
+                                                            <div class="input_container" ng-class="{ 'has-error' : finalForm.tel.$invalid && !finalForm.tel.$pristine}">
                                                                <span>
-                                                                   Ваш телефон
+                                                                   Ваш телефон<span class="redstar" style="color: red">*</span>
                                                                </span>
-                                                                <input type="text">
+                                                                <input type="text" name="tel" ng-model="finalFormModel.tel" required>
+                                                                <p style="color:red;" ng-show="finalForm.tel.$invalid && !finalForm.tel.$pristine" class="help-block">Введіть ваш Телефон</p>
                                                             </div>
-                                                            <div class="input_container">
+                                                            <div class="input_container" ng-class="{ 'has-error' : finalForm.mail.$invalid && !finalForm.mail.$pristine}">
                                                                <span>
-                                                                   Ваш e-mail
+                                                                   Ваш e-mail<span class="redstar" style="color: red">*</span>
                                                                </span>
-                                                                <input type="text">
+                                                                <input type="email" name="mail" ng-model="finalFormModel.mail" required>
+                                                                <p style="color:red;" ng-show="finalForm.mail.$invalid && !finalForm.mail.$pristine" class="help-block">Введіть вашу Пошту</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1340,35 +1390,35 @@
                                                 <tr>
                                                     <td>
                                                         <h5>СК</h5>
-                                                        <span>Уника</span></td>
+                                                        <span>{{insuranceName}}</span></td>
                                                     <td>
                                                         <h5>Тип ТЗ</h5>
-                                                        <span>до 1600 см<sup>3</sup></span></td>
+                                                        <span>{{engine}}<sup ng-show="sup">3</sup></span></td>
                                                     <td>
                                                         <h5>Без ДТП</h5>
-                                                        <span>Більше 4 років</span></td>
+                                                        <span>{{DTP}}</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <h5>Страховка</h5>
-                                                        <span>ОСАГО, франшиза 0 <span class="arno">₴</span> / ДГО, + 100 000 <span class="arno">₴</span></span></td>
+                                                        <span>ОСАГО, франшиза {{franc}} <span class="arno">₴</span> {{dgo}} <span class="arno">₴</span></span></td>
                                                     <td>
                                                         <h5>Місце реєстрації ТЗ</h5>
-                                                        <span>Київ</span></td>
+                                                        <span>{{cityName}}</span></td>
                                                     <td>
                                                         <h5>Авто використ. як Таксі</h5>
-                                                        <span>Ні</span></td>
+                                                        <span>{{taxiQuestion}}</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <h5>Категорія ТЗ</h5>
-                                                        <span>Легкове авто</span></td>
+                                                        <span>{{autoCategory}}</span></td>
                                                     <td>
                                                         <h5>Рік випуску авто</h5>
-                                                        <span>2010 р.</span></td>
+                                                        <span>{{autoYear}}</span></td>
                                                     <td>
                                                         <h5>Пільга</h5>
-                                                        <span>Не маю</span></td>
+                                                        <span>{{pilgaText}}</span></td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -1379,7 +1429,7 @@
                                     <div class="row clearfix">
                                         <div class="col-md-12">
                                             <div class="result_price">
-                                                Загальна вартість <span>1204</span> <span class="arno"><span class="arno">₴</span></span>
+                                                Загальна вартість <span>{{finalResult}}</span> <span class="arno"><span class="arno">₴</span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1388,7 +1438,7 @@
                                     <div class="row clearfix">
                                         <div class="col-md-12">
                                             <div class="top">
-                                                <input type="checkbox" id="finan_submit" name="final">
+                                                <input type="checkbox" id="finan_submit" name="final" ng-click="checkBox = !checkBox" required>
                                                 <label for="finan_submit" id="pseudo_input_label" class="pseudo_input_active">
                                                     <div class="pseudo_input">
                                                     </div>
@@ -1401,7 +1451,7 @@
                                     </div>
                                 </div>
                                 <!--<input class="calc_n flor_next" type="submit" value="Замовити"/>-->
-                                <div class="calc_n flor_next adaptive">ЗАМОВИТИ</div>
+                                <button type="submit" class="calc_n flor_next adaptive" ng-disabled="finalForm.$invalid || checkBox == false" ng-class="{'disabled' : finalForm.$invalid || checkBox == false}">ЗАМОВИТИ</button>
                                 <div class="calc_n calc_grey return adaptive">Повернутись до розрахунку</div>
                             </form>
                         </div>
@@ -1517,7 +1567,8 @@
     <script src="js/wow.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA82yeRybJuw-9ehyzCuHLgSqmLFMuqhKY&callback=initMap"
             async defer></script>
-    <script src="js/select2.min.js"></script>
+    <!--<script src="js/select2.min.js"></script>-->
+    <script src="js/angular.min.js"></script>
     <script src="js/script.js"></script>
 
 </body>
