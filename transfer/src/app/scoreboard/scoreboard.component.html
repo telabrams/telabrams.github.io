@@ -1,0 +1,10 @@
+<p>
+  <span (click)="sortType('record')">Moves</span>
+  <span (click)="sortType('time')">Time</span>
+  <span *ngFor="let player of playerDB">
+    <h2>Player Name: {{player.name}}</h2><br>
+    <h4>Player Moves: {{player.record}}</h4><br>
+    <h4>Time: {{player.time}}</h4><br>
+    <hr>
+  </span>
+</p>

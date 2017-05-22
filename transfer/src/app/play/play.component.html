@@ -1,0 +1,5 @@
+<div id="board">
+  <span (click)="clickEvent(block.class_id, block)"
+        class="block" [ngClass]="block.class_id" *ngFor="let block of blocks; trackBy: trackByFn">{{block.number}}</span>
+</div>
+
