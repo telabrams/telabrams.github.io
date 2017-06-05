@@ -11,11 +11,10 @@ import { Template } from '../datebase/Template';
 })
 
 export class ScoreboardComponent implements OnInit {
-  playerDB: Template[];
 
-  constructor (private playerService: PlayerService) {
-    this.playerDB = [];
-  }
+  constructor (private playerService: PlayerService) {}
+  
+  playerDB: any;
 
   sortType(sort: string) {
     if (sort === 'record') {
@@ -41,7 +40,11 @@ export class ScoreboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.playerDB = this.playerService.getPlayers();
+    this.playerService.getPlayers().then(result => {
+      this.playerDB = result;
+      console.log(this.playerDB);
+    });
+    console.log(this.playerDB);
   }
 
 }

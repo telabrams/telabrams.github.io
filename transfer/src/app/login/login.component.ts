@@ -12,12 +12,9 @@ import { Template } from '../datebase/Template';
 export class LoginComponent implements OnInit {
   @Input() playerName: string;
   @Output() open: EventEmitter<any> = new EventEmitter();
-  playerDB: Template[];
 
 
-  constructor (private playerService: PlayerService) {
-    this.playerDB = [];
-  }
+  constructor (private playerService: PlayerService) {}
 
   onSubmit() {
     this.playerService.addPlayer(this.playerName);

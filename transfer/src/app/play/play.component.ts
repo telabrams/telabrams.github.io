@@ -9,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class PlayComponent implements OnInit {
   currentIndex: number;
   blocks:Array<{number: number,
-                class_id: string}>;
+    class_id: string}>;
 
   constructor() {
 
     this.blocks = [{
-        number: 1,
-        class_id: 'x1y1'
-      },
+      number: 1,
+      class_id: 'x1y1'
+    },
       {
         number: 2,
         class_id: 'x2y1'
@@ -79,8 +79,6 @@ export class PlayComponent implements OnInit {
       }];
   }
 
-
-
   ngOnInit() {
   }
 
@@ -88,8 +86,8 @@ export class PlayComponent implements OnInit {
     return item.id; // or item.id
   }
 
- clickEvent(class_id: string, block: any) {
-   let defaultBlock: any;
+  clickEvent(class_id: string, block: any) {
+    let defaultBlock: any;
     for (let i =0;i<17;i++) {
       if (this.blocks[i].number === 0){
         defaultBlock = this.blocks[i];
@@ -148,10 +146,10 @@ export class PlayComponent implements OnInit {
 
 
 
-   // this.blocks[this.currentIndex].class_id = defaultBlock;
-   // this.blocks[15].class_id = class_id;
-   // console.log(this.currentIndex);
-   // console.log(defaultBlock);
- }
+    // this.blocks[this.currentIndex].class_id = defaultBlock;
+    // this.blocks[15].class_id = class_id;
+    // console.log(this.currentIndex);
+    // console.log(defaultBlock);
+  }
 
 }
