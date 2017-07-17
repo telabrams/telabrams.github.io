@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/6.3.4/pouchdb.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+<div id="display"></div>
+
+<script>
+// var db = new PouchDB('kittens');
+var db = new PouchDB('http://localhost:5984/kittens');
+db.info().then(function (info) {
+  document.getElementById('display').innerHTML = 'We have a database: ' + JSON.stringify(info);
+});
+
+</script>
+</body>
+</html>
